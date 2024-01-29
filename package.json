@@ -1,0 +1,29 @@
+{
+  "name": "title",
+  "version": "1.0.0",
+  "description": "Semester Project 2 - Noroff/Arne Hustveit",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server",
+    "build-css": "tailwindcss -i ./main.css -o ./dist/output.css --minify",
+    "dev": "tailwindcss -i ./main.css -o ./dist/output.css --watch",
+    "test": "eslint . --ext .js",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^8.0.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.2.4"
+  }
+}
