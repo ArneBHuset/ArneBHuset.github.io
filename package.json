@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "live-server",
-    "build-css": "tailwindcss -i ./main.css -o ./dist/output.css --minify",
-    "dev": "tailwindcss -i ./main.css -o ./dist/output.css --watch",
+    "build-css": "tailwindcss -i ./styles/main.css -o ./dist/output.css --minify",
+    "dev": "tailwindcss -i ./styles/main.css -o ./dist/output.css --watch",
     "test": "eslint . --ext .js",
     "prepare": "husky install"
   },
