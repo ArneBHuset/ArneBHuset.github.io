@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../globalValues/base-url.mjs';
+import { loginError } from '../error/login-error.mjs';
 
 export async function userLogin(userLoginData) {
   console.log('Running login function');
@@ -21,7 +22,6 @@ export async function userLogin(userLoginData) {
       console.log('Your fetch repsonse has failed and accessToken is not set');
     }
   } catch (error) {
-    console.log('Error with logging in:', error);
-    // Feedback to user to be added.
+    loginError(error);
   }
 }

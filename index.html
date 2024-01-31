@@ -125,7 +125,59 @@
         </div>
       </div>
     </header>
-    <button id="toggleHighContrast">Toggle High Contrast</button>
+    <section>
+      <button id="toggleHighContrast">Toggle High Contrast</button>
+    </section>
+
+    <!-- Here starts the card -->
+    <section>
+      <div class="bg-gray-100 flex items-center justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="max-w-md font-sans antialiased">
+            <a href="" class="group block h-64 sm:h-80 lg:h-96 relative">
+              <span
+                class="absolute inset-0 border-2 border-dashed border-black"
+              ></span>
+              <div
+                class="relative flex h-full border-2 border-black bg-white transition-all group-hover:scale-105"
+              >
+                <div class="p-4 !pt-0 sm:p-6 lg:p-8">
+                  <h2 class="mt-4 text-xl font-medium sm:text-2xl">
+                    !!Listing card data!!
+                  </h2>
+                  <span id="listingID"></span>
+                  <span id="listingTitle"></span>
+                  <span id="listingDescription"></span>
+                  <span id="listingTags"></span>
+                  <span
+                    id="listingMedia"
+                    class="h-6 w-12 border-2 m-4 border-black"
+                  ></span>
+                  <span id="listingCrated"></span>
+                  <span id="listingUpdated"></span>
+                  <span id="listingEndsAt"></span>
+                  <span id="listingBids"></span>
+                  <span id="listingID"></span>
+                </div>
+                <div
+                  class="absolute inset-0 p-4 opacity-0 transition-opacity group-hover:opacity-100 sm:p-6 lg:p-8"
+                >
+                  <h3 class="mt-4 text-xl font-medium sm:text-2xl">
+                    Go around the world
+                  </h3>
+                  <p class="mt-4 text-sm sm:text-base">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Cupiditate, praesentium voluptatem omnis atque culpa
+                    repellendus.
+                  </p>
+                  <p class="mt-8 font-bold">Read more</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
   <script type="module" src="./src/main.mjs"></script>
 </html>

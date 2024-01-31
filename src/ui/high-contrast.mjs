@@ -7,6 +7,7 @@ export async function contrastSwitch() {
 
       if (href.includes('output-high-contrast.css')) {
         link.setAttribute('href', './dist/output.css');
+      } else {
         link.setAttribute('href', './dist/output-high-contrast.css');
       }
     });
