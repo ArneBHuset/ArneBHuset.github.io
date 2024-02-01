@@ -1,8 +1,7 @@
-import { API_BASE_URL } from '../globalValues/base-url.mjs';
+import { testListingUrl } from '../filters/api-filter/url-filters.mjs';
 import { listingsRetrivalError } from '../error/listings-error/listingretrival-error.mjs';
 
-export async function displayListings() {
-  const listingsUrl = `${API_BASE_URL}/auction/listings`;
+export async function callListings() {
   try {
     const retriveListingsData = {
       method: 'GET',
@@ -11,10 +10,11 @@ export async function displayListings() {
       },
     };
 
-    const response = await fetch(listingsUrl, retriveListingsData);
+    const response = await fetch(testListingUrl, retriveListingsData);
     console.log('Listing data:', response);
     const json = await response.json();
-    console.log('Listing json data', json);
+    return json;
+    // console.log('Listing json data', json);
   } catch (error) {
     listingsRetrivalError(error);
   }

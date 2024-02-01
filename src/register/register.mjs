@@ -1,10 +1,9 @@
-import { API_BASE_URL } from '../globalValues/base-url.mjs';
+import { registerUrl } from '../globalValues/urls.mjs';
 import { registrationError } from '../error/registration-error.mjs';
 // import form data
 
 // bear in mind, registerUser should never run if the registrationData validation is not accepted!
 export async function registerUser(registrationData) {
-  const registerUrl = `${API_BASE_URL}/auction/auth/register`;
   try {
     const registerPostData = {
       method: 'POST',

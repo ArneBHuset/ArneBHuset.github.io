@@ -1,9 +1,7 @@
-import { API_BASE_URL } from '../globalValues/base-url.mjs';
+import { loginUrl } from '../globalValues/urls.mjs';
 import { loginError } from '../error/login-error.mjs';
 
 export async function userLogin(userLoginData) {
-  console.log('Running login function');
-  const loginUrl = `${API_BASE_URL}/auction/auth/login`;
   try {
     const loginData = {
       method: 'POST',
