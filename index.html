@@ -128,49 +128,173 @@
     <section>
       <button id="toggleHighContrast">Toggle High Contrast</button>
     </section>
+    <section>
+      <div class="flex justify-left">
+        <div
+          class="w-full md:w-1/2 flex flex-col items-center bg-white py-5 md:py-8 px-4"
+        >
+          <h3 class="mb-4 font-bold text-3xl flex items-center text-blue-500">
+            LOGIN
+          </h3>
+          <form
+            action="#"
+            class="px-3 flex flex-col justify-center items-center w-full gap-3"
+          >
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="email.."
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="password"
+              id="loginPswd"
+              placeholder="password.."
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+            />
+            <button
+              id="loginBtn"
+              tyoe="button"
+              class="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring rounded px-3 py-1"
+            >
+              <svg
+                class="w-5 h-5 inline"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                ></path>
+              </svg>
+              <p class="ml-1 text-lg">Login</p>
+            </button>
+          </form>
+          <p class="text-gray-700 text-sm mt-2">
+            don't have an account?
+            <a
+              href="#"
+              class="text-green-500 hover:text-green-600 mt-3 focus:outline-none font-bold underline"
+            >
+              register
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="flex justify-center">
+        <div
+          class="w-full md:w-1/2 flex flex-col items-center bg-white py-5 md:py-8 px-4"
+        >
+          <h3 class="mb-4 font-bold text-3xl flex items-center text-blue-500">
+            Sign up!
+          </h3>
+          <form
+            action="#"
+            class="px-3 flex flex-col justify-center items-center w-full gap-3"
+          >
+            <input
+              type="text"
+              id="registerUserName"
+              placeholder="User name.."
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="email"
+              id="registerEmail"
+              placeholder="Email adress.."
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="password"
+              id="registerPswd"
+              placeholder="password.."
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="url"
+              id="registerAvatar"
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+            />
+
+            <button
+              id="RegisterBtn"
+              tyoe="button"
+              class="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring rounded px-3 py-1"
+            >
+              <svg
+                class="w-5 h-5 inline"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                ></path>
+              </svg>
+              <p class="ml-1 text-lg">Register</p>
+            </button>
+          </form>
+          <p class="text-gray-700 text-sm mt-2">
+            don't have an account?
+            <a
+              href="#"
+              class="text-green-500 hover:text-green-600 mt-3 focus:outline-none font-bold underline"
+            >
+              register
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- Here starts the card -->
     <section>
       <div class="bg-gray-100 flex items-center justify-center">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="max-w-md font-sans antialiased">
-            <a href="" class="group block h-64 sm:h-80 lg:h-96 relative">
+            <a href="" class="group block min-h-full sm:h-80 lg:h-96 relative">
               <span
                 class="absolute inset-0 border-2 border-dashed border-black"
               ></span>
               <div
                 class="relative flex h-full border-2 border-black bg-white transition-all group-hover:scale-105"
               >
-                <div class="p-4 !pt-0 sm:p-6 lg:p-8">
-                  <h2 class="mt-4 text-xl font-medium sm:text-2xl">
-                    !!Listing card data!!
+                <div class="bg-fuchsia-100 max-w-xs max-h-full p-4">
+                  <h2 class="text-xl font-medium sm:text-2xl">
+                    !!Listing Card Data!!
                   </h2>
-                  <span id="listingID"></span></br>
-                  <span id="listingTitle"></span></br>
-                  <span id="listingDescription"></span></br>
-                  <span id="listingTags"></span></br>
-                  <span
-                    id="listingMedia"
-                    class="h-6 w-12 border-2 m-4 border-black"
-                  ></span></br>
-                  <span id="listingCrated"></span></br>
-                  <span id="listingUpdated"></span></br>
-                  <span id="listingEndsAt"></span></br>
-                  <span id="listingBids"></span></br>
-                  <span id="listingID"></span></br>
+                  <span id="listingID"></span><br />
+                  <span id="listingTitle"></span><br />
+                  <span id="listingDescription"></span><br />
+                  <span id="listingTags"></span><br />
+                  <div id="listingMedia"></div>
+                  <!-- Changed to div to accommodate multiple images -->
+                  <span id="listingCreated"></span><br />
+                  <span id="listingUpdated"></span><br />
+                  <span id="listingEndsAt"></span><br />
+                  <span id="listingSeller"></span><br />
+                  <!-- Placeholder for seller information -->
+                  <span id="listingBids"></span><br />
+                  <div id="listingBidsDetails"></div>
+                  <!-- Container for bids details -->
                 </div>
+
                 <div
                   class="absolute inset-0 p-4 opacity-0 transition-opacity group-hover:opacity-100 sm:p-6 lg:p-8"
                 >
-                  <h3 class="mt-4 text-xl font-medium sm:text-2xl">
-                    Go around the world
-                  </h3>
-                  <p class="mt-4 text-sm sm:text-base">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cupiditate, praesentium voluptatem omnis atque culpa
-                    repellendus.
-                  </p>
-                  <p class="mt-8 font-bold">Read more</p>
+                  <h3 class="mt-4 text-xl font-medium sm:text-2xl"></h3>
+                  <p class="mt-4 text-sm sm:text-base"></p>
+                  <p class="mt-8 font-bold"></p>
                 </div>
               </div>
             </a>

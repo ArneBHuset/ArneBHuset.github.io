@@ -42,3 +42,5 @@ To run tests with ESLint:
 ```bash
 npm test
 ```
+
+npx eslint . --ext .js,.mjs --fix

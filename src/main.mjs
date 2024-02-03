@@ -19,7 +19,7 @@
 
 // import { callListings } from './listings/listing-api.mjs';
 
-// displayListings();
+// callListings();
 
 // import { listingCardBuild } from './listings/listing-card.mjs';
 
@@ -56,6 +56,14 @@
 
 // deleteListing();
 
-import { bidOnListing } from './listings/bidon-listing.mjs';
+// import { bidOnListing } from './listings/bidon-listing.mjs';
 
-bidOnListing(10);
+// bidOnListing(10);
+
+import { validateLoginData } from './validation/login-validate.mjs';
+
+validateLoginData();
+
+import { validateRegistrationData } from './validation/regstr-validation.mjs';
+
+validateRegistrationData();
