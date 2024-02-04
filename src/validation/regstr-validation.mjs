@@ -1,4 +1,4 @@
-import { registrationInputData } from './registration-form.mjs';
+import { registrationInputData } from '../forms/registration-form.mjs';
 import { registerUser } from '../register/register.mjs';
 
 export async function validateRegistrationData() {
@@ -7,6 +7,15 @@ export async function validateRegistrationData() {
   registerBtn.addEventListener('click', async () => {
     const registrationUserData = await registrationInputData();
     console.log(registrationUserData);
+
+    if (
+      !registrationUserData.name ||
+      !registrationUserData.email ||
+      !registrationUserData.password
+    ) {
+      console.log('Registration data missing!');
+      return;
+    }
 
     // Validate Name: no punctuation except underscores
     if (!/^[a-zA-Z0-9_]+$/.test(registrationUserData.name)) {

@@ -1,4 +1,4 @@
-import { loginInputData } from './login-form.mjs';
+import { loginInputData } from '../forms/login-form.mjs';
 import { userLogin } from '../login-out/login.mjs';
 
 export async function validateLoginData() {
