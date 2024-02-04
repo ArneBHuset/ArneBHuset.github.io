@@ -1,6 +1,11 @@
 import { listingsUrl } from '../globalValues/urls.mjs';
 import { checkingAccessToken } from '../access-token/validate-access-token.mjs';
 // Funksjonen skal gå når man klikker post
+
+/**
+ * Runs API call to create a new listing.
+ * @param {ParameterType} listingFormData - Takes validated form-data in an array to create new listing
+ */
 export async function createNewListing(listingFormData) {
   try {
     const accessToken = await checkingAccessToken();

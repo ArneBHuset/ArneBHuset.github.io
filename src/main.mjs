@@ -67,3 +67,7 @@ validateLoginData();
 import { validateRegistrationData } from './validation/regstr-validation.mjs';
 
 validateRegistrationData();
+
+import { logInModal } from './ui/login-modal.mjs';
+
+logInModal();

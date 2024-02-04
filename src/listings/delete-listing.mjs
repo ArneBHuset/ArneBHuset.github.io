@@ -5,6 +5,10 @@ import { checkingAccessToken } from '../access-token/validate-access-token.mjs';
 let testID = `1d36126e-a74a-4e2a-87b2-26dc2d98309b`;
 
 // Skal kjøres vist en knapp trykkes
+
+/**
+ * Runs API call which deletes listing based on a given ID
+ */
 export async function deleteListing() {
   try {
     const accessToken = await checkingAccessToken();

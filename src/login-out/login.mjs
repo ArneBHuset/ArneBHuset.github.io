@@ -1,6 +1,10 @@
 import { loginUrl } from '../globalValues/urls.mjs';
 import { loginError } from '../error/login-error.mjs';
 
+/**
+ * Runs API call for logging user in. if successfull, accesstoken and username will be set in local storage
+ * @param {ParameterType} userLoginData - Takes validated form-data for logging in
+ */
 export async function userLogin(userLoginData) {
   try {
     const loginData = {

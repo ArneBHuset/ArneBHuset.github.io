@@ -1,6 +1,9 @@
 import { registrationInputData } from '../forms/registration-form.mjs';
 import { registerUser } from '../register/register.mjs';
 
+/**
+ * Checks if form-data from reistrationInputData is valid and calls registerUser for API call
+ */
 export async function validateRegistrationData() {
   const registerBtn = document.getElementById('RegisterBtn');
 

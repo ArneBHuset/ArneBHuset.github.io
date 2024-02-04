@@ -4,7 +4,7 @@
   "description": "Semester Project 2 - Noroff/Arne Hustveit",
   "main": "index.js",
   "scripts": {
-    "start": "live-server",
+    "start": "live-server --port=8080 --host=0.0.0.0",
     "build-css": "tailwindcss -i ./styles/main.css -o ./dist/output.css --minify",
     "build-high-contrast": "npx postcss ./styles/main-high-contrast.css -o ./dist/output-high-contrast.css",
     "dev": "tailwindcss -i ./styles/main.css -o ./dist/output.css --watch",

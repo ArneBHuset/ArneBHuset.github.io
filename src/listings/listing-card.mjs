@@ -1,5 +1,8 @@
 import { callListings } from './listing-api.mjs';
 
+/**
+ * Takes json object of listings, builds and dynamically inserts them into the DOM.
+ */
 export async function listingCardBuild() {
   try {
     const listingData = await callListings();

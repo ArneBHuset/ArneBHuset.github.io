@@ -44,3 +44,12 @@ npm test
 ```
 
 npx eslint . --ext .js,.mjs --fix
+
+/\*\*
+
+- Brief description of the function's purpose.
+-
+- @param {ParameterType} parameterName - Description of the parameter.
+- @param {ParameterType} anotherParameterName - Description of another parameter.
+- @returns {ReturnType} - Description of what the function returns.
+  \*/

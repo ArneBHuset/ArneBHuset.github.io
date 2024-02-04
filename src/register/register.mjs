@@ -3,6 +3,11 @@ import { registrationError } from '../error/registration-error.mjs';
 // import form data
 
 // bear in mind, registerUser should never run if the registrationData validation is not accepted!
+
+/**
+ * Runs API call for registering a new user. Open login form if successfull
+ * @param {ParameterType} registrationData - Takes validated form-data for registering new user
+ */
 export async function registerUser(registrationData) {
   try {
     const registerPostData = {

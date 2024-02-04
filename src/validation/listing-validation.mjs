@@ -1,5 +1,8 @@
 import { newListingData } from '../forms/new-listing.mjs';
 
+/**
+ * Checks if form-data from newListingData is valid and calls function for API call.
+ */
 export async function validatedNewListing() {
   const postBtn = document.getElementById('postListingBtn');
 

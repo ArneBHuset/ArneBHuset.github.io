@@ -1,3 +1,7 @@
+/**
+ * Takes form-data for registration of new user
+ * @returns {ReturnType} - Returns array of registration data for registration api-call
+ */
 export async function registrationInputData() {
   const userEmail = document.getElementById('registerEmail');
   const userPassWord = document.getElementById('registerPswd');

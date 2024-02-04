@@ -1,3 +1,7 @@
+/**
+ * Takes form-data for posting new listing
+ * @returns {ReturnType} - Returns array of form-data for creating new listing api call
+ */
 export async function newListingData() {
   const listingTitle = document.getElementById('listingTitle');
   const listingDescription = document.getElementById('listingDescription');
