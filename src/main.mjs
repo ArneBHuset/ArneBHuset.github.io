@@ -51,3 +51,11 @@ loginModal();
 import { registerModal } from './ui/register-modal.mjs';
 
 registerModal();
+
+// import { listingModal } from './ui/listing-modal.mjs';
+
+// listingModal();
+
+import { listingCardBuild } from './listings/listing-card.mjs';
+
+listingCardBuild();

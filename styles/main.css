@@ -48,3 +48,14 @@
     opacity: 0;
   }
 }
+
+/* For polygon effect */
+
+/* Add this in your global CSS file */
+.clip-path-transition {
+  clip-path: polygon(27% 0, 100% 0%, 100% 100%, 0 100%);
+  transition: clip-path 0.4s ease-in-out;
+}
+.clip-path-transition:hover {
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+}
