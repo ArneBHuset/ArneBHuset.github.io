@@ -3,14 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/img/logo-no-background.png"
+    />
+    <title>Auctionable landing page</title>
     <link rel="stylesheet" href="./dist/output.css" id="mainStylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <header class="border-b-2 border-primary bg-primary-1">
       <div
-        class="mx-auto flex h-32 max-w-screen-xl items-center gap-8 sm px-6 sm:px-20 lg:px-44 "
+        class="mx-auto flex h-32 max-w-screen-xl items-center gap-8 sm px-6 sm:px-20 lg:px-44"
       >
         <a href="/">
           <img
@@ -22,30 +30,21 @@
 
         <div class="flex flex-1 items-center justify-end md:justify-between">
           <nav aria-label="Global" class="hidden md:block">
-            <ul class="flex items-center gap-14 ps-8 text-xl font-primary text-primary-2 ">
+            <ul
+              class="flex items-center gap-14 ps-8 text-xl font-primary text-primary-2"
+            >
               <li>
-                <a
-                  class="transition hover:text-black"
-                  href="/"
-                >
-                  About
-                </a>
+                <a class="transition hover:text-black" href="/"> About </a>
               </li>
 
               <li>
-                <a
-                  class=" transition hover:text-gray-500/75"
-                  href="/"
-                >
+                <a class="transition hover:text-gray-500/75" href="/">
                   Careers
                 </a>
               </li>
 
               <li>
-                <a
-                  class="transition hover:text-gray-500/75"
-                  href="/"
-                >
+                <a class="transition hover:text-gray-500/75" href="/">
                   History
                 </a>
               </li>
@@ -61,15 +60,12 @@
                 Loginmodal
               </button>
 
-              <a
+              <button
+                id="openRegisterModalBtn"
                 class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
-                href="/"
               >
                 Register
-              </a>
-            </div>
-            <div id="modalDialogue">
-
+              </button>
             </div>
 
             <button
@@ -96,78 +92,67 @@
       </div>
     </header>
     <main>
-      
       <section>
-        <div class="flex justify-center ">
-          <div
-            class="w-full md:w-1/2 flex flex-col items-center bg-white py-5 md:py-8 px-4"
-          >
-            <h3 class="mb-4 font-bold text-3xl flex items-center text-blue-500">
-              Sign up!
-            </h3>
-            <form
-              action="#"
-              class="px-3 flex flex-col justify-center items-center w-full gap-3"
-            >
-              <input
-                type="text"
-                id="registerUserName"
-                placeholder="User name.."
-                class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-              />
-              <input
-                type="email"
-                id="registerEmail"
-                placeholder="Email adress.."
-                class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-              />
-              <input
-                type="password"
-                id="registerPswd"
-                placeholder="password.."
-                class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-              />
-              <input
-                type="url"
-                id="registerAvatar"
-                class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-              />
-
-              <button
-                id="RegisterBtn"
-                tyoe="button"
-                class="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring rounded px-3 py-1"
-              >
-                <svg
-                  class="w-5 h-5 inline"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+        <div class="w-full">
+          <div class="md:grid md:grid-cols-2 md:gap-4">
+            <!-- Top Left Section -->
+            <div class="flex font-primary text-2xl justify-center p-6 mt-4">
+              <h1>
+                Welcome<span>?back?</span>to Auctionable<span>
+                  INSERTUSERNAME OR GENERIC RESPONSE</span
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                  ></path>
-                </svg>
-                <p class="ml-1 text-lg">Register</p>
+              </h1>
+            </div>
+
+            <!-- Top Right Section -->
+            <div class="flex justify-center mt-14 me-14 text-center">
+              <h2 class="font-primary text-secondary1 text-4xl">
+                Featured listing
+              </h2>
+            </div>
+
+            <!-- Bottom Left Section -->
+            <div>
+              <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">
+                Build Your New <span class="text-indigo-600">Idea</span>
+              </h2>
+              <p class="mt-2 text-sm text-gray-500 md:text-base">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Blanditiis commodi cum cupiditate ducimus, fugit harum id
+                necessitatibus odio quam quasi, quibusdam rem tempora
+                voluptates. Cumque debitis dignissimos id quam vel!
+              </p>
+              <div class="flex justify-center md:justify-start mt-6">
+                <a
+                  class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
+                  href="#"
+                  >Get Started</a
+                >
+                <a
+                  class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
+                  href="#"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+
+            <!-- Bottom Right Section -->
+            <div
+              class="hidden lg:block h-full"
+              style="clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0 100%)"
+            >
+              <button>
+                <span class="cursor-pointer">
+                  <img
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80"
+                    class="object-cover h-96 w-full hover:pb-2"
+                  />
+                </span>
               </button>
-            </form>
-            <p class="text-gray-700 text-sm mt-2">
-              don't have an account?
-              <a
-                href="#"
-                class="text-green-500 hover:text-green-600 mt-3 focus:outline-none font-bold underline"
-              >
-                register
-              </a>
-            </p>
+            </div>
           </div>
         </div>
       </section>
-
       <!-- Here starts the card -->
       <section>
         <div class="bg-gray-100 flex items-center justify-center">
@@ -226,10 +211,25 @@
               This is a foooooter
             </h5>
             <div class="mt-6 lg:mb-0 mb-6">
-              <button class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <i class="fab fa-twitter"></i></button><button class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <i class="fab fa-facebook-square"></i></button><button class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <i class="fab fa-dribbble"></i></button><button class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+              <button
+                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-twitter"></i></button
+              ><button
+                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-facebook-square"></i></button
+              ><button
+                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-dribbble"></i></button
+              ><button
+                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
                 <i class="fab fa-github"></i>
               </button>
             </div>
@@ -237,48 +237,95 @@
           <div class="w-full lg:w-6/12 px-4">
             <div class="flex flex-wrap items-top mb-6">
               <div class="w-full lg:w-4/12 px-4 ml-auto">
-                <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
+                <span
+                  class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
+                  >Useful Links</span
+                >
                 <ul class="list-unstyled">
                   <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">About Us</a>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >About Us</a
+                    >
                   </li>
                   <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Blog</a>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Blog</a
+                    >
                   </li>
                   <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Github</a>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Github</a
+                    >
                   </li>
                   <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Free Products</a>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Free Products</a
+                    >
                   </li>
                 </ul>
               </div>
               <div class="w-full lg:w-4/12 px-4">
-                <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
+                <span
+                  class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
+                  >Other Resources</span
+                >
                 <ul class="list-unstyled">
                   <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""></a>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    ></a>
                   </li>
                   <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Terms &amp; Conditions</a>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Terms &amp; Conditions</a
+                    >
                   </li>
                   <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Privacy Policy</a>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Privacy Policy</a
+                    >
                   </li>
                   <li>
-                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Contact Us</a>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Contact Us</a
+                    >
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <hr class="my-6 border-blueGray-300">
-        <div class="flex flex-wrap items-center md:justify-between justify-center">
+        <hr class="my-6 border-blueGray-300" />
+        <div
+          class="flex flex-wrap items-center md:justify-between justify-center"
+        >
           <div class="w-full md:w-4/12 px-4 mx-auto text-center">
             <div class="text-sm text-blueGray-500 font-semibold py-1">
-              Copyright © <span id="get-current-year">2021</span><a href="" class="text-blueGray-500 hover:text-gray-800" target="_blank">fds
-              <a href="" class="text-blueGray-500 hover:text-blueGray-800">Arne</a>.
+              Copyright © <span id="get-current-year">2021</span
+              ><a
+                href=""
+                class="text-blueGray-500 hover:text-gray-800"
+                target="_blank"
+              >
+              </a>
+              <a href="" class="text-blueGray-500 hover:text-blueGray-800"
+                >Arne</a
+              >.
             </div>
           </div>
         </div>

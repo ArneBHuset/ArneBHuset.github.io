@@ -1,5 +1,6 @@
 import { registerUrl } from '../globalValues/urls.mjs';
 import { registrationError } from '../error/registration-error.mjs';
+import { loginModal } from '../ui/login-modal.mjs';
 // import form data
 
 // bear in mind, registerUser should never run if the registrationData validation is not accepted!
@@ -23,11 +24,9 @@ export async function registerUser(registrationData) {
     console.log(json);
 
     if (response.ok) {
-      // Open login form
-      // Give user feedback about successfull login
+      loginModal();
     } else {
       console.log('Registration response error', response);
-      // Import or??
     }
   } catch (error) {
     registrationError(error);

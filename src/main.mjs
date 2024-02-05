@@ -1,21 +1,5 @@
-// import { userLogin } from './login-out/login.mjs';
-
-// userLogin({
-//   email: 'first.last@stud.noroff.no',
-//   password: 'UzI1NiIsInR5cCI',
-// });
-
 // import { contrastSwitch } from './ui/high-contrast.mjs';
 // contrastSwitch();
-
-// import { registerUser } from './register/register.mjs';
-
-// registerUser({
-//   name: 'my_username', // Required
-//   email: 'first.last@stud.noroff.no', // Required
-//   password: 'UzI1NiIsInR5cCI', // Required
-//   avatar: 'https://img.service.com/avatar.jpg', // Optional
-// });
 
 // import { callListings } from './listings/listing-api.mjs';
 
@@ -60,14 +44,10 @@
 
 // bidOnListing(10);
 
-// import { validateLoginData } from './validation/login-validate.mjs';
-
-// validateLoginData();
-
-import { validateRegistrationData } from './validation/regstr-validation.mjs';
-
-validateRegistrationData();
-
 import { loginModal } from './ui/login-modal.mjs';
 
 loginModal();
+
+import { registerModal } from './ui/register-modal.mjs';
+
+registerModal();

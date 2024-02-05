@@ -5,11 +5,8 @@ import { userLogin } from '../login-out/login.mjs';
  * Checks if form-data from loginInputData is valid and calls function userLogin for API call.
  */
 export async function validateLoginData() {
-  console.log('Running 1');
   const loginBtn = document.getElementById('loginBtn');
-
   loginBtn.addEventListener('click', async () => {
-    console.log('Running 2');
     const userLoginData = await loginInputData();
     if (!userLoginData.email || !userLoginData.password) {
       console.log('Email and password cannot be empty.');

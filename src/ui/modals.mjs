@@ -4,14 +4,11 @@ export function createModal(initialContent = '') {
   <div id="mainModal" class="main-modal w-11/12 fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50 animated fadeIn faster">
   <div class="modal-container bg-white w-11/12 md:w-1/2 lg:max-w-lg  rounded-md overflow-hidden  border-secondary-1  ">
     <div class="modal-header flex justify-end p-2 bg-secondary1">
-      <div class="modal-close cursor-pointer z-50 text-gray-600 hover:text-gray-800" id="closeModalBtn">
-      <span class="material-symbols-outlined p-0 m-0">
+    <div class="modal-close cursor-pointer z-50 text-gray-600 hover:text-gray-800" id="closeModalBtn">
+    <span class="material-symbols-outlined">
       close
-      </span>
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-         </svg>
-    
-      </div>
+    </span>
+  </div>  
     </div>
     <div id="modalBody" >
       <!-- Dynamic content goes here -->

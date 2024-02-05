@@ -57,3 +57,5 @@ npx eslint . --ext .js,.mjs --fix
 Code sources:
 Footer:
 https://tailwindcomponents.com/component/footer-5
+Hero section:
+https://tailwindcomponents.com/component/application-header-with-clip-path

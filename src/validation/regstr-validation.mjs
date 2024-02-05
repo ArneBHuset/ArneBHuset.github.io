@@ -6,7 +6,6 @@ import { registerUser } from '../register/register.mjs';
  */
 export async function validateRegistrationData() {
   const registerBtn = document.getElementById('RegisterBtn');
-
   registerBtn.addEventListener('click', async () => {
     const registrationUserData = await registrationInputData();
     console.log(registrationUserData);
