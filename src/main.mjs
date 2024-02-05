@@ -60,14 +60,14 @@
 
 // bidOnListing(10);
 
-import { validateLoginData } from './validation/login-validate.mjs';
+// import { validateLoginData } from './validation/login-validate.mjs';
 
-validateLoginData();
+// validateLoginData();
 
 import { validateRegistrationData } from './validation/regstr-validation.mjs';
 
 validateRegistrationData();
 
-import { logInModal } from './ui/login-modal.mjs';
+import { loginModal } from './ui/login-modal.mjs';
 
-logInModal();
+loginModal();

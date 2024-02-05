@@ -5,33 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./dist/output.css" id="mainStylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body>
-    <header class="bg-white">
+    <header class="border-b-2 border-primary bg-primary-1">
       <div
-        class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
+        class="mx-auto flex h-32 max-w-screen-xl items-center gap-8 sm px-6 sm:px-20 lg:px-44 "
       >
-        <a class="block text-teal-600" href="/">
-          <span class="sr-only">Home</span>
-          <svg
-            class="h-8"
-            viewBox="0 0 28 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2.90424C7.6714 1.02234 10.6393 0 13.695 0C16.7507 0 19.7186 1.02234 22.1261 2.90424C24.5336 4.7861 26.2422 7.4194 26.98 10.3847H25.78C23.7557 10.3549 21.7729 10.9599 20.11 12.1147C20.014 12.1842 19.9138 12.2477 19.81 12.3047H19.67C19.5662 12.2477 19.466 12.1842 19.37 12.1147C17.6924 10.9866 15.7166 10.3841 13.695 10.3841C11.6734 10.3841 9.6976 10.9866 8.02 12.1147C7.924 12.1842 7.8238 12.2477 7.72 12.3047H7.58C7.4762 12.2477 7.376 12.1842 7.28 12.1147C5.6171 10.9599 3.6343 10.3549 1.61 10.3847H0.41ZM23.62 16.6547C24.236 16.175 24.9995 15.924 25.78 15.9447H27.39V12.7347H25.78C24.4052 12.7181 23.0619 13.146 21.95 13.9547C21.3243 14.416 20.5674 14.6649 19.79 14.6649C19.0126 14.6649 18.2557 14.416 17.63 13.9547C16.4899 13.1611 15.1341 12.7356 13.745 12.7356C12.3559 12.7356 11.0001 13.1611 9.86 13.9547C9.2343 14.416 8.4774 14.6649 7.7 14.6649C6.9226 14.6649 6.1657 14.416 5.54 13.9547C4.4144 13.1356 3.0518 12.7072 1.66 12.7347H0V15.9447H1.61C2.39051 15.924 3.154 16.175 3.77 16.6547C4.908 17.4489 6.2623 17.8747 7.65 17.8747C9.0377 17.8747 10.392 17.4489 11.53 16.6547C12.1468 16.1765 12.9097 15.9257 13.69 15.9447C14.4708 15.9223 15.2348 16.1735 15.85 16.6547C16.9901 17.4484 18.3459 17.8738 19.735 17.8738C21.1241 17.8738 22.4799 17.4484 23.62 16.6547ZM23.62 22.3947C24.236 21.915 24.9995 21.664 25.78 21.6847H27.39V18.4747H25.78C24.4052 18.4581 23.0619 18.886 21.95 19.6947C21.3243 20.156 20.5674 20.4049 19.79 20.4049C19.0126 20.4049 18.2557 20.156 17.63 19.6947C16.4899 18.9011 15.1341 18.4757 13.745 18.4757C12.3559 18.4757 11.0001 18.9011 9.86 19.6947C9.2343 20.156 8.4774 20.4049 7.7 20.4049C6.9226 20.4049 6.1657 20.156 5.54 19.6947C4.4144 18.8757 3.0518 18.4472 1.66 18.4747H0V21.6847H1.61C2.39051 21.664 3.154 21.915 3.77 22.3947C4.908 23.1889 6.2623 23.6147 7.65 23.6147C9.0377 23.6147 10.392 23.1889 11.53 22.3947C12.1468 21.9165 12.9097 21.6657 13.69 21.6847C14.4708 21.6623 15.2348 21.9135 15.85 22.3947C16.9901 23.1884 18.3459 23.6138 19.735 23.6138C21.1241 23.6138 22.4799 23.1884 23.62 22.3947Z"
-              fill="currentColor"
-            />
-          </svg>
+        <a href="/">
+          <img
+            src="./assets/img/logo-no-background.png"
+            height="auto"
+            width="100"
+          />
         </a>
 
         <div class="flex flex-1 items-center justify-end md:justify-between">
           <nav aria-label="Global" class="hidden md:block">
-            <ul class="flex items-center gap-6 text-sm">
+            <ul class="flex items-center gap-14 ps-8 text-xl font-primary text-primary-2 ">
               <li>
                 <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
+                  class="transition hover:text-black"
                   href="/"
                 >
                   About
@@ -40,7 +34,7 @@
 
               <li>
                 <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
+                  class=" transition hover:text-gray-500/75"
                   href="/"
                 >
                   Careers
@@ -49,46 +43,11 @@
 
               <li>
                 <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
+                  class="transition hover:text-gray-500/75"
                   href="/"
                 >
                   History
                 </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  Services
-                </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  Projects
-                </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  Blog
-                </a>
-              </li>
-              <li>
-                <button
-                  class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-                  id="toggleHighContrast"
-                >
-                  High Contrast
-                </button>
               </li>
             </ul>
           </nav>
@@ -108,6 +67,9 @@
               >
                 Register
               </a>
+            </div>
+            <div id="modalDialogue">
+
             </div>
 
             <button
@@ -133,181 +95,195 @@
         </div>
       </div>
     </header>
-
-    <section>
-      <div class="flex justify-left">
-        <div
-          class="w-full md:w-1/2 flex flex-col items-center bg-white py-5 md:py-8 px-4"
-        >
-          <h3 class="mb-4 font-bold text-3xl flex items-center text-blue-500">
-            LOGIN
-          </h3>
-          <form
-            action="#"
-            class="px-3 flex flex-col justify-center items-center w-full gap-3"
+    <main>
+      
+      <section>
+        <div class="flex justify-center ">
+          <div
+            class="w-full md:w-1/2 flex flex-col items-center bg-white py-5 md:py-8 px-4"
           >
-            <input
-              type="email"
-              id="loginEmail"
-              placeholder="email.."
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="password"
-              id="loginPswd"
-              placeholder="password.."
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-            />
-            <button
-              id="loginBtn"
-              tyoe="button"
-              class="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring rounded px-3 py-1"
+            <h3 class="mb-4 font-bold text-3xl flex items-center text-blue-500">
+              Sign up!
+            </h3>
+            <form
+              action="#"
+              class="px-3 flex flex-col justify-center items-center w-full gap-3"
             >
-              <svg
-                class="w-5 h-5 inline"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                ></path>
-              </svg>
-              <p class="ml-1 text-lg">Login</p>
-            </button>
-          </form>
-          <p class="text-gray-700 text-sm mt-2">
-            don't have an account?
-            <a
-              href="#"
-              class="text-green-500 hover:text-green-600 mt-3 focus:outline-none font-bold underline"
-            >
-              register
-            </a>
-          </p>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="flex justify-center">
-        <div
-          class="w-full md:w-1/2 flex flex-col items-center bg-white py-5 md:py-8 px-4"
-        >
-          <h3 class="mb-4 font-bold text-3xl flex items-center text-blue-500">
-            Sign up!
-          </h3>
-          <form
-            action="#"
-            class="px-3 flex flex-col justify-center items-center w-full gap-3"
-          >
-            <input
-              type="text"
-              id="registerUserName"
-              placeholder="User name.."
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="email"
-              id="registerEmail"
-              placeholder="Email adress.."
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="password"
-              id="registerPswd"
-              placeholder="password.."
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="url"
-              id="registerAvatar"
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
-            />
+              <input
+                type="text"
+                id="registerUserName"
+                placeholder="User name.."
+                class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+              />
+              <input
+                type="email"
+                id="registerEmail"
+                placeholder="Email adress.."
+                class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+              />
+              <input
+                type="password"
+                id="registerPswd"
+                placeholder="password.."
+                class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+              />
+              <input
+                type="url"
+                id="registerAvatar"
+                class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
+              />
 
-            <button
-              id="RegisterBtn"
-              tyoe="button"
-              class="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring rounded px-3 py-1"
-            >
-              <svg
-                class="w-5 h-5 inline"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+              <button
+                id="RegisterBtn"
+                tyoe="button"
+                class="flex justify-center items-center bg-blue-500 hover:bg-blue-600 text-white focus:outline-none focus:ring rounded px-3 py-1"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                ></path>
-              </svg>
-              <p class="ml-1 text-lg">Register</p>
-            </button>
-          </form>
-          <p class="text-gray-700 text-sm mt-2">
-            don't have an account?
-            <a
-              href="#"
-              class="text-green-500 hover:text-green-600 mt-3 focus:outline-none font-bold underline"
-            >
-              register
-            </a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Here starts the card -->
-    <section>
-      <div class="bg-gray-100 flex items-center justify-center">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="max-w-md font-sans antialiased">
-            <a href="" class="group block min-h-full sm:h-80 lg:h-96 relative">
-              <span
-                class="absolute inset-0 border-2 border-dashed border-black"
-              ></span>
-              <div
-                class="relative flex h-full border-2 border-black bg-white transition-all group-hover:scale-105"
-              >
-                <div class="bg-fuchsia-100 max-w-xs max-h-full p-4">
-                  <h2 class="text-xl font-medium sm:text-2xl">
-                    !!Listing Card Data!!
-                  </h2>
-                  <span id="listingID"></span><br />
-                  <span id="listingTitle"></span><br />
-                  <span id="listingDescription"></span><br />
-                  <span id="listingTags"></span><br />
-                  <div id="listingMedia"></div>
-                  <!-- Changed to div to accommodate multiple images -->
-                  <span id="listingCreated"></span><br />
-                  <span id="listingUpdated"></span><br />
-                  <span id="listingEndsAt"></span><br />
-                  <span id="listingSeller"></span><br />
-                  <!-- Placeholder for seller information -->
-                  <span id="listingBids"></span><br />
-                  <div id="listingBidsDetails"></div>
-                  <!-- Container for bids details -->
-                </div>
-
-                <div
-                  class="absolute inset-0 p-4 opacity-0 transition-opacity group-hover:opacity-100 sm:p-6 lg:p-8"
+                <svg
+                  class="w-5 h-5 inline"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <h3 class="mt-4 text-xl font-medium sm:text-2xl"></h3>
-                  <p class="mt-4 text-sm sm:text-base"></p>
-                  <p class="mt-8 font-bold"></p>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                  ></path>
+                </svg>
+                <p class="ml-1 text-lg">Register</p>
+              </button>
+            </form>
+            <p class="text-gray-700 text-sm mt-2">
+              don't have an account?
+              <a
+                href="#"
+                class="text-green-500 hover:text-green-600 mt-3 focus:outline-none font-bold underline"
+              >
+                register
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Here starts the card -->
+      <section>
+        <div class="bg-gray-100 flex items-center justify-center">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="max-w-md font-sans antialiased">
+              <a
+                href=""
+                class="group block min-h-full sm:h-80 lg:h-96 relative"
+              >
+                <span
+                  class="absolute inset-0 border-2 border-dashed border-black"
+                ></span>
+                <div
+                  class="relative flex h-full border-2 border-black bg-white transition-all group-hover:scale-105"
+                >
+                  <div class="bg-fuchsia-100 max-w-xs max-h-full p-4">
+                    <h2 class="text-xl font-medium sm:text-2xl">
+                      !!Listing Card Data!!
+                    </h2>
+                    <span id="listingID"></span><br />
+                    <span id="listingTitle"></span><br />
+                    <span id="listingDescription"></span><br />
+                    <span id="listingTags"></span><br />
+                    <div id="listingMedia"></div>
+                    <!-- Changed to div to accommodate multiple images -->
+                    <span id="listingCreated"></span><br />
+                    <span id="listingUpdated"></span><br />
+                    <span id="listingEndsAt"></span><br />
+                    <span id="listingSeller"></span><br />
+                    <!-- Placeholder for seller information -->
+                    <span id="listingBids"></span><br />
+                    <div id="listingBidsDetails"></div>
+                    <!-- Container for bids details -->
+                  </div>
+
+                  <div
+                    class="absolute inset-0 p-4 opacity-0 transition-opacity group-hover:opacity-100 sm:p-6 lg:p-8"
+                  >
+                    <h3 class="mt-4 text-xl font-medium sm:text-2xl"></h3>
+                    <p class="mt-4 text-sm sm:text-base"></p>
+                    <p class="mt-8 font-bold"></p>
+                  </div>
                 </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="relative bg-blueGray-200 pt-8 pb-6">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+          <div class="w-full lg:w-6/12 px-4">
+            <h4 class="text-3xl fonat-semibold text-blueGray-700">Fooooter</h4>
+            <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
+              This is a foooooter
+            </h5>
+            <div class="mt-6 lg:mb-0 mb-6">
+              <button class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                <i class="fab fa-twitter"></i></button><button class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                <i class="fab fa-facebook-square"></i></button><button class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                <i class="fab fa-dribbble"></i></button><button class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                <i class="fab fa-github"></i>
+              </button>
+            </div>
+          </div>
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="flex flex-wrap items-top mb-6">
+              <div class="w-full lg:w-4/12 px-4 ml-auto">
+                <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">About Us</a>
+                  </li>
+                  <li>
+                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Blog</a>
+                  </li>
+                  <li>
+                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Github</a>
+                  </li>
+                  <li>
+                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Free Products</a>
+                  </li>
+                </ul>
               </div>
-            </a>
+              <div class="w-full lg:w-4/12 px-4">
+                <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""></a>
+                  </li>
+                  <li>
+                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Terms &amp; Conditions</a>
+                  </li>
+                  <li>
+                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Privacy Policy</a>
+                  </li>
+                  <li>
+                    <a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-6 border-blueGray-300">
+        <div class="flex flex-wrap items-center md:justify-between justify-center">
+          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+            <div class="text-sm text-blueGray-500 font-semibold py-1">
+              Copyright © <span id="get-current-year">2021</span><a href="" class="text-blueGray-500 hover:text-gray-800" target="_blank">fds
+              <a href="" class="text-blueGray-500 hover:text-blueGray-800">Arne</a>.
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   </body>
   <script type="module" src="./src/main.mjs"></script>
 </html>

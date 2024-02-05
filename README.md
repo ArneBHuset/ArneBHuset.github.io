@@ -53,3 +53,7 @@ npx eslint . --ext .js,.mjs --fix
 - @param {ParameterType} anotherParameterName - Description of another parameter.
 - @returns {ReturnType} - Description of what the function returns.
   \*/
+
+Code sources:
+Footer:
+https://tailwindcomponents.com/component/footer-5
