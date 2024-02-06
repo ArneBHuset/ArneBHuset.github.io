@@ -19,6 +19,7 @@ export async function userLogin(userLoginData) {
     if (response.ok && json.accessToken) {
       localStorage.setItem('accessToken', json.accessToken);
       localStorage.setItem('userName', json.name);
+      console.log('TestingTEsting');
       //   Forwarding link to be addded
     } else {
       console.log('Your fetch repsonse has failed and accessToken is not set');

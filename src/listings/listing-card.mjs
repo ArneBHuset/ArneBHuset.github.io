@@ -1,12 +1,11 @@
 import { callListings } from './listing-api.mjs';
-import { listingModalContent } from '../ui/listing-modal.mjs';
+import { listingModal } from '../ui/listing-modal.mjs';
 /**
  * Dynamically creates and inserts listing card into the DOM with data from callListings, using template literals for HTML structure.
  */
 export async function listingCardBuild() {
   try {
     const listingData = await callListings();
-
     // Construct HTML content with template literals
     const htmlContent = `
       <div class="bg-gray-100 flex items-center justify-center">
@@ -45,7 +44,9 @@ export async function listingCardBuild() {
     // Ensure there's a container element in your HTML with an id where this content should be appended
     const container = document.getElementById('listingCards'); // Replace 'yourContainerElementId' with the actual ID of your container element
     container.innerHTML = htmlContent;
-    listingModalContent(listingData);
+    document.getElementById('listingModal').addEventListener('click', () => {
+      listingModal(listingData);
+    });
   } catch (error) {
     console.error('Error with getting json data to build listing card', error);
   }

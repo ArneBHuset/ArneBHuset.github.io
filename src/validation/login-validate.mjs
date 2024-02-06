@@ -5,6 +5,7 @@ import { userLogin } from '../login-out/login.mjs';
  * Checks if form-data from loginInputData is valid and calls function userLogin for API call.
  */
 export async function validateLoginData() {
+  console.log('TestingTEsting2');
   const loginBtn = document.getElementById('loginBtn');
   loginBtn.addEventListener('click', async () => {
     const userLoginData = await loginInputData();

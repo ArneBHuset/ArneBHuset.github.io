@@ -20,7 +20,7 @@ export async function callListings() {
     );
     // console.log('Listing data:', response);
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
     listingsRetrivalError(error);

@@ -1,14 +1,6 @@
 // import { contrastSwitch } from './ui/high-contrast.mjs';
 // contrastSwitch();
 
-// import { callListings } from './listings/listing-api.mjs';
-
-// callListings();
-
-// import { listingCardBuild } from './listings/listing-card.mjs';
-
-// listingCardBuild();
-
 // import { fetchProfileData } from './profile/profile.mjs';
 
 // fetchProfileData();
@@ -44,6 +36,10 @@
 
 // bidOnListing(10);
 
+import { listingCardBuild } from './listings/listing-card.mjs';
+
+listingCardBuild();
+
 import { loginModal } from './ui/login-modal.mjs';
 
 loginModal();
@@ -52,10 +48,6 @@ import { registerModal } from './ui/register-modal.mjs';
 
 registerModal();
 
-// import { listingModal } from './ui/listing-modal.mjs';
+import { listingModal } from './ui/listing-modal.mjs';
 
-// listingModal();
-
-import { listingCardBuild } from './listings/listing-card.mjs';
-
-listingCardBuild();
+listingModal();
