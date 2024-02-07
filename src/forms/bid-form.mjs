@@ -3,9 +3,11 @@
  * @returns {ReturnType} - Returns array object of bid-data for bidding api call
  */
 export async function placedBid() {
-  // const bidAmount = document.getElementById('bidAmount');
-  // userBid = {
-  //   amount: bidAmount.value,
-  // };
-  // return userBid;
+  const bidAmountString = document.getElementById('bidInputAmount').value;
+  const bidAmount = Number(bidAmountString);
+  const userBid = {
+    amount: bidAmount,
+  };
+  console.log(userBid);
+  return userBid;
 }

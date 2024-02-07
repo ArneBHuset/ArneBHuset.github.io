@@ -1,5 +1,5 @@
 // register-modal.mjs
-import { createModal } from './modals.mjs';
+import { createModal } from './modal-base/modals.mjs';
 import { validateRegistrationData } from '../validation/regstr-validation.mjs';
 
 const registrationContent = `

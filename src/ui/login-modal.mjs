@@ -1,5 +1,5 @@
 // login-modal.mjs
-import { createModal } from './modals.mjs';
+import { createModal } from './modal-base/modals.mjs';
 import { validateLoginData } from '../validation/login-validate.mjs';
 
 const loginContent = `

@@ -11,49 +11,40 @@
 
 
 
-              <div class="bg-gray-100 flex items-center justify-center">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="max-w-md font-sans antialiased">
-              <button
-                id="listingModal"
-                class="group block min-h-full sm:h-80 lg:h-96 relative"
-              >
-                <span
-                  class="absolute inset-0 border-2 border-dashed border-black"
-                ></span>
-                <div
-                  class="relative flex h-full border-2 border-secondary1 bg-white transition-all group-hover:scale-105"
-                >
-                  <div class="max-w-xs max-h-full min-w-80 p-1">
-                    <div id="listingMedia" class="h-3/5 w-full">IMG</div>
+        FIXING TIME AND DATE
 
-                    <span
-                      id="listingTitle"
-                      class="font-primary text-xl font-semibold"
-                    ></span
-                    ><br />
-                    <span id="listingEndsAt">endsAt</span><br />
-                    <!-- Placeholder for seller information -->
-                    <span id="listingBids">Amount of bids</span><br />
-                  </div>
+        
+To display dates in a more human-readable format, you can use JavaScript's Date object along with Intl.DateTimeFormat for formatting. This allows you to customize the date and time display to fit your needs better. Below is a simple example showing how you might convert and display the dates created, updated, and endsAt in a more readable format.
 
-                  <div
-                    class="absolute inset-0 p-4 opacity-0 transition-opacity group-hover:opacity-100 sm:p-6 lg:p-8"
-                  >
-                    <h3 class="mt-4 text-xl font-medium sm:text-2xl"></h3>
-                    <span class="mt-4 text-sm sm:text-base">
-                      <span id="listingID">ID</span><br />
-                      <span id="listingDescription">Description</span><br />
-                      <span id="listingCreated">created</span><br />
-                      <span id="listingUpdated">updated</span><br />
-                      <span id="listingSeller">Seller</span><br />
-                      <div id="listingBidsDetails"></div>
-                      <span id="listingTags"></span>#Tags<br />
-                    </span>
-                    <p class="mt-8 font-bold"></p>
-                  </div>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
+Example JavaScript Function
+This function takes a date string in the ISO format (like "2023-11-05T14:15:59.030Z") and returns it in a more readable format:
+
+javascript
+Copy code
+function formatDateTime(isoString) {
+  const date = new Date(isoString);
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long', // "January", "February", etc.
+    day: '2-digit', // "01", "02", etc.
+    year: 'numeric', // "2023"
+    hour: '2-digit', // "00" through "23"
+    minute: '2-digit', // "00" through "59"
+    second: '2-digit', // "00" through "59"
+    timeZoneName: 'short' // "GMT", "EST", etc.
+  }).format(date);
+}
+Usage
+You can then use this function to format your date strings before displaying them in your HTML:
+
+javascript
+Copy code
+const created = "2023-11-05T14:15:59.030Z";
+const updated = "2023-11-05T16:15:59.030Z";
+const endsAt = "2023-11-12T12:15:59.030Z";
+
+document.getElementById('listingCreated').textContent = `Created: ${formatDateTime(created)}`;
+document.getElementById('listingUpdated').textContent = `Updated: ${formatDateTime(updated)}`;
+document.getElementById('listingEndsAt').textContent = `Ends At: ${formatDateTime(endsAt)}`;
+This method allows you to easily adjust the date format across different locales by changing the locale string (e.g., 'en-US') and the options passed to Intl.DateTimeFormat. The above example uses 'en-US' for American English formatting, but you can adjust this as needed to suit your application's audience.
+
+This approach gives you flexibility in how dates are displayed, making them more readable and user-friendly.

@@ -8,7 +8,7 @@ import { checkingAccessToken } from '../access-token/validate-access-token.mjs';
  */
 export async function fetchProfileData() {
   try {
-    const accessToken = checkingAccessToken();
+    const accessToken = await checkingAccessToken();
     if (accessToken) {
       const profileApiCall = {
         method: 'GET',
