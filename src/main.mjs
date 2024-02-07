@@ -32,18 +32,22 @@
 
 // deleteListing();
 
-// import { bidOnListing } from './listings/bidon-listing.mjs';
+import { landingPageListings } from './ui/landing-page/display-listing.mjs';
 
-// bidOnListing(10);
+landingPageListings();
 
-import { listingCardBuild } from './listings/listing-card.mjs';
+import { loginModal } from './ui/modal-bodies/login-modal.mjs';
 
-listingCardBuild();
+// loginModal();
 
-import { loginModal } from './ui/login-modal.mjs';
+import { registerModal } from './ui/modal-bodies/register-modal.mjs';
 
-loginModal();
+// registerModal();
 
-import { registerModal } from './ui/register-modal.mjs';
+import { carousel } from './ui/carousel.mjs';
 
-registerModal();
+// carousel();
+
+import { displayListingCards } from './ui/listing-page/display-listing.mjs';
+
+displayListingCards();

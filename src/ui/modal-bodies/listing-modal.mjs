@@ -1,5 +1,5 @@
-import { createModal } from './modal-base/modals.mjs';
-import { userMakesBid } from './user-makes-bid.mjs';
+import { createModal } from '../modal-base/modals.mjs';
+import { userMakesBid } from '../user-makes-bid.mjs';
 
 export function listingModal(listingData) {
   // console.log('Geezzez christ', listingData);

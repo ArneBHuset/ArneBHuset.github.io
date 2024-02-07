@@ -48,3 +48,61 @@ document.getElementById('listingEndsAt').textContent = `Ends At: ${formatDateTim
 This method allows you to easily adjust the date format across different locales by changing the locale string (e.g., 'en-US') and the options passed to Intl.DateTimeFormat. The above example uses 'en-US' for American English formatting, but you can adjust this as needed to suit your application's audience.
 
 This approach gives you flexibility in how dates are displayed, making them more readable and user-friendly.
+
+
+
+CAROUSEL
+
+.carousel {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.carousel-items .carousel-item {
+  display: inline-block;
+  width: 100%; /* Adjust based on the number of items to show at once */
+  text-align: center;
+}
+
+
+.carousel {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.carousel-items .carousel-item {
+  display: inline-block;
+  width: 100%; /* Adjust based on the number of items to show at once */
+  text-align: center;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.carousel-item');
+  let currentIndex = 0;
+
+  function showItem(index) {
+    // Hide all items
+    items.forEach(item => item.style.display = 'none');
+
+    // Show the item at the given index
+    items[index].style.display = 'inline-block';
+  }
+
+  // Initial display
+  showItem(currentIndex);
+
+  // Event listeners for buttons
+  document.getElementById('prevBtn').addEventListener('click', function() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      showItem(currentIndex);
+    }
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', function() {
+    if (currentIndex < items.length - 1) {
+      currentIndex++;
+      showItem(currentIndex);
+    }
+  });
+});

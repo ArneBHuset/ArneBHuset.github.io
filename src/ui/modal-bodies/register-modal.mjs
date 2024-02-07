@@ -1,6 +1,6 @@
 // register-modal.mjs
-import { createModal } from './modal-base/modals.mjs';
-import { validateRegistrationData } from '../validation/regstr-validation.mjs';
+import { createModal } from '../modal-base/modals.mjs';
+import { validateRegistrationData } from '../../validation/regstr-validation.mjs';
 
 const registrationContent = `
   <h3 class="mb-4 font-bold text-3xl text-blue-500">Sign up!</h3>

@@ -1,6 +1,6 @@
 // login-modal.mjs
-import { createModal } from './modal-base/modals.mjs';
-import { validateLoginData } from '../validation/login-validate.mjs';
+import { createModal } from '../modal-base/modals.mjs';
+import { validateLoginData } from '../../validation/login-validate.mjs';
 
 const loginContent = `
 <div class="flex justify-center w-full p-4 ">
