@@ -1,6 +1,7 @@
 import { registerUrl } from '../globalValues/urls.mjs';
 import { registrationError } from '../error/registration-error.mjs';
 import { loginModal } from '../ui/modal-bodies/login-modal.mjs';
+import { UNvalidatedHeader } from '../globalValues/api-header.mjs';
 // import form data
 
 // bear in mind, registerUser should never run if the registrationData validation is not accepted!
@@ -13,9 +14,7 @@ export async function registerUser(registrationData) {
   try {
     const registerPostData = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: UNvalidatedHeader,
       body: JSON.stringify(registrationData),
     };
     const response = await fetch(registerUrl, registerPostData);

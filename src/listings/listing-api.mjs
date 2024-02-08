@@ -1,5 +1,6 @@
 import { testListingUrl } from '../filters/api-filter/url-filters.mjs';
 import { listingsRetrivalError } from '../error/listings-error/listingretrival-error.mjs';
+import { UNvalidatedHeader } from '../globalValues/api-header.mjs';
 
 /**
  * Main API call for fetch all listings from database
@@ -9,9 +10,7 @@ export async function callListings() {
   try {
     const retriveListingsData = {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: UNvalidatedHeader,
     };
     const response = await fetch(
       // Bedre filtrering

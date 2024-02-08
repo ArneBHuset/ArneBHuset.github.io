@@ -1,9 +1,9 @@
 // import { contrastSwitch } from './ui/high-contrast.mjs';
 // contrastSwitch();
 
-// import { fetchProfileData } from './profile/profile.mjs';
+import { fetchProfileData } from './profile/profile.mjs';
 
-// fetchProfileData();
+fetchProfileData();
 
 // import { createNewListing } from './listings/create-listing.mjs';
 
