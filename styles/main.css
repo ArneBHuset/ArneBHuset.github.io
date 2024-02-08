@@ -64,3 +64,14 @@
   max-width: 50vw !important;
   max-height: 90vh !important;
 }
+
+
+/* Additional styles if needed */
+#carouselItems {
+  width: calc(100% * (number of listings / 3)) !important;
+}
+
+.carousel-item {
+  flex-shrink: 0 !important;
+  width: calc(100% / 3) !important;
+}
