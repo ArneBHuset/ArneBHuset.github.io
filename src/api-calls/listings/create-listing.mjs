@@ -1,5 +1,5 @@
-import { listingsUrl } from '../globalValues/urls.mjs';
-import { checkingAccessToken } from '../access-token/validate-access-token.mjs';
+import { listingsUrl } from '../../globalValues/urls.mjs';
+import { checkingAccessToken } from '../../access-token/validate-access-token.mjs';
 // Funksjonen skal gå når man klikker post
 
 /**

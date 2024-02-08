@@ -1,6 +1,6 @@
-import { loginUrl } from '../globalValues/urls.mjs';
-import { loginError } from '../error/login-error.mjs';
-import { UNvalidatedHeader } from '../globalValues/api-header.mjs';
+import { loginUrl } from '../../globalValues/urls.mjs';
+import { loginError } from '../../error/login-error.mjs';
+import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
 
 /**
  * Runs API call for logging user in. if successfull, accesstoken and username will be set in local storage

@@ -1,5 +1,5 @@
-import { listingsUrl } from '../globalValues/urls.mjs';
-import { checkingAccessToken } from '../access-token/validate-access-token.mjs';
+import { listingsUrl } from '../../globalValues/urls.mjs';
+import { checkingAccessToken } from '../../access-token/validate-access-token.mjs';
 
 // Id finner man?
 let testID = `1d36126e-a74a-4e2a-87b2-26dc2d98309b`;

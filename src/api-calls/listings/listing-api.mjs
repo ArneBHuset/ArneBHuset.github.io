@@ -1,6 +1,6 @@
-import { testListingUrl } from '../filters/api-filter/url-filters.mjs';
-import { listingsRetrivalError } from '../error/listings-error/listingretrival-error.mjs';
-import { UNvalidatedHeader } from '../globalValues/api-header.mjs';
+import { filteredListingUrl } from '../../filters/api-filter/url-filters.mjs';
+import { listingsRetrivalError } from '../../error/listings-error/listingretrival-error.mjs';
+import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
 
 /**
  * Main API call for fetch all listings from database
@@ -14,7 +14,7 @@ export async function callListings() {
     };
     const response = await fetch(
       // Bedre filtrering
-      `${testListingUrl}?_seller=true&_bids=true`,
+      `${filteredListingUrl}?_seller=true&_bids=true`,
       retriveListingsData
     );
     // console.log('Listing data:', response);

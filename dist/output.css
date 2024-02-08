@@ -884,24 +884,12 @@ video {
   gap: 1rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
-.gap-12 {
-  gap: 3rem;
-}
-
 .gap-6 {
   gap: 1.5rem;
 }
 
-.gap-32 {
-  gap: 8rem;
-}
-
-.gap-16 {
-  gap: 4rem;
+.gap-8 {
+  gap: 2rem;
 }
 
 .overflow-auto {
@@ -1012,16 +1000,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-.bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -1310,6 +1288,10 @@ video {
   outline-offset: 2px;
 }
 
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1579,10 +1561,6 @@ video {
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:grid-cols-3 {

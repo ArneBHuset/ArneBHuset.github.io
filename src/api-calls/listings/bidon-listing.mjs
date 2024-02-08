@@ -1,5 +1,5 @@
-import { checkingAccessToken } from '../access-token/validate-access-token.mjs';
-import { listingsUrl } from '../globalValues/urls.mjs';
+import { checkingAccessToken } from '../../access-token/validate-access-token.mjs';
+import { listingsUrl } from '../../globalValues/urls.mjs';
 
 let testID = 'd8654d6b-4c7a-40a8-82c1-5fea47b16c45';
 

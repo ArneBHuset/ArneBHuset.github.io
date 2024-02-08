@@ -1,6 +1,6 @@
-import { profileUrl } from '../globalValues/urls.mjs';
-import { profileDataError } from '../error/profile-error/profile-data-error.mjs';
-import { validatedHeader } from '../globalValues/api-header.mjs';
+import { profileUrl } from '../../globalValues/urls.mjs';
+import { profileDataError } from '../../error/profile-error/profile-data-error.mjs';
+import { validatedHeader } from '../../globalValues/api-header.mjs';
 /**
  * Runs api call for fetching users profile data
  * @returns {ReturnType} - Returns oject with all profile data

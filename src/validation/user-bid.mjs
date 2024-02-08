@@ -1,6 +1,6 @@
 import { placedBid } from '../forms/bid-form.mjs';
-import { fetchProfileData } from '../profile/profile.mjs';
-import { bidOnListing } from '../listings/bidon-listing.mjs';
+import { fetchProfileData } from '../api-calls/profile/profile.mjs';
+import { bidOnListing } from '../api-calls/listings/bidon-listing.mjs';
 
 /**
  * Checks if form data from placedBid is valid, that user has sufficienct credits, and calls bidOnListing api-call

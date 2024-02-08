@@ -1,5 +1,5 @@
 import { loginInputData } from '../forms/login-form.mjs';
-import { userLogin } from '../login-out/login.mjs';
+import { userLogin } from '../api-calls/login/login.mjs';
 
 /**
  * Checks if form-data from loginInputData is valid and calls function userLogin for API call.

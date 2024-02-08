@@ -1,4 +1,4 @@
-import { callListings } from './listing-api.mjs';
+import { callListings } from "../../api-calls/listings/listing-api.mjs";
 // import { listingModal } from '../ui/modal-bodies/listing-modal.mjs';
 /**
  * Dynamically creates and inserts listing card into the DOM with data from callListings, using template literals for HTML structure.

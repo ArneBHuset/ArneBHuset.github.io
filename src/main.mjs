@@ -1,9 +1,9 @@
 // import { contrastSwitch } from './ui/high-contrast.mjs';
 // contrastSwitch();
 
-import { fetchProfileData } from './profile/profile.mjs';
+import { fetchProfileData } from './api-calls/profile/profile.mjs';
 
-fetchProfileData();
+// fetchProfileData();
 
 // import { createNewListing } from './listings/create-listing.mjs';
 
@@ -32,13 +32,13 @@ fetchProfileData();
 
 // deleteListing();
 
-import { landingPageListings } from './ui/landing-page/display-listing.mjs';
+import { landingPageListings } from './ui/landing-page/display-listing-carousel.mjs';
 
 landingPageListings();
 
 import { loginModal } from './ui/modal-bodies/login-modal.mjs';
 
-// loginModal();
+loginModal();
 
 import { registerModal } from './ui/modal-bodies/register-modal.mjs';
 

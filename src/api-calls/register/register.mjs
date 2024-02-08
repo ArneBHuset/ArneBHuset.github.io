@@ -1,7 +1,7 @@
-import { registerUrl } from '../globalValues/urls.mjs';
-import { registrationError } from '../error/registration-error.mjs';
-import { loginModal } from '../ui/modal-bodies/login-modal.mjs';
-import { UNvalidatedHeader } from '../globalValues/api-header.mjs';
+import { registerUrl } from '../../globalValues/urls.mjs';
+import { registrationError } from '../../error/registration-error.mjs';
+import { loginModal } from '../../ui/modal-bodies/login-modal.mjs';
+import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
 // import form data
 
 // bear in mind, registerUser should never run if the registrationData validation is not accepted!

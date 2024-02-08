@@ -1,6 +1,7 @@
 import { listingModal } from '../modal-bodies/listing-modal.mjs';
-import { listingCardBuild } from '../../listings/listing-card.mjs';
-import { callListings } from '../../listings/listing-api.mjs';
+import { listingCardBuild } from '../listings/listing-card.mjs'
+import { callListings } from '../../api-calls/listings/listing-api.mjs';
+
 
 export async function landingPageListings() {
   const htmlContent = await listingCardBuild();
