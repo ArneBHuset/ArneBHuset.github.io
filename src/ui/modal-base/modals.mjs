@@ -6,11 +6,15 @@ import { setModalContent } from './modal-content.mjs';
 
 export function createModal(initialContent = '') {
   let modalExists = document.getElementById('mainModal');
-  
+
   // Function to attach event listeners to the modal
   function attachEventListeners(modal) {
-    modal.querySelector('.modal-container').addEventListener('click', event => event.stopPropagation());
-    modal.querySelector('#closeModalBtn').addEventListener('click', () => closeModal(modal));
+    modal
+      .querySelector('.modal-container')
+      .addEventListener('click', event => event.stopPropagation());
+    modal
+      .querySelector('#closeModalBtn')
+      .addEventListener('click', () => closeModal(modal));
     modal.addEventListener('click', () => closeModal(modal));
   }
 
@@ -27,7 +31,7 @@ export function createModal(initialContent = '') {
           <div id="modalBody">${initialContent}</div>
         </div>
       </div>`;
-      
+
     document.body.insertAdjacentHTML('beforeend', mainModalBody);
     modalExists = document.getElementById('mainModal');
     attachEventListeners(modalExists);
@@ -37,7 +41,7 @@ export function createModal(initialContent = '') {
   return {
     openModal: () => openModal(modalExists),
     closeModal: () => closeModal(modalExists),
-    setModalContent: (htmlContent) => {
+    setModalContent: htmlContent => {
       // Directly access the modal's body to set its content
       const modalBody = modalExists.querySelector('#modalBody');
       if (modalBody) {

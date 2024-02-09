@@ -44,9 +44,6 @@ import { registerModal } from './ui/modal-bodies/register-modal.mjs';
 
 // registerModal();
 
-
-
 import { displayListingCards } from './ui/listing-page/display-listing.mjs';
 
 displayListingCards();
-

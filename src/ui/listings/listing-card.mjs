@@ -1,4 +1,4 @@
-import { callListings } from "../../api-calls/listings/listing-api.mjs";
+import { callListings } from '../../api-calls/listings/listing-api.mjs';
 // import { listingModal } from '../ui/modal-bodies/listing-modal.mjs';
 /**
  * Dynamically creates and inserts listing card into the DOM with data from callListings, using template literals for HTML structure.
@@ -9,8 +9,9 @@ export async function listingCardBuild() {
     const listingsData = await callListings();
 
     // Map each listingData item to an HTML string representing a listing card
-    const listingCardsHtml = listingsData.map(listing => {
-      return `<div class="bg-gray-100 flex items-center justify-center">
+    const listingCardsHtml = listingsData
+      .map(listing => {
+        return `<div class="bg-gray-100 flex items-center justify-center">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="max-w-md font-sans antialiased">
           <button type="button" data-listing-id="${listing.id}" class="listingModalButton group block min-h-full sm:h-80 lg:h-96 relative">
@@ -38,9 +39,9 @@ export async function listingCardBuild() {
     </div>
     
     `;
-  }).join('');
+      })
+      .join('');
 
-    
     return listingCardsHtml;
     // });
   } catch (error) {

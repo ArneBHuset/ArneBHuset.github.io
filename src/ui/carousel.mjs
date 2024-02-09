@@ -5,15 +5,23 @@ export function carousel() {
 
   let currentIndex = 0; // Index of the leftmost visible item
 
-  document.getElementById('prevBtn').addEventListener('click', () => {
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  prevBtn.addEventListener('click', () => {
     // Move to the previous item
-    currentIndex = Math.max(currentIndex - 1, 0);
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
     carouselItemsContainer.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
   });
 
-  document.getElementById('nextBtn').addEventListener('click', () => {
+  nextBtn.addEventListener('click', () => {
     // Move to the next item
-    currentIndex = Math.min(currentIndex + 1, items.length - 3);
+    currentIndex = (currentIndex + 1) % items.length;
     carouselItemsContainer.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
   });
+
+  // Start auto-sliding the carousel
+  setInterval(() => {
+    nextBtn.click(); // Simulate a click on the "Next" button
+  }, 10000); // Change slide every 3 seconds
 }
