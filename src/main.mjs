@@ -1,7 +1,7 @@
 // import { contrastSwitch } from './ui/high-contrast.mjs';
 // contrastSwitch();
 
-import { fetchProfileData } from './api-calls/profile/profile.mjs';
+// import { fetchProfileData } from './api-calls/profile/profile.mjs';
 
 // fetchProfileData();
 
@@ -34,11 +34,11 @@ import { fetchProfileData } from './api-calls/profile/profile.mjs';
 
 import { landingPageListings } from './ui/landing-page/display-listing-carousel.mjs';
 
-landingPageListings();
+// landingPageListings();
 
 import { loginModal } from './ui/modal-bodies/login-modal.mjs';
 
-loginModal();
+// loginModal();
 
 import { registerModal } from './ui/modal-bodies/register-modal.mjs';
 
@@ -46,4 +46,8 @@ import { registerModal } from './ui/modal-bodies/register-modal.mjs';
 
 import { displayListingCards } from './ui/listing-page/display-listing.mjs';
 
-displayListingCards();
+// displayListingCards();
+
+import { callListings } from './api-calls/listings/listing-api.mjs';
+
+callListings();

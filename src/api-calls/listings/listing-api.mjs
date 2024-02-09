@@ -1,4 +1,4 @@
-import { filteredListingUrl } from '../../filters/api-filter/url-filters.mjs';
+import { filteredListingUrl } from '../../filters/api-filter/all-query-filters.mjs';
 import { listingsRetrivalError } from '../../error/listings-error/listingretrival-error.mjs';
 import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
 
@@ -8,18 +8,16 @@ import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
  */
 export async function callListings() {
   try {
+    const filteredUrl = await filteredListingUrl();
+    console.log(filteredUrl);
     const retriveListingsData = {
       method: 'GET',
       headers: UNvalidatedHeader,
     };
-    const response = await fetch(
-      // Bedre filtrering
-      `${filteredListingUrl}?_seller=true&_bids=true`,
-      retriveListingsData
-    );
-    // console.log('Listing data:', response);
+    const response = await fetch(filteredUrl, retriveListingsData);
+    console.log('Listing data:', response);
     const json = await response.json();
-    // console.log(json);
+    console.log(json);
     return json;
   } catch (error) {
     listingsRetrivalError(error);

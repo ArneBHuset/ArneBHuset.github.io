@@ -614,12 +614,12 @@ video {
   left: 0px;
 }
 
-.top-1\/2 {
-  top: 50%;
-}
-
 .right-0 {
   right: 0px;
+}
+
+.top-1\/2 {
+  top: 50%;
 }
 
 .z-10 {
