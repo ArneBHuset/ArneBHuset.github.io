@@ -70,4 +70,3 @@ export async function landingPageListings() {
 }
 
 // Call the function to set up the carousel
-landingPageListings();

@@ -15,7 +15,7 @@ export async function callListings() {
       headers: UNvalidatedHeader,
     };
     const response = await fetch(filteredUrl, retriveListingsData);
-    console.log('Listing data:', response);
+    // console.log('Listing data:', response);
     const json = await response.json();
     // console.log(json);
     return json;

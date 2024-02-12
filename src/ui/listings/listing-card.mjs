@@ -1,4 +1,4 @@
-import { callListings } from '../../api-calls/listings/listing-api.mjs';
+import { filteredListingData } from '../../filters/jsondata-filter/filtered-json.mjs';
 // import { listingModal } from '../ui/modal-bodies/listing-modal.mjs';
 /**
  * Dynamically creates and inserts listing card into the DOM with data from callListings, using template literals for HTML structure.
@@ -6,7 +6,8 @@ import { callListings } from '../../api-calls/listings/listing-api.mjs';
 export async function listingCardBuild() {
   try {
     // Fetch the listings data
-    const listingsData = await callListings();
+    const listingsData = await filteredListingData();
+    // console.log('This is now the data used to create card', listingsData);
     // Check if listingsData is not an array, wrap it in an array
     const normalizedListingsData = Array.isArray(listingsData)
       ? listingsData

@@ -1,6 +1,5 @@
 import { listingsUrl } from '../../globalValues/urls.mjs';
-import { checkingAccessToken } from '../../access-token/validate-access-token.mjs';
-// Funksjonen skal gå når man klikker post
+import { validatedHeader } from '../../globalValues/api-header.mjs';
 
 /**
  * Runs API call to create a new listing.
@@ -8,21 +7,41 @@ import { checkingAccessToken } from '../../access-token/validate-access-token.mj
  */
 export async function createNewListing(listingFormData) {
   try {
-    const accessToken = await checkingAccessToken();
     console.log(listingFormData);
     const newListingCall = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
+      headers: validatedHeader,
       body: JSON.stringify(listingFormData),
     };
+
     const response = await fetch(listingsUrl, newListingCall);
-    console.log('Success in creating new listing', response);
-    const json = await response.json();
-    console.log(json);
-  } catch (error) {
-    console.log(error);
+
+    // Check if the response status is not in the range of 2xx
+    if (!response.ok) {
+      // Attempt to parse the error response body for detailed error messages
+      try {
+        const errorResponse = await response.json();
+        console.error('Error in creating new listing:', errorResponse);
+        alert(
+          `Failed to create listing: ${errorResponse.message || 'An error occurred'}`
+        );
+      } catch (parseError) {
+        // If parsing the error response fails, log and alert with a generic message
+        console.error('Error parsing error response:', parseError);
+        alert(
+          'Failed to create listing: An error occurred, and we could not retrieve detailed information.'
+        );
+      }
+    } else {
+      // If the request was successful, log and possibly display success feedback
+      const json = await response.json();
+      console.log('Success in creating new listing', json);
+      // Optionally, alert or update UI with success message
+      alert('Listing created successfully!');
+    }
+  } catch (networkError) {
+    // Handle network errors (e.g., request was not sent)
+    console.error('Network error:', networkError);
+    alert('Failed to create listing: Network error or CORS issue.');
   }
 }

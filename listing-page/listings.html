@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Listing page</title>
+    <link rel="stylesheet" href="../dist/output.css" id="mainStylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <header class="border-b-2 border-primary bg-primary-1">
+      <div
+        class="mx-auto flex h-32 max-w-screen-xl items-center gap-8 sm px-6 sm:px-20 lg:px-44"
+      >
+        <a href="/">
+          <img
+            src="../assets/img/logo-no-background.png"
+            height="auto"
+            width="100"
+          />
+        </a>
+
+        <div class="flex flex-1 items-center justify-end md:justify-between">
+          <nav aria-label="Global" class="hidden md:block">
+            <ul
+              class="flex items-center gap-14 ps-8 text-xl font-primary text-primary-2"
+            >
+              <li>
+                <a class="transition hover:text-black" href="/"> About </a>
+              </li>
+
+              <li>
+                <a class="transition hover:text-gray-500/75" href="/">
+                  Careers
+                </a>
+              </li>
+
+              <li>
+                <a class="transition hover:text-gray-500/75" href="/">
+                  History
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="flex items-center gap-4">
+            <div class="sm:flex sm:gap-4">
+              <button
+                id="openModalBtn"
+                class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+              >
+                Loginmodal
+              </button>
+
+              <button
+                id="openRegisterModalBtn"
+                class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
+              >
+                Register
+              </button>
+            </div>
+
+            <button
+              class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+            >
+              <span class="sr-only">Toggle menu</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section>
+      <div class="w-96">
+        <h3 class="mb-4 font-bold text-3xl text-blue-500">Add listing</h3>
+        <form id="newListingForm" class="px-3 flex flex-col items-center gap-3">
+          <input
+            type="text"
+            id="listingTitle"
+            placeholder="Listing Title.."
+            autocomplete="off"
+            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+          />
+          <input
+            type="text"
+            id="listingDescription"
+            placeholder="Add description.."
+            autocomplete="off"
+            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+          />
+          <input
+            type="text"
+            id="listingTags"
+            placeholder="#Tags.."
+            autocomplete="off"
+            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+          />
+          <input
+            type="text"
+            id="listingMedia"
+            placeholder="Add picture link.."
+            autocomplete="off"
+            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+          />
+          <input
+            type="date"
+            id="listingEndsAt"
+            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+          />
+          <span class="text-primary2" id="dateInfo"></span>
+          <button
+            type="button"
+            id="addListingBtn"
+            class="mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 focus:outline-none"
+          >
+            Post Listing
+          </button>
+        </form>
+      </div>
+    </section>
+    <section>
+      <div class="container mx-auto pt-12" id="listingsContainer"></div>
+    </section>
+  </body>
+  <script type="module" src="./index.mjs"></script>
+</html>
