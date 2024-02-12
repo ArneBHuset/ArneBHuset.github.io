@@ -1,5 +1,6 @@
 import { newestListings } from './filter-by-creationdate.mjs';
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
+import { filteredProfileUrl } from '../api-filter/profile/profile-filter.mjs';
 
 export async function filteredListingData() {
   // THIS SECTION SIMULATES THE UI

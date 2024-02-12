@@ -10,7 +10,7 @@ import { bidValidation } from '../validation/user-bid.mjs';
 // class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500"
 // />`;
 
-export async function userMakesBid() {
+export async function userMakesBid(listingId) {
   const biddingBtn = document.getElementById('biddingBtn');
   const biddingArea = document.getElementById('inputArea');
 
@@ -19,7 +19,7 @@ export async function userMakesBid() {
       biddingArea.classList.remove('hidden', 'translate-x-full'); // Make the element visible and start the animation
       biddingArea.classList.add('translate-x-0'); // Move element to its original position
       // Assuming bidValidation is a function you've defined elsewhere
-      bidValidation();
+      bidValidation(listingId);
     });
   } else {
     console.log('Bidding button unavailable');

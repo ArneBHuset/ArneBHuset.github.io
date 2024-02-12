@@ -52,5 +52,5 @@ export function listingModal(listingData) {
   const modal = createModal();
   modal.setModalContent(modalContent);
   modal.openModal();
-  userMakesBid();
+  userMakesBid(listingData.id);
 }

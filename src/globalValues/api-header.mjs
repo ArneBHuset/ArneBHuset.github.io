@@ -1,4 +1,4 @@
-import { checkingAccessToken } from '../access-token/validate-access-token.mjs';
+import { checkingAccessToken } from '../local-storage/validate-access-token.mjs';
 
 export const UNvalidatedHeader = {
   'Content-Type': 'application/json',

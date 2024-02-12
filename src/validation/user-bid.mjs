@@ -1,11 +1,11 @@
 import { placedBid } from '../forms/bid-form.mjs';
-import { fetchProfileData } from '../api-calls/profile/profile.mjs';
+import { fetchProfileData } from '../api-calls/profile/profile-data.mjs';
 import { bidOnListing } from '../api-calls/listings/bidon-listing.mjs';
 
 /**
  * Checks if form data from placedBid is valid, that user has sufficienct credits, and calls bidOnListing api-call
  */
-export async function bidValidation() {
+export async function bidValidation(listingId) {
   const placeBidBtn = document.getElementById('biddingBtn');
   placeBidBtn.addEventListener('click', async () => {
     const userProfile = await fetchProfileData();
@@ -24,6 +24,6 @@ export async function bidValidation() {
       console.log('Insufficient credits in wallet');
       return;
     }
-    bidOnListing(userBid);
+    bidOnListing(userBid, listingId);
   });
 }

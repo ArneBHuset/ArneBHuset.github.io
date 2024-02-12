@@ -1,5 +1,5 @@
 import { listingsUrl } from '../../globalValues/urls.mjs';
-import { checkingAccessToken } from '../../access-token/validate-access-token.mjs';
+import { validatedHeader } from '../../globalValues/api-header.mjs';
 let testID = `1d36126e-a74a-4e2a-87b2-26dc2d98309b`;
 
 /**
@@ -12,10 +12,7 @@ export async function updateListing(updateDataForm) {
 
     const updateApiCall = {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
+      headers: validatedHeader,
       body: JSON.stringify(updateDataForm),
     };
     const response = await fetch(`${listingsUrl}/${testID}`, updateApiCall);

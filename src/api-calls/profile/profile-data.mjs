@@ -1,4 +1,4 @@
-import { profileUrl } from '../../globalValues/urls.mjs';
+import { filteredProfileUrl } from '../../filters/api-filter/profile/profile-filter.mjs';
 import { profileDataError } from '../../error/profile-error/profile-data-error.mjs';
 import { validatedHeader } from '../../globalValues/api-header.mjs';
 /**
@@ -7,6 +7,7 @@ import { validatedHeader } from '../../globalValues/api-header.mjs';
  */
 export async function fetchProfileData() {
   try {
+    const profileUrl = await filteredProfileUrl();
     const profileApiCall = {
       method: 'GET',
       headers: validatedHeader,

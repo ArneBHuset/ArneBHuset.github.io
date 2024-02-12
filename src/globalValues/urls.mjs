@@ -19,4 +19,4 @@ export const registerUrl = `${API_BASE_URL}/auction/auth/register`;
 /**
  * URL endpoint for profiles
  */
-export const profileUrl = `${API_BASE_URL}/auction/profiles/testytest`;
+export const profileUrl = `${API_BASE_URL}/auction/profiles`;

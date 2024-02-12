@@ -4,6 +4,9 @@ import { displayFeaturedListing } from './ui/landing-page/featured-listing.mjs';
 import { landingPageListings } from './ui/landing-page/display-listing-carousel.mjs';
 import { displayListingCards } from './ui/listing-page/display-listing.mjs';
 import { validatedNewListing } from './validation/listing-validation.mjs';
+import { userWelcomeMessage } from './ui/landing-page/welcome-message.mjs';
+import { displayProfileData } from './ui/profile-page.mjs/display-profile.mjs';
+import { bidsMadeByUser } from './ui/profile-page.mjs/bids-made.mjs';
 
 export {
   loginModal,
@@ -12,4 +15,7 @@ export {
   landingPageListings,
   displayListingCards,
   validatedNewListing,
+  userWelcomeMessage,
+  displayProfileData,
+  bidsMadeByUser,
 };
