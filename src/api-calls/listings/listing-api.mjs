@@ -9,7 +9,7 @@ import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
 export async function callListings() {
   try {
     const filteredUrl = await filteredListingUrl();
-    console.log(filteredUrl);
+    // console.log(filteredUrl);
     const retriveListingsData = {
       method: 'GET',
       headers: UNvalidatedHeader,
@@ -17,7 +17,7 @@ export async function callListings() {
     const response = await fetch(filteredUrl, retriveListingsData);
     console.log('Listing data:', response);
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
     listingsRetrivalError(error);

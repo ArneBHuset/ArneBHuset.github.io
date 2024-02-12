@@ -6,8 +6,13 @@ import { userLogin } from '../api-calls/login/login.mjs';
  */
 export async function validateLoginData() {
   console.log('TestingTEsting2');
-  const loginBtn = document.getElementById('loginBtn');
-  loginBtn.addEventListener('click', async () => {
+  let loginForm = document.getElementById('loginForm');
+
+  // Corrected to an arrow function for simplicity, but you could also use `async function(event) {...}`
+  loginForm.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    // Assuming loginInputData is an async function that returns the login data
     const userLoginData = await loginInputData();
     if (!userLoginData.email || !userLoginData.password) {
       console.log('Email and password cannot be empty.');
@@ -20,7 +25,7 @@ export async function validateLoginData() {
       return;
     }
 
-    //   here the api call for logging in is called
+    // Assuming userLogin is another function that handles the login API call
     userLogin(userLoginData);
   });
 }

@@ -6,7 +6,9 @@ import { callListings } from '../../api-calls/listings/listing-api.mjs';
 export async function landingPageListings() {
   // Get the HTML string with all listing cards
   const listingCardsHtml = await listingCardBuild();
-  const listingData = await callListings();
+  let listingData = await callListings();
+
+  listingData = Array.isArray(listingData) ? listingData : [listingData];
 
   // Convert the string to HTML elements
   const tempDiv = document.createElement('div');

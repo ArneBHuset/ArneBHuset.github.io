@@ -6,15 +6,31 @@ import { currentTagsFilter } from '../../ui/landing-page/filter-interaction/tags
 import { listingFilterById } from './specific-id-listing.mjs';
 
 export async function filteredListingUrl() {
-  const activeBooleon = await currentActiveFilter();
-  const bidsBooleon = await currentBidsFilter();
-  const sellerBooleon = await currentSellerFilter();
+  const activeBoolean = await currentActiveFilter();
+  const bidsBoolean = await currentBidsFilter();
+  const sellerBoolean = await currentSellerFilter();
   const tagsValue = await currentTagsFilter();
   const idValue = await listingFilterById();
 
-  let apiFilter = `${listingsUrl}${id}?_seller=${sellerBooleon}&_bids=${bidsBooleon}&_tag=${tagsValue}&_active=${activeBooleon}`;
-  console.log('before all harm', apiFilter);
+  // Step 1: Start with the base URL
+  let apiFilter = listingsUrl;
 
-  console.log('filter to be sent', apiFilter);
+  // Step 2: Conditionally append the ID
+  if (idValue) {
+    apiFilter += `/${idValue}`;
+  }
+
+  // Step 3: Construct query parameters string
+  const queryParams = [
+    `_seller=${sellerBoolean}`,
+    `_bids=${bidsBoolean}`,
+    `_tag=${encodeURIComponent(tagsValue)}`, // Encoding the tag to handle special characters
+    `_active=${activeBoolean}`,
+  ].join('&');
+
+  // Append the query parameters to the URL
+  apiFilter += `?${queryParams}`;
+
+  // console.log('API Filter URL:', apiFilter);
   return apiFilter;
 }

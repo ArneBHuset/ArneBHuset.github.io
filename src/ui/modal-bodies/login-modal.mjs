@@ -12,6 +12,7 @@ const loginContent = `
   </h3>
   <form
     action="#"
+    id="loginForm"
     class=" flex flex-col justify-center items-center gap-4 py-4"
   >
     <input
@@ -65,7 +66,6 @@ const loginContent = `
 
 export function loginModal() {
   document.getElementById('openModalBtn').addEventListener('click', () => {
-    console.log('TestingTEsting');
     const modal = createModal(); // Prepare the modal without initial content
     modal.openModal(); // Display the modal
     modal.setModalContent(loginContent); // Now set the content

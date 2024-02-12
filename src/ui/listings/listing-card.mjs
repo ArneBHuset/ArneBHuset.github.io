@@ -7,10 +7,24 @@ export async function listingCardBuild() {
   try {
     // Fetch the listings data
     const listingsData = await callListings();
+    // Check if listingsData is not an array, wrap it in an array
+    const normalizedListingsData = Array.isArray(listingsData)
+      ? listingsData
+      : [listingsData];
 
     // Map each listingData item to an HTML string representing a listing card
-    const listingCardsHtml = listingsData
+    const listingCardsHtml = normalizedListingsData
       .map(listing => {
+        let sellerInfo = 'Seller information not available';
+        if (
+          listing.seller &&
+          listing.seller.name &&
+          listing.seller.email &&
+          listing.seller.avatar
+        ) {
+          sellerInfo = `Seller: ${listing.seller.name}, Email: ${listing.seller.email}, Avatar ${listing.seller.avatar}`;
+        }
+
         return `<div class="bg-gray-100 flex items-center justify-center">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="max-w-md font-sans antialiased">
@@ -28,7 +42,7 @@ export async function listingCardBuild() {
                 <span class="text-sm sm:text-base">
                   <div class="h-3/5 mb-4"></div>
                   <span class="listingEndsAt">Ends At: ${listing.endsAt}</span><br />
-                  <span class="listingSeller">Seller: ${listing.seller.name}, Email: ${listing.seller.email}</span><br />
+                  <span class="listingSeller">Seller:${sellerInfo}</span><br />
                 </span>
                 <p class="mt-8 font-bold"></p>
               </div>

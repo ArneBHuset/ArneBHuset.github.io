@@ -3,9 +3,12 @@ import { listingModal } from '../modal-bodies/listing-modal.mjs';
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
 
 export async function displayListingCards() {
-  const listingData = await callListings(); // Fetch listing data
+  let listingData = await callListings(); // Fetch listing data
   const listingCardsHtml = await listingCardBuild(listingData); // Build listing cards HTML
   const listingsContainer = document.getElementById('listingsContainer');
+
+  // Normalize listingData to ensure it's always an array
+  listingData = Array.isArray(listingData) ? listingData : [listingData];
 
   // Set the inner HTML of the listings container to include all listing cards
   listingsContainer.innerHTML = `

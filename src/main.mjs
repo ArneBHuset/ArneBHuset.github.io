@@ -32,22 +32,22 @@
 
 // deleteListing();
 
-import { landingPageListings } from './ui/landing-page/display-listing-carousel.mjs';
+// import { landingPageListings } from './ui/landing-page/display-listing-carousel.mjs';
 
 // landingPageListings();
 
-import { loginModal } from './ui/modal-bodies/login-modal.mjs';
+// import { loginModal } from './ui/modal-bodies/login-modal.mjs';
 
 // loginModal();
 
-import { registerModal } from './ui/modal-bodies/register-modal.mjs';
+// import { registerModal } from './ui/modal-bodies/register-modal.mjs';
 
 // registerModal();
 
 import { displayListingCards } from './ui/listing-page/display-listing.mjs';
 
-// displayListingCards();
+displayListingCards();
 
-import { callListings } from './api-calls/listings/listing-api.mjs';
+// import { callListings } from './api-calls/listings/listing-api.mjs';
 
-callListings();
+// callListings();

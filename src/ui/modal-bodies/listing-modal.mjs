@@ -2,7 +2,27 @@ import { createModal } from '../modal-base/modals.mjs';
 import { userMakesBid } from '../user-makes-bid.mjs';
 
 export function listingModal(listingData) {
-  // console.log('Geezzez christ', listingData);
+  let sellerInfo = 'Seller information not available';
+  // Corrected from 'listing' to 'listingData'
+  if (
+    listingData.seller &&
+    listingData.seller.name &&
+    listingData.seller.email &&
+    listingData.seller.avatar
+  ) {
+    sellerInfo = `Seller: ${listingData.seller.name}, Email: ${listingData.seller.email}, Avatar: ${listingData.seller.avatar}`;
+  }
+
+  // Handle missing bids information gracefully
+  let bidsDetails = 'No bids available';
+  if (listingData.bids && listingData.bids.length > 0) {
+    bidsDetails = listingData.bids
+      .map(
+        bid =>
+          `Bid ID: ${bid.id}, Amount: ${bid.amount}, Bidder Name: ${bid.bidderName}, Created: ${bid.created}`
+      )
+      .join('<br>');
+  }
 
   const modalContent = `<div class="listing-modal-size grid grid-rows-auto gap-2 font-primary text-primary2 overflow-auto lg:max-w-2/3 xl:max-w-1/2 mx-auto">
   <div class="listingMedia flex justify-center items-center bg-primary2">
@@ -10,10 +30,10 @@ export function listingModal(listingData) {
   </div>
   <h3 class="text-xl font-semibold text-center listingTitle">${listingData.title}</h3>
   <div class="text-md text-center font-secondary listingDescription">${listingData.description}</div>
-  <div class="text-sm listingSeller">Seller: ${listingData.seller.name}, Email: ${listingData.seller.email}</div>
+  <div class="text-sm listingSeller">Seller: ${sellerInfo}</div>
   <div class="text-sm listingEndsAt">Ends At: ${listingData.endsAt}</div>
   <div class="text-sm listingBids">Bid Count: ${listingData._count.bids}</div>
-  <div class="text-sm listingBidsDetails">${listingData.bids.map(bid => `Bid ID: ${bid.id}, Amount: ${bid.amount}, Bidder Name: ${bid.bidderName}, Created: ${bid.created}`).join('<br>') || 'No bids available'}</div>
+  <div class="text-sm listingBidsDetails">${bidsDetails}</div>
   <div class="text-sm listingTags">Tags: ${listingData.tags.join(', ')}</div>
   <div>
     <div class="text-sm listingCreated">Created: ${listingData.created} ----- Last Updated:${listingData.updated}</div>

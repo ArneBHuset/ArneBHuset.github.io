@@ -1,6 +1,5 @@
 import { openModal } from './open-modal.mjs';
 import { closeModal } from './close-modal.mjs';
-import { setModalContent } from './modal-content.mjs';
 
 // Assuming openModal, closeModal, and setModalContent are properly defined in their respective modules
 

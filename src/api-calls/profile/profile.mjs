@@ -7,20 +7,15 @@ import { validatedHeader } from '../../globalValues/api-header.mjs';
  */
 export async function fetchProfileData() {
   try {
-    const accessToken = await checkingAccessToken();
-    if (accessToken) {
-      const profileApiCall = {
-        method: 'GET',
-        headers: validatedHeader,
-      };
-      const response = await fetch(profileUrl, profileApiCall);
-      console.log('Profile response', response);
-      const json = await response.json();
-      console.log(json);
-      return json;
-    } else {
-      throw new Error('No access token found');
-    }
+    const profileApiCall = {
+      method: 'GET',
+      headers: validatedHeader,
+    };
+    const response = await fetch(profileUrl, profileApiCall);
+    console.log('Profile response', response);
+    const json = await response.json();
+    console.log(json);
+    return json;
   } catch (error) {
     profileDataError(error);
   }
