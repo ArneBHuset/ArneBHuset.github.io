@@ -31,7 +31,9 @@ export async function displayProfileData() {
 
       return `
       <div class="profile-card">
+      <button id="updateModalBtn">
         <img src="${profile.avatar}" width="200" height="auto" alt="${profile.name}'s avatar" class="">
+      </button>
         <div>Name: ${profile.name}</div>
         <div>Email: ${profile.email}</div>
         <div>Credits: ${profile.credits}</div>

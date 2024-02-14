@@ -1,5 +1,5 @@
-import { displayProfileData, bidsMadeByUser } from '../src/main.mjs';
+import { displayProfileData, filterListingsByUserBids } from '../src/main.mjs';
 
 displayProfileData();
 
-bidsMadeByUser();
+filterListingsByUserBids();

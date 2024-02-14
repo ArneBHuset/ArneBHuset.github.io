@@ -18,7 +18,7 @@ export async function bidsMadeData() {
     );
     console.log('Profile bids response', response);
     const json = await response.json();
-    console.log(json);
+    console.log('This is the result of ', json);
     return json;
   } catch (error) {
     console.log('Error wtih profile bids data', error);
