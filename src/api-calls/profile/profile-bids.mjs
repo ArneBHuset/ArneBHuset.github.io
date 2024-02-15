@@ -16,9 +16,9 @@ export async function bidsMadeData() {
       `${profileUrl}/${userName}/bids?_listing=true`,
       profileApiCall
     );
-    console.log('Profile bids response', response);
+    // console.log('Profile bids response', response);
     const json = await response.json();
-    console.log('This is the result of ', json);
+    // console.log('This is the result of ', json);
     return json;
   } catch (error) {
     console.log('Error wtih profile bids data', error);

@@ -5,7 +5,6 @@ export const UNvalidatedHeader = {
 };
 
 const accessToken = await checkingAccessToken();
-
 export const validatedHeader = {
   'Content-Type': 'application/json',
   Authorization: `Bearer ${accessToken}`,

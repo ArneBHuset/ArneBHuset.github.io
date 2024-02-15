@@ -4,16 +4,18 @@ import { validatedHeader } from '../../globalValues/api-header.mjs';
 
 export async function changeProfileImg(newMedia) {
   try {
+    console.log('body', newMedia);
     const userName = await currentProfileName();
     const updateProfileCall = {
       method: 'PUT',
-      header: validatedHeader,
-      body: newMedia,
+      headers: validatedHeader,
+      body: JSON.stringify(newMedia),
     };
     const response = await fetch(
       `${profileUrl}/${userName}/media`,
       updateProfileCall
     );
+    console.log('api call??s', updateProfileCall);
     const json = await response.json();
     console.log('Result of profile update', json, response);
   } catch (error) {

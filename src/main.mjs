@@ -6,7 +6,6 @@ import { displayListingCards } from './ui/listing-page/display-listing.mjs';
 import { validatedNewListing } from './validation/listing-validation.mjs';
 import { userWelcomeMessage } from './ui/landing-page/welcome-message.mjs';
 import { displayProfileData } from './ui/profile-page.mjs/display-profile.mjs';
-import { filterListingsByUserBids } from './filters/api-filter/profile/user-bids-listings.mjs';
 
 export {
   loginModal,
@@ -17,5 +16,4 @@ export {
   validatedNewListing,
   userWelcomeMessage,
   displayProfileData,
-  filterListingsByUserBids,
 };

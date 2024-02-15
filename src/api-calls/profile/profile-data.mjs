@@ -13,9 +13,9 @@ export async function fetchProfileData() {
       headers: validatedHeader,
     };
     const response = await fetch(profileUrl, profileApiCall);
-    console.log('Profile response', response);
+    // console.log('Profile response', response);
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
     profileDataError(error);

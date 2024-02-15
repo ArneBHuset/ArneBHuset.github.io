@@ -1,5 +1,6 @@
 import { loginInputData } from '../forms/login-form.mjs';
 import { userLogin } from '../api-calls/login/login.mjs';
+import { closeModal } from '../ui/modal-base/close-modal.mjs';
 
 /**
  * Checks if form-data from loginInputData is valid and calls function userLogin for API call.
@@ -26,6 +27,11 @@ export async function validateLoginData() {
     }
 
     // Assuming userLogin is another function that handles the login API call
-    userLogin(userLoginData);
+    try {
+      await userLogin(userLoginData);
+    } catch (error) {
+      console.log('Could not log in');
+    }
+    window.location.reload();
   });
 }

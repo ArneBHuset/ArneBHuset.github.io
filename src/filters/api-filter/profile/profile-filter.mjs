@@ -27,6 +27,6 @@ export async function filteredProfileUrl() {
     profileApiFilter += `?${queryParams}`;
   }
 
-  console.log('API Filter URL for Profiles:', profileApiFilter);
+  // console.log('API Filter URL for Profiles:', profileApiFilter);
   return profileApiFilter;
 }
