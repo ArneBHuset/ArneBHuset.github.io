@@ -9,5 +9,6 @@ export async function checkingAccessToken() {
     return localAccessToken;
   } else {
     console.log('Access token unavailable');
+    return null;
   }
 }
