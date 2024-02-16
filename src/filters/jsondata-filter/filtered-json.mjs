@@ -6,18 +6,18 @@ export async function filteredListingData() {
   // THIS SECTION SIMULATES THE UI
 
   // UI ENDS
-  const allApiListingsReturned = await callListings();
+  const allApiListingsReturned = await newestListings();
 
   if (document.body.dataset.page === 'index') {
     const listingsSortedByDate = await newestListings();
     const tenNewestListings = listingsSortedByDate.slice(0, 10);
-    console.log('This is the root index page', listingsSortedByDate);
+    console.log('This is the root index page', tenNewestListings);
     return tenNewestListings;
   }
 
   if (document.body.dataset.page === 'profile') {
     const listingsSortedForProfile = await filteredProfileListings();
-    console.log('This is the root index page', listingsSortedForProfile);
+    console.log('This is the profile page', listingsSortedForProfile);
 
     return listingsSortedForProfile;
   }

@@ -35,9 +35,8 @@ export async function createNewListing(listingFormData) {
     } else {
       // If the request was successful, log and possibly display success feedback
       const json = await response.json();
-      console.log('Success in creating new listing', json);
+      console.log('Success in creating new listing', json, response);
       // Optionally, alert or update UI with success message
-      alert('Listing created successfully!');
     }
   } catch (networkError) {
     // Handle network errors (e.g., request was not sent)

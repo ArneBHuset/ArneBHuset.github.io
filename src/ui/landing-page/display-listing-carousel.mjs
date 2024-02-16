@@ -4,22 +4,19 @@ import { carousel } from '../carousel.mjs';
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
 
 export async function landingPageListings() {
-  // Get the HTML string with all listing cards
-  const listingCardsHtml = await listingCardBuild();
-  let listingData = await callListings();
+  try {
+    // Attempt to build listing cards and fetch listing data
+    const listingCardsHtml = await listingCardBuild();
+    let listingData = await callListings();
+    // console.log('in the carousel build:', listingCardsHtml, listingData);
 
-  listingData = Array.isArray(listingData) ? listingData : [listingData];
+    listingData = Array.isArray(listingData) ? listingData : [listingData];
 
-  // Convert the string to HTML elements
-  const tempDiv = document.createElement('div');
-  tempDiv.innerHTML = listingCardsHtml;
+    // Prepare the container for the carousel structure
+    const listingsContainer = document.getElementById('listingCards');
+    if (!listingsContainer) throw new Error('Listing container not found');
 
-  // Extract individual cards from the temporary div
-  const cards = tempDiv.querySelectorAll('.max-w-md');
-
-  // Prepare the container for the carousel structure
-  const listingsContainer = document.getElementById('listingCards');
-  listingsContainer.innerHTML = `
+    listingsContainer.innerHTML = `
   <section class="h-full overflow-hidden relative ">
   <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 text-white px-4 py-2 z-10">
         <span class="material-symbols-outlined">
@@ -38,35 +35,49 @@ export async function landingPageListings() {
       </div>   
     </section>`;
 
-  // Get the carousel items container
-  const carouselItemsContainer = document.getElementById('carouselItems');
+    // Get the carousel items container
+    // Convert the string to HTML elements and setup carousel
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = listingCardsHtml;
+    const cards = tempDiv.querySelectorAll('.max-w-md');
 
-  // Add each card to the carousel as an individual item
-  // Add each card to the carousel as an individual item
-  cards.forEach(card => {
-    const carouselItem = document.createElement('div');
-    // Tailwind classes for carousel item
-    carouselItem.className =
-      'carousel-item  flex-none w-full ms-10 md:mx-auto sm:w-6/12  md:w-5/12 lg:w-4/12 lg:max-w-96'; // flex-none prevents shrinking, w-1/3 sets the width to one-third
-    carouselItem.appendChild(card); // Add the card to the carousel item
-    carouselItemsContainer.appendChild(carouselItem); // Add the carousel item to the container
-  });
+    // Ensure cards are found
+    if (cards.length === 0) throw new Error('No listing cards were generated');
 
-  // Initialize the carousel functionality
-  carousel();
+    const carouselItemsContainer = document.getElementById('carouselItems');
+    if (!carouselItemsContainer)
+      throw new Error('Carousel items container not found');
 
-  // Add event listener for modal functionality
-  listingsContainer.addEventListener('click', function (e) {
-    // Check if the clicked element or its parent has the 'listingModalButton' class
+    cards.forEach(card => {
+      const carouselItem = document.createElement('div');
+      carouselItem.className = 'carousel-item ...'; // Your class names here
+      carouselItem.appendChild(card);
+      carouselItemsContainer.appendChild(carouselItem);
+    });
+
+    // Initialize the carousel functionality
+    carousel();
+
+    // Add event listener for modal functionality
+    setupModalInteraction(listingsContainer, listingData);
+  } catch (error) {
+    console.error('Error in landingPageListings:', error);
+    // Optionally, display an error message in the UI
+  }
+}
+
+function setupModalInteraction(container, listingData) {
+  container.addEventListener('click', function (e) {
     const target = e.target.closest('.listingModalButton');
     if (target) {
-      const listingId = target.dataset.listingId; // Get the data-listing-id attribute
-      const listing = listingData.find(listing => listing.id === listingId); // Find the corresponding listing data
+      const listingId = target.dataset.listingId;
+      const listing = listingData.find(listing => listing.id === listingId);
       if (listing) {
-        listingModal(listing); // Open the modal with the specific listing data
+        listingModal(listing);
+      } else {
+        console.error('Listing not found for ID:', listingId);
+        // Optionally, inform the user that the listing could not be found
       }
     }
   });
 }
-
-// Call the function to set up the carousel

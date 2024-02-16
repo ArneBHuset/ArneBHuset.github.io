@@ -1,6 +1,8 @@
 import { listingCardBuild } from '../listings/listing-card.mjs';
 import { listingModal } from '../modal-bodies/listing-modal.mjs';
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
+import { setupDeleteListingInteractions } from './delete-listing.mjs';
+import { setupUpdateListingInteractions } from './update-listing.mjs';
 
 export async function displayListingCards() {
   let listingData = await callListings(); // Fetch listing data
@@ -18,12 +20,16 @@ export async function displayListingCards() {
 
   // Add event listener for click events within the listings container
   listingsContainer.addEventListener('click', function (e) {
+    setupDeleteListingInteractions(listingsContainer);
+    setupUpdateListingInteractions(listingsContainer);
     // Check if the clicked element or its parent has the 'listingModalButton' class
     const target = e.target.closest('.listingModalButton');
     if (target) {
       const listingId = target.dataset.listingId; // Get the data-listing-id attribute
       const listing = listingData.find(listing => listing.id === listingId); // Find the corresponding listing data
+
       if (listing) {
+        console.log('wut?', listingsContainer);
         listingModal(listing); // Open the modal with the specific listing data
       }
     }
