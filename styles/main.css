@@ -52,20 +52,27 @@
 /* For polygon effect */
 
 /* Add this in your global CSS file */
-.clip-path-transition {
-  clip-path: polygon(27% 0, 100% 0%, 100% 100%, 0 100%);
-  transition: clip-path 0.4s ease-in-out;
-}
-.clip-path-transition:hover {
-  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+@media (min-width: 700px) {
+  .clip-path-transition {
+    clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0 100%);
+    transition: clip-path 0.4s ease-in-out;
+  }
+
+  .clip-path-transition:hover {
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+  }
+
+  .listing-modal-size {
+    max-width: 50vw !important;
+    max-height: 90vh !important;
+  }
 }
 
-.listing-modal-size {
-  max-width: 50vw !important;
-  max-height: 90vh !important;
+@media (max-width: 650px) {
+  .listing-modal-size {
+    width: 50vw !important;
+    height: 50vh !important;
+  }
 }
-
 
 /* Additional styles if needed */
-
-

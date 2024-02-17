@@ -13,14 +13,14 @@ export async function listingCardBuild() {
 
     const listingCardsHtml = normalizedListingsData
       .map(listing => {
-        let sellerInfo = 'Seller information not available';
+        let sellerInfo = '';
         if (
           listing.seller &&
           listing.seller.name &&
           listing.seller.email &&
           listing.seller.avatar
         ) {
-          sellerInfo = `<img class="w-10 h-10 object-cover rounded-full" src="${listing.seller.avatar}" alt="${listing.seller.name}'s Avatar"/> Seller: ${listing.seller.name}, Email: ${listing.seller.email}`;
+          sellerInfo = `<img class="w-10 h-10 object-cover rounded-full" src="${listing.seller.avatar ? listing.seller.avatar : 'https://images.unsplash.com/photo-1604854574894-1be73ca43cb8?q=80&w=2130&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}" alt="${listing.seller.name}'s Avatar"/>`;
         }
 
         let profileListingInteraction = '';
@@ -40,25 +40,28 @@ export async function listingCardBuild() {
         </div>`;
         }
 
-        return `<div class="bg-gray-100 flex items-center justify-center">
-        <div class="max-w-md font-sans antialiased">
-          <button type="button" data-listing-id="${listing.id}" class="listingModalButton group block min-h-full sm:h-80 lg:h-96 relative">
-            <span class="absolute inset-0 border-2 border-dashed border-black"></span>
-            <div class="relative flex h-full border-2 border-secondary1 bg-white transition-all ease-in-out duration-100 group-hover:scale-110">
-              <div class="max-w-xs max-h-full min-w-80 p-1 ">
-              
-                <div class="listingMedia h-3/5 w-full">${listing.media.map(url => `<img class="h-full w-full rounded-md" src="${url}" alt="Listing Image" width="100" height="100">`).join('')}</div>
-                <span class="listingTitle font-primary text-xl font-semibold">${listing.title}</span><br />
-                <span class="listingDescription mt-16 opacity-100 transition-opacity ease-in-out duration-500 group-hover:opacity-0">${listing.description}</span><br />
-                <span class="listingBids opacity-100 transition-opacity ease-in-out duration-400 group-hover:opacity-0">Bid Count: ${listing._count.bids}</span><br />
-               
+        return `
+        <div class=" flex items-center justify-center">
+          <div class="max-w-md antialiased">
+            <button type="button" data-listing-id="${listing.id}" class="listingModalButton group block h-72 sm:h-80 min-w-64 relative">
+              <div class="relative flex h-full border rounded border-secondary1 bg-white transition-all ease-in-out duration-100 group-hover:scale-105">
+                <div class="min-w-fit p-1 max-h-fit mx-auto">
+                  <div class="h-3/5 w-full">
+                    <img class="h-full w-full rounded-md" src="${listing.media[0]}" alt="Listing Image" width="100" height="100"/>
+                  </div>
+                  <div class="flex flex-col"> 
+                    <span class="block w-full mt-1 font-primary text-lg font-semibold uppercase"> ${listing.title}</span>
+                    <span class="block w-full  font-secondary opacity-100 transition-opacity ease-in-out duration-500 group-hover:opacity-0">${listing.endsAt}</span>
+                    <span class="block w-full mt-2 font-secondary opacity-100 transition-opacity ease-in-out duration-400 group-hover:opacity-0">Bid's: ${listing._count.bids}</span>
+                 </div>
+                </div>
               </div>
               <div class="absolute inset-0 p-4 opacity-0 transition-opacity ease-in-out duration-800 group-hover:opacity-100 sm:p-6 lg:p-8">
                 <h3 class="mt-4 text-xl font-medium sm:text-2xl"></h3>
                 <span class="text-sm sm:text-base">
                   <div class="h-3/5 mb-4"></div>
-                  <span class="listingEndsAt">Ends At: ${listing.endsAt}</span><br />
-                  <span class="listingSeller">Seller:${sellerInfo}</span><br />
+                  <span class="flex w-full items-center text-center gap-4 pt-4">${sellerInfo}<span class="font-semibold text-center"> Description:</span></span><br />
+                  <span class="block w-full text-center ">${listing.description}</span>
                 </span>
               </div>
             </div>

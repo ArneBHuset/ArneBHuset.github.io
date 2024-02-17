@@ -24,14 +24,14 @@ export async function headerLoginStatus() {
             <div class="sm:flex sm:gap-4">
               <button
                 id="openModalBtn"
-                class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+                class="block rounded-md bg-primary2 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-secondary1"
               >
                 Log in
               </button>
 
               <button
                 id="openRegisterModalBtn"
-                class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+                class="mt-4 sm:mt-0 block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
               >
                 Register
               </button>

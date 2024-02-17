@@ -17,7 +17,7 @@ export async function landingPageListings() {
     if (!listingsContainer) throw new Error('Listing container not found');
 
     listingsContainer.innerHTML = `
-  <section class="h-full overflow-hidden relative ">
+  <section class="h-full  overflow-hidden relative sm:max-w-screen-xl ps-12 sm:ps-0  mx-auto ">
   <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 text-white px-4 py-2 z-10">
         <span class="material-symbols-outlined">
           navigate_before
@@ -29,8 +29,8 @@ export async function landingPageListings() {
         </span>
       </button>
       <div id="carousel" class="relative ">
-        <div id="carouselItems" class="flex transition-transform duration-500">
-          <!-- Carousel items will be added here -->
+        <div id="carouselItems" class="flex gap-10  transition-transform duration-500">
+          <!-- Carousel items added here -->
         </div>
       </div>   
     </section>`;

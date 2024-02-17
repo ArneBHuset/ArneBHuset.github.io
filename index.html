@@ -16,106 +16,98 @@
     />
   </head>
   <body data-page="index">
-    <header class="border-b-2 border-primary bg-primary-1">
-      <div
-        class="mx-auto flex h-32 max-w-screen-xl items-center gap-8 sm px-6 sm:px-20 lg:px-44"
-      >
-        <a href="/">
-          <img
-            src="./assets/img/logo-no-background.png"
-            height="auto"
-            width="80"
-          />
-        </a>
-
-        <div class="flex flex-1 items-center justify-end md:justify-between">
-          <nav id="navMenu" aria-label="Global" class="">
-            <ul
-              class="flex items-center gap-14 ps-8 text-lg text-primary2 font-primary text-primary-2"
-            >
-              <li>
-                <a class="transition hover:underline" href="/"> Home </a>
-              </li>
-
-              <li>
-                <a
-                  class="transition hover:underline"
-                  href="./profile-page/profile.html"
-                >
-                  Profile
-                </a>
-              </li>
-
-              <li hi>
-                <a
-                  class="transition hover:underline"
-                  href="./listing-page/listings.html"
-                >
-                  All listings
-                </a>
-              </li>
-              <li class="">
-                <div id="loggedInOrOut"></div>
-              </li>
-            </ul>
-          </nav>
-
-          <div class="flex items-center gap-4">
+    <header class="border-b-2 border-primary bg-primary1">
+      <nav class="py-2 mx-auto max-w-sm md:max-w-screen-lg">
+        <div class="container px-4 mx-auto md:flex md:items-center">
+          <div class="flex justify-between items-center">
+            <a href="/">
+              <img
+                src="./assets/img/logo-no-background.png"
+                height="auto"
+                width="80"
+              />
+            </a>
             <button
-              id="headerDropdownBtn"
-              class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+              class="flex text-primary2 hover:opacity-75 md:hidden text-8xl"
+              id="navbar-toggle"
             >
-              <span class="material-symbols-outlined"> menu </span>
+              <i class="fas fa-bars text-3xl"></i>
             </button>
           </div>
-        </div>
-      </div>
-    </header>
 
-    <main>
+          <div
+            class="hidden md:flex flex-col md:flex-row md:ml-8 mt-3 md:mt-0 gap-3 lg:gap-4"
+            id="navbar-collapse"
+          >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Profile</a
+            >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Listings</a
+            >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >History</a
+            >
+
+            <div class="sm:ml-32" id="loggedInOrOut"></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="bg-primary1">
       <section>
-        <div class="w-full">
+        <div class="mx-auto max-w-sm sm:max-w-screen-xl">
           <div class="md:grid md:grid-cols-2 md:gap-4">
             <!-- Top Left Section -->
 
-            <form class="flex items-center ms-52">
+            <form class="flex items-center ms-2 sm:ms-52 pt-6 sm:pt-14">
               <input
                 type="text"
                 id="voice-search"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-white border border-gray-300 text-primary2 text-sm rounded-lg focus:border-secondary1 block w-full pl-8 p-2.5"
                 placeholder="Search for listings"
                 required
               />
 
               <button
                 type="submit"
-                class="inline-flex items-center py-2 px-3 ml-2 text-sm font-medium text-white bg-secondary1 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="inline-flex items-center py-2 px-3 ml-2 text-sm font-medium text-primary2 bg-primary1 rounded-lg border border-secondary1 hover:bg-secondary1 focus:outline-none"
               >
-                <span class="material-symbols-outlined text-white mr-2"
+                <span class="material-symbols-outlined text-primary2 mr-2"
                   >search</span
                 >Search
               </button>
             </form>
 
             <!-- Top Right Section -->
-            <div class="flex justify-center mt-14 me-14 text-center">
-              <h2 class="font-primary text-4xl">
-                Featured listing<span
-                  id="featuredBidCount"
-                  class="text-secondary2"
-                ></span>
+            <div class="hidden sm:block justify-center mt-14 sm:pl-36">
+              <h2 class="font-primary text-primary2 text-2xl font-semibold">
+                Popular right now!
               </h2>
+              <span id="featuredBidCount" class="text-lg font-secondary"></span>
             </div>
 
             <!-- Bottom Left Section -->
-            <div class="flex-row ms-52 pt-12">
+            <div
+              class="flex-row sm:ms-52 px-auto mt-14 text-center sm:text-left"
+            >
               <span id="WelcomeMessage"></span>
 
               <p class="mt-2 text-sm text-gray-500 md:text-base">
-                With Auctionable, you're not just making a bid; you're embarking
-                on a journey to discover and own a piece of history or artistry.
-                Dive into our meticulously curated listings, find your passion,
-                and join a community of like-minded enthusiasts.
+                Embark on a journey to discover and own a piece of history or
+                artistry. Dive into our meticulously curated listings, find your
+                passion, and join a community of like-minded enthusiasts.
               </p>
               <div class="flex justify-center md:justify-start mt-6">
                 <a
@@ -126,16 +118,25 @@
                 <a
                   class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
                   href="#"
-                  >Learn More</a
+                  >New here?</a
                 >
               </div>
             </div>
 
             <!-- Bottom Right Section -->
             <div
-              class="hidden md:block h-full w-full clip-path-transition group"
+              class="block mx-auto h-1/2 w-auto sm:h-full clip-path-transition group"
             >
-              <span class="cursor-pointer" id="featuredImg"> </span>
+              <h2
+                class="sm:hidden font-primary text-primary2 text-xl font-semibold"
+              >
+                Popular right now!
+              </h2>
+              <span
+                id="featuredBidCountSmall"
+                class="block sm:hidden text-lg font-secondary"
+              ></span>
+              <span class="cursor-pointer mx-auto" id="featuredImg"> </span>
             </div>
           </div>
         </div>
@@ -143,39 +144,47 @@
 
       <!-- Here starts the card -->
       <section class="">
-        <h1 class="py-4 ms-36 font-primary texg-bold text-xl">
-          New listings on <span class="text-secondary1">Auctionable</span>
+        <h1
+          class="py-4 ms-4 mt-4 sm:ms-44 font-primary text-primary2 text-2xl font-semibold sm:max-w-screen-xl"
+        >
+          Newcomers
         </h1>
-        <div id="listingCards" class="bg-primary2 px-44"></div>
+        <div
+          id="listingCards"
+          class="border-primary2 border-opacity-10 shadow-inner py-4 border-y-2"
+        ></div>
       </section>
     </main>
     <footer class="relative bg-blueGray-200 pt-8 pb-6">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">
           <div class="w-full lg:w-6/12 px-4">
-            <h4 class="text-3xl fonat-semibold text-blueGray-700">Fooooter</h4>
-            <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
-              This is a foooooter
-            </h5>
-            <div class="mt-6 lg:mb-0 mb-6">
-              <button
-                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+            <h4 class="text-3xl fonat-semibold text-secondary1 font-primary">
+              Auctionable
+            </h4>
+            <h5 class="text-lg mt-0 mb-2 text-primary2 font-primary">2024</h5>
+            <div class="flex mt-6 lg:mb-0 mb-6">
+              <a
+                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+                href="https://twitter.com/?lang=en"
+              >
+                <i class="fa-brands fa-x-twitter"></i> </a
+              ><a
+                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button"
               >
-                <i class="fab fa-twitter"></i></button
+                <i class="fab fa-facebook-square"></i> </a
               ><button
-                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button"
-              >
-                <i class="fab fa-facebook-square"></i></button
-              ><button
-                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
+                href="https://twitter.com/?lang=en"
               >
                 <i class="fab fa-dribbble"></i></button
               ><button
-                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button"
+                href="https://twitter.com/?lang=en"
               >
                 <i class="fab fa-github"></i>
               </button>
@@ -279,4 +288,8 @@
     </footer>
   </body>
   <script type="module" src="/index.mjs"></script>
+  <script
+    src="https://kit.fontawesome.com/b25d649049.js"
+    crossorigin="anonymous"
+  ></script>
 </html>
