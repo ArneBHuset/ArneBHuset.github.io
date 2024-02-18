@@ -63,15 +63,17 @@
   }
 
   .listing-modal-size {
-    max-width: 50vw !important;
+    max-width: 60vw !important;
     max-height: 90vh !important;
   }
 }
 
 @media (max-width: 650px) {
   .listing-modal-size {
-    width: 50vw !important;
-    height: 50vh !important;
+    width: 95vw !important;
+    height: 70vh !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

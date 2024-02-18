@@ -60,8 +60,8 @@ export async function listingCardBuild() {
                 <h3 class="mt-4 text-xl font-medium sm:text-2xl"></h3>
                 <span class="text-sm sm:text-base">
                   <div class="h-3/5 mb-4"></div>
-                  <span class="flex w-full items-center text-center gap-4 pt-4">${sellerInfo}<span class="font-semibold text-center"> Description:</span></span><br />
-                  <span class="block w-full text-center ">${listing.description}</span>
+                  <span class="flex w-full items-center text-center gap-4 pt-4">${sellerInfo}<span class="font-semibold font-primary text-center"> Description:</span></span><br />
+                  <span class="block w-full text-center font-secondary  ">${listing.description}</span>
                 </span>
               </div>
             </div>
