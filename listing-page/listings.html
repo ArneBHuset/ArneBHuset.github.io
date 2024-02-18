@@ -94,52 +94,79 @@
         </div>
       </div>
     </header>
-    <section>
-      <div class="w-96">
-        <h3 class="mb-4 font-bold text-3xl text-blue-500">Add listing</h3>
-        <form id="newListingForm" class="px-3 flex flex-col items-center gap-3">
-          <input
-            type="text"
-            id="listingTitle"
-            placeholder="Listing Title.."
-            autocomplete="off"
-            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="text"
-            id="listingDescription"
-            placeholder="Add description.."
-            autocomplete="off"
-            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="text"
-            id="listingTags"
-            placeholder="#Tags.."
-            autocomplete="off"
-            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="url"
-            id="listingMedia"
-            placeholder="Add picture link.."
-            autocomplete="off"
-            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="date"
-            id="listingEndsAt"
-            class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-          />
-          <span class="text-primary2" id="dateInfo"></span>
-          <button
-            type="button"
-            id="addListingBtn"
-            class="mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 focus:outline-none"
+    <section class="container">
+      <div class="grid grid-cols-1 sm:grid-cols-2">
+        <div
+          class="flex flex-col gap-8 justify-center items-start sm:items-end"
+        >
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox" />
+            <span class="ml-2">Option 1</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox" />
+            <span class="ml-2">Option 2</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox" />
+            <span class="ml-2">Option 3</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox" />
+            <span class="ml-2">Option 4</span>
+          </label>
+        </div>
+        <div class="flex flex-col max-w-md pe-20">
+          <h3 class="mb-4 text-4xl font-semibold font-primary text-primary2">
+            POST YOUR LISTING
+          </h3>
+          <form
+            id="newListingForm"
+            class="flex flex-col items-center gap-3 w-full"
           >
-            Post Listing
-          </button>
-        </form>
+            <input
+              type="text"
+              id="listingTitle"
+              placeholder="Listing Title.."
+              autocomplete="off"
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="text"
+              id="listingDescription"
+              placeholder="Add description.."
+              autocomplete="off"
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="text"
+              id="listingTags"
+              placeholder="#Tags.."
+              autocomplete="off"
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="url"
+              id="listingMedia"
+              placeholder="Add picture link.."
+              autocomplete="off"
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="date"
+              id="listingEndsAt"
+              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+            />
+            <span class="text-primary2" id="dateInfo"></span>
+            <button
+              type="button"
+              id="addListingBtn"
+              class="mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 focus:outline-none"
+            >
+              Post Listing
+            </button>
+          </form>
+        </div>
       </div>
     </section>
     <section>
