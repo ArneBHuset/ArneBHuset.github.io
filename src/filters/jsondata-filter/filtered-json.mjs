@@ -11,13 +11,13 @@ export async function filteredListingData() {
   if (document.body.dataset.page === 'index') {
     const listingsSortedByDate = await newestListings();
     const tenNewestListings = listingsSortedByDate.slice(0, 10);
-    console.log('This is the root index page', tenNewestListings);
+    // console.log('This is the root index page', tenNewestListings);
     return tenNewestListings;
   }
 
   if (document.body.dataset.page === 'profile') {
     const listingsSortedForProfile = await filteredProfileListings();
-    console.log('This is the profile page', listingsSortedForProfile);
+    // console.log('This is the profile page', listingsSortedForProfile);
 
     return listingsSortedForProfile;
   }

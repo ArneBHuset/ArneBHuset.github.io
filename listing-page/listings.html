@@ -16,161 +16,190 @@
     />
   </head>
   <body>
-    <header class="border-b-2 border-primary bg-primary-1">
-      <div
-        class="mx-auto flex h-32 max-w-screen-xl items-center gap-8 sm px-6 sm:px-20 lg:px-44"
-      >
-        <a href="/">
-          <img
-            src="../assets/img/logo-no-background.png"
-            height="auto"
-            width="100"
-          />
-        </a>
-
-        <div class="flex flex-1 items-center justify-end md:justify-between">
-          <nav aria-label="Global" class="hidden md:block">
-            <ul
-              class="flex items-center gap-14 ps-8 text-xl font-primary text-primary-2"
-            >
-              <li>
-                <a class="transition hover:text-black" href="/"> About </a>
-              </li>
-
-              <li>
-                <a
-                  class="transition hover:text-gray-500/75"
-                  href="/profile-page/profile.html"
-                >
-                  Profile
-                </a>
-              </li>
-
-              <li>
-                <a class="transition hover:text-gray-500/75" href="/">
-                  History
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <div class="flex items-center gap-4">
-            <div class="sm:flex sm:gap-4">
-              <button
-                id="openModalBtn"
-                class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-              >
-                Loginmodal
-              </button>
-
-              <button
-                id="openRegisterModalBtn"
-                class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
-              >
-                Register
-              </button>
-            </div>
-
+    <header class="border-b-2 border-primary bg-primary1">
+      <nav class="py-2 mx-auto max-w-sm md:max-w-screen-lg">
+        <div class="container px-4 mx-auto md:flex md:items-center">
+          <div class="flex justify-between items-center">
+            <a href="/">
+              <img
+                src="/assets/img/logo-no-background.png"
+                height="auto"
+                width="80"
+              />
+            </a>
             <button
-              class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+              class="flex text-primary2 hover:opacity-75 md:hidden text-8xl"
+              id="navbar-toggle"
             >
-              <span class="sr-only">Toggle menu</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              <i class="fas fa-bars text-3xl"></i>
             </button>
+          </div>
+
+          <div
+            class="hidden md:flex flex-col md:flex-row md:ml-8 mt-3 md:mt-0 gap-3 lg:gap-4"
+            id="navbar-collapse"
+          >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Home</a
+            >
+            <a
+              href="/profile-page/profile.html"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Profile</a
+            >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Listings</a
+            >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >History</a
+            >
+
+            <div class="sm:ml-32" id="loggedInOrOut"></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="mb-6">
+      <div class="container border-b p-4">
+        <div class="md:grid md:grid-cols-2 md:gap-4 max-w-lg">
+          <!-- Top Left Section -->
+
+          <form class="flex items-center pt-4 sm:pt-6 justify-end">
+            <input
+              type="text"
+              id="voice-search"
+              class="bg-white border border-gray-300 text-primary2 text-sm rounded-lg focus:border-secondary1 p-2.5 w-64"
+              placeholder="Search for listings"
+              required
+            />
+            <button
+              type="submit"
+              class="inline-flex items-center py-2 px-3 ml-2 text-sm font-medium text-primary2 bg-primary1 rounded-lg border border-secondary1 hover:bg-secondary1 focus:outline-none"
+            >
+              <span class="material-symbols-outlined text-primary2 mr-2"
+                >search</span
+              >Search
+            </button>
+          </form>
+
+          <!-- Top Right Section -->
+          <div class="mt-4 pl-8 ml-4 justify-center items-center">
+            <button
+              id="newPostCollapse"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-primary2 bg-primary1 rounded-lg border border-secondary1 hover:bg-secondary1 focus:outline-none"
+            >
+              <h3 class="text-4xl font-semibold font-primary text-primary2">
+                Add listing here!
+              </h3>
+            </button>
+          </div>
+
+          <!-- Bottom Left Section -->
+          <div id="filterToggleBoxes" class="flex sm:ms-52 pl-8 my-2 gap-8">
+            <div class="flex flex-col">
+              <label class="flex">
+                <input
+                  type="checkbox"
+                  id="activeFilterInput"
+                  class="custom-checkbox"
+                  checked
+                />
+
+                <span class="ml-2">Active listings </span>
+              </label>
+              <label class="flex mt-4">
+                <input
+                  type="checkbox"
+                  id="bidsFilterInput"
+                  class="custom-checkbox"
+                  checked
+                />
+                <span class="ml-2">Show bids</span>
+              </label>
+            </div>
+            <div class="flex flex-col">
+              <label class="flex">
+                <input
+                  type="checkbox"
+                  id="sellerFilterInput"
+                  class="custom-checkbox"
+                  checked
+                />
+                <span class="ml-2">Show seller</span>
+              </label>
+              <label class="flex mt-4">
+                <input
+                  type="checkbox"
+                  id="extraFilterInput"
+                  class="custom-checkbox"
+                  checked
+                />
+                <span class="ml-2">Extra?</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Bottom Right Section -->
+          <div class="my-auto pl-8 ml-4 justify-center items-center">
+            <form id="newListingForm" class="hidden">
+              <input
+                type="text"
+                id="listingTitle"
+                placeholder="Listing Title.."
+                autocomplete="off"
+                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+                required
+              />
+
+              <input
+                type="text"
+                id="listingDescription"
+                placeholder="Add description.."
+                autocomplete="off"
+                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+              />
+              <input
+                type="text"
+                id="listingTags"
+                placeholder="#Tags.."
+                autocomplete="off"
+                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+              />
+              <input
+                type="url"
+                id="listingMedia"
+                placeholder="Add picture link.."
+                autocomplete="off"
+                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+              />
+              <input
+                type="date"
+                id="listingEndsAt"
+                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+                required
+              />
+              <span class="text-primary2" id="dateInfo"></span>
+              <button
+                type="button"
+                id="addListingBtn"
+                class="mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 focus:outline-none"
+              >
+                Post Listing
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    </header>
-    <section class="container">
-      <div class="grid grid-cols-1 sm:grid-cols-2">
-        <div
-          class="flex flex-col gap-8 justify-center items-start sm:items-end"
-        >
-          <label class="inline-flex items-center">
-            <input type="checkbox" class="form-checkbox" />
-            <span class="ml-2">Option 1</span>
-          </label>
-          <label class="inline-flex items-center">
-            <input type="checkbox" class="form-checkbox" />
-            <span class="ml-2">Option 2</span>
-          </label>
-          <label class="inline-flex items-center">
-            <input type="checkbox" class="form-checkbox" />
-            <span class="ml-2">Option 3</span>
-          </label>
-          <label class="inline-flex items-center">
-            <input type="checkbox" class="form-checkbox" />
-            <span class="ml-2">Option 4</span>
-          </label>
-        </div>
-        <div class="flex flex-col max-w-md pe-20">
-          <h3 class="mb-4 text-4xl font-semibold font-primary text-primary2">
-            POST YOUR LISTING
-          </h3>
-          <form
-            id="newListingForm"
-            class="flex flex-col items-center gap-3 w-full"
-          >
-            <input
-              type="text"
-              id="listingTitle"
-              placeholder="Listing Title.."
-              autocomplete="off"
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="text"
-              id="listingDescription"
-              placeholder="Add description.."
-              autocomplete="off"
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="text"
-              id="listingTags"
-              placeholder="#Tags.."
-              autocomplete="off"
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="url"
-              id="listingMedia"
-              placeholder="Add picture link.."
-              autocomplete="off"
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            />
-            <input
-              type="date"
-              id="listingEndsAt"
-              class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            />
-            <span class="text-primary2" id="dateInfo"></span>
-            <button
-              type="button"
-              id="addListingBtn"
-              class="mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 focus:outline-none"
-            >
-              Post Listing
-            </button>
-          </form>
-        </div>
-      </div>
     </section>
+
     <section>
-      <div class="container mx-auto pt-12" id="listingsContainer"></div>
+      <div class="container mx-auto" id="listingsContainer"></div>
     </section>
   </body>
   <script type="module" src="./index.mjs"></script>

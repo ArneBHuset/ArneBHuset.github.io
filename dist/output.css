@@ -546,11 +546,17 @@ video {
 
 .container {
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 }
 
@@ -563,18 +569,16 @@ video {
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1080px) {
   .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
+    max-width: 1080px;
+    padding-right: 5rem;
+    padding-left: 5rem;
   }
 }
 
@@ -1529,66 +1533,44 @@ video {
 
 /* Additional styles if needed */
 
-/* CHECKBOX TOGGLE SWITCH */
-
-/* @apply rules for documentation, these do not work as inline style */
-
-/* Base for the switch */
-
-.toggle-checkbox:checked {
-  @apply: right-0 border-green-400;
-  right: 0;
-  border-color: #68d391;
+.custom-checkbox:checked {
+  background-color: #7fb3d5;
+  /* Example for a custom color when checked */
+  border-color: #7fb3d5;
 }
 
-.toggle-checkbox:checked + .toggle-label {
-  @apply: bg-green-400;
-  background-color: #68d391;
+.custom-checkbox {
+  background-color: #7fb3d5;
+  width: 30px;
+  /* Custom width */
+  height: 30px;
+  /* Custom height */
+  border-radius: 50%;
+  /* Example for round checkboxes */
+  border: 2px solid #7fb3d5;
+  /* Custom border color */
 }
 
-/* The switch - the box around the slider */
+/* For a custom check mark */
 
-.toggle-label {
-  @apply: block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer;
-  position: relative;
-  background-color: #d1d5db;
-  /* Light gray */
+@keyframes rollDown {
+  from {
+    opacity: 0;
+    transform: translateY(
+      -30px
+    );
+    /* Adjust as needed for the starting position */
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* The slider */
-
-.toggle-checkbox {
-  @apply: absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer;
-  top: 0;
-  left: 0;
-  border-color: #d1d5db;
-  /* Light gray border */
-  transition: all 0.3s ease-in-out;
-  /* Smooth transitions */
-}
-
-/* Additional styling to ensure the input (the actual checkbox) is not visible but is still accessible */
-
-.toggle-checkbox:after {
-  @apply: content-[''];
-  position: absolute;
-  display: none;
-}
-
-.toggle-checkbox:checked + .toggle-label {
-  @apply: bg-green-400;
-  background-color: #68d391;
-  /* Green background for active state */
-}
-
-/* This will position the switch circle to the left when inactive, and to the right when active */
-
-.toggle-checkbox:checked {
-  @apply: right-0 border-green-400;
-  right: 0;
-  /* Move the slider to the right on check */
-  border-color: #68d391;
-  /* Green border for active state */
+.animated-form {
+  animation: rollDown 0.8s ease-out forwards;
+  /* Adjust 'ease-out' for effect timing */
 }
 
 .hover\:scale-110:hover {
@@ -1868,6 +1850,10 @@ video {
 
   .lg\:w-6\/12 {
     width: 50%;
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:gap-4 {

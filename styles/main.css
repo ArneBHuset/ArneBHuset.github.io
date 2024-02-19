@@ -79,50 +79,33 @@
 
 /* Additional styles if needed */
 
-/* CHECKBOX TOGGLE SWITCH */
-/* @apply rules for documentation, these do not work as inline style */
-/* Base for the switch */
-.toggle-checkbox:checked {
-  @apply: right-0 border-green-400;
-  right: 0;
-  border-color: #68d391;
-}
-.toggle-checkbox:checked + .toggle-label {
-  @apply: bg-green-400;
-  background-color: #68d391;
+.custom-checkbox:checked {
+  background-color: #7fb3d5; /* Example for a custom color when checked */
+  border-color: #7fb3d5;
 }
 
-/* The switch - the box around the slider */
-.toggle-label {
-  @apply: block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer;
-  position: relative;
-  background-color: #d1d5db; /* Light gray */
+.custom-checkbox {
+  background-color: #7fb3d5;
+  width: 30px; /* Custom width */
+  height: 30px; /* Custom height */
+  border-radius: 50%; /* Example for round checkboxes */
+  border: 2px solid #7fb3d5; /* Custom border color */
 }
 
-/* The slider */
-.toggle-checkbox {
-  @apply: absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer;
-  top: 0;
-  left: 0;
-  border-color: #d1d5db; /* Light gray border */
-  transition: all 0.3s ease-in-out; /* Smooth transitions */
-}
+/* For a custom check mark */
 
-/* Additional styling to ensure the input (the actual checkbox) is not visible but is still accessible */
-.toggle-checkbox:after {
-  @apply: content-[''];
-  position: absolute;
-  display: none;
+@keyframes rollDown {
+  from {
+    opacity: 0;
+    transform: translateY(
+      -30px
+    ); /* Adjust as needed for the starting position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-.toggle-checkbox:checked + .toggle-label {
-  @apply: bg-green-400;
-  background-color: #68d391; /* Green background for active state */
-}
-
-/* This will position the switch circle to the left when inactive, and to the right when active */
-.toggle-checkbox:checked {
-  @apply: right-0 border-green-400;
-  right: 0; /* Move the slider to the right on check */
-  border-color: #68d391; /* Green border for active state */
+.animated-form {
+  animation: rollDown 0.8s ease-out forwards; /* Adjust 'ease-out' for effect timing */
 }

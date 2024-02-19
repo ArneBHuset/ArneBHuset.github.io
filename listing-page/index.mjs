@@ -1,14 +1,18 @@
 import {
-  loginModal,
-  registerModal,
   displayListingCards,
   validatedNewListing,
+  newListingDropdown,
+  headerDropdown,
+  headerLoginStatus,
 } from '../src/main.mjs';
 
-loginModal();
-
-registerModal();
-
+//
 displayListingCards();
 
 validatedNewListing();
+
+newListingDropdown();
+
+headerDropdown();
+
+headerLoginStatus();

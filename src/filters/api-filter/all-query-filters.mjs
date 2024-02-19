@@ -31,6 +31,6 @@ export async function filteredListingUrl() {
   // Append the query parameters to the URL
   apiFilter += `?${queryParams}`;
 
-  console.log('API Filter URL:', apiFilter);
+  // console.log('API Filter URL:', apiFilter);
   return apiFilter;
 }

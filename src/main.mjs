@@ -8,6 +8,7 @@ import { userWelcomeMessage } from './ui/landing-page/welcome-message.mjs';
 import { displayProfileData } from './ui/profile-page.mjs/display-profile.mjs';
 import { headerLoginStatus } from './ui/header-login-logout.mjs';
 import { headerDropdown } from './ui/header-dropdown.mjs';
+import { newListingDropdown } from './ui/listing-page/new-listing-dropdown.mjs';
 
 export {
   loginModal,
@@ -20,4 +21,5 @@ export {
   displayProfileData,
   headerLoginStatus,
   headerDropdown,
+  newListingDropdown,
 };
