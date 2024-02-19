@@ -70,10 +70,13 @@
         <div class="md:grid md:grid-cols-2 md:gap-4 max-w-lg">
           <!-- Top Left Section -->
 
-          <form class="flex items-center pt-4 sm:pt-6 justify-end">
+          <form
+            id="searchForm"
+            class="flex items-center pt-4 sm:pt-6 justify-end"
+          >
             <input
               type="text"
-              id="voice-search"
+              id="listing-search"
               class="bg-white border border-gray-300 text-primary2 text-sm rounded-lg focus:border-secondary1 p-2.5 w-64"
               placeholder="Search for listings"
               required
@@ -143,6 +146,7 @@
                 <span class="ml-2">Extra?</span>
               </label>
             </div>
+            <div id="searchFilterDisplay"></div>
           </div>
 
           <!-- Bottom Right Section -->

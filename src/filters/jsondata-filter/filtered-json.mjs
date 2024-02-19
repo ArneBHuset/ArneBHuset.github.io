@@ -1,5 +1,4 @@
 import { newestListings } from './filter-by-creationdate.mjs';
-import { callListings } from '../../api-calls/listings/listing-api.mjs';
 import { filteredProfileListings } from '../api-filter/profile/profile-selected-listings.mjs';
 
 export async function filteredListingData() {

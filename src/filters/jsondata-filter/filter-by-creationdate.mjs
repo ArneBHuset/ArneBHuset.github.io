@@ -4,7 +4,7 @@ export async function newestListings() {
   try {
     const returnedJsonListing = await callListings();
     // Assuming returnedJsonListing is an array of listings
-
+    console.log(callListings);
     // Sort listings by "created" date in descending order
     const sortedListings = returnedJsonListing.sort((a, b) => {
       // Convert "created" to Date objects for comparison

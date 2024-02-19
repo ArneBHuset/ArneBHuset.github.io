@@ -9,6 +9,11 @@ import { displayProfileData } from './ui/profile-page.mjs/display-profile.mjs';
 import { headerLoginStatus } from './ui/header-login-logout.mjs';
 import { headerDropdown } from './ui/header-dropdown.mjs';
 import { newListingDropdown } from './ui/listing-page/new-listing-dropdown.mjs';
+import { currentActiveFilter } from './ui/listing-page/filter-interaction/active-filter.mjs';
+import { currentBidsFilter } from './ui/listing-page/filter-interaction/bids-filter.mjs';
+import { currentSellerFilter } from './ui/listing-page/filter-interaction/seller-filter.mjs';
+import { currentSearchInput } from './ui/listing-page/filter-interaction/search-bar.mjs';
+import { updateFilteredListingCards } from './filters/api-filter/checkbox-filters.mjs';
 
 export {
   loginModal,
@@ -22,4 +27,12 @@ export {
   headerLoginStatus,
   headerDropdown,
   newListingDropdown,
+};
+
+export {
+  currentActiveFilter,
+  currentSearchInput,
+  currentBidsFilter,
+  currentSellerFilter,
+  updateFilteredListingCards,
 };

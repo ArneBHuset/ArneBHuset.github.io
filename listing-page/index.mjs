@@ -4,6 +4,11 @@ import {
   newListingDropdown,
   headerDropdown,
   headerLoginStatus,
+  currentActiveFilter,
+  currentBidsFilter,
+  currentSearchInput,
+  currentSellerFilter,
+  updateFilteredListingCards,
 } from '../src/main.mjs';
 
 //
@@ -16,3 +21,9 @@ newListingDropdown();
 headerDropdown();
 
 headerLoginStatus();
+
+currentActiveFilter();
+currentBidsFilter();
+currentSearchInput();
+currentSellerFilter();
+updateFilteredListingCards();

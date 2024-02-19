@@ -2,8 +2,10 @@ import { listingCardBuild } from '../listings/listing-card.mjs';
 import { listingModal } from '../modal-bodies/listing-modal.mjs';
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
 
-export async function displayListingCards() {
-  let listingData = await callListings(); // Fetch listing data
+export async function displayListingCards(listingData = null) {
+  if (!listingData) {
+    listingData = await callListings();
+  }
   const listingCardsHtml = await listingCardBuild(listingData); // Build listing cards HTML
   const listingsContainer = document.getElementById('listingsContainer');
 

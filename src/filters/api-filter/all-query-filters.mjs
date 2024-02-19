@@ -1,36 +1,51 @@
 import { listingsUrl } from '../../globalValues/urls.mjs';
-import { currentActiveFilter } from '../../ui/landing-page/filter-interaction/active.mjs';
-import { currentBidsFilter } from '../../ui/landing-page/filter-interaction/bids.mjs';
-import { currentSellerFilter } from '../../ui/landing-page/filter-interaction/seller.mjs';
-import { currentTagsFilter } from '../../ui/landing-page/filter-interaction/tags.mjs';
-import { listingFilterById } from './specific-id-listing.mjs';
+import { determineSearchType } from './search-bar-filter.mjs';
+import { currentActiveFilter } from '../../main.mjs';
+import { currentBidsFilter } from '../../main.mjs';
+import { currentSellerFilter } from '../../main.mjs';
 
 export async function filteredListingUrl() {
-  const activeBoolean = await currentActiveFilter();
-  const bidsBoolean = await currentBidsFilter();
-  const sellerBoolean = await currentSellerFilter();
-  const tagsValue = await currentTagsFilter();
-  const idValue = await listingFilterById();
+  const isIndexPage = document.body.dataset.page === 'index';
 
-  // Step 1: Start with the base URL
-  let apiFilter = listingsUrl;
-
-  // Step 2: Conditionally append the ID
-  if (idValue) {
-    apiFilter += `/${idValue}`;
+  // If on the index page, set all filters to true and construct the URL accordingly
+  if (isIndexPage) {
+    const queryParams = `_seller=true&_bids=true&_active=true`;
+    return `${listingsUrl}?${queryParams}`;
   }
 
-  // Step 3: Construct query parameters string
-  const queryParams = [
-    `_seller=${sellerBoolean}`,
-    `_bids=${bidsBoolean}`,
-    `_tag=${encodeURIComponent(tagsValue)}`, // Encoding the tag to handle special characters
-    `_active=${activeBoolean}`,
-  ].join('&');
+  // For all other scenarios:
+  // Retrieve the state from 'determineSearchType'
+  const { listingId, tag } = determineSearchType();
 
-  // Append the query parameters to the URL
-  apiFilter += `?${queryParams}`;
+  // Store the ID or tag in local storage
+  if (listingId) {
+    localStorage.setItem('searchListingId', listingId); // Store the listing ID
+    localStorage.removeItem('searchTag'); // Ensure no tag is stored if ID is present
+  } else if (tag) {
+    localStorage.setItem('searchTag', tag); // Store the tag
+    localStorage.removeItem('searchListingId'); // Ensure no ID is stored if tag is present
+  } else {
+    // If neither is present, clear both from storage
+    localStorage.removeItem('searchListingId');
+    localStorage.removeItem('searchTag');
+  }
 
-  // console.log('API Filter URL:', apiFilter);
+  // Get the actual filter states for non-index pages
+  const activeBoolean = currentActiveFilter();
+  const bidsBoolean = currentBidsFilter();
+  const sellerBoolean = currentSellerFilter();
+
+  // Construct query parameters string based on filter states
+  let queryParams = `_seller=${sellerBoolean}&_bids=${bidsBoolean}&_active=${activeBoolean}`;
+  if (tag) {
+    queryParams += `&_tag=${encodeURIComponent(tag)}`;
+  }
+
+  // Construct the final API filter URL
+  let apiFilter = listingId
+    ? `${listingsUrl}/${listingId}`
+    : `${listingsUrl}?${queryParams}`;
+
+  console.log('API Filter URL:', apiFilter);
   return apiFilter;
 }

@@ -5,9 +5,11 @@ import { defaultProfilePic } from '../../globalValues/general.mjs';
 /**
  * Dynamically creates and inserts listing card into the DOM with data from callListings, using template literals for HTML structure.
  */
-export async function listingCardBuild() {
+export async function listingCardBuild(listingsData) {
   try {
-    const listingsData = await filteredListingData(); // Assuming this is the function call
+    if (!listingsData) {
+      listingsData = await filteredListingData();
+    }
     const normalizedListingsData = Array.isArray(listingsData)
       ? listingsData
       : [listingsData];
@@ -45,7 +47,7 @@ export async function listingCardBuild() {
           <div class="flex items-center justify-center">
             <div class="max-w-md antialiased">
               <button type="button" data-listing-id="${listing.id}" class="listingModalButton group  block h-72 sm:h-80  w-72  relative">
-                <div class="relative flex h-full border rounded border-secondary1 bg-white transition-all ease-in-out duration-100 group-hover:scale-105">
+                <div class="relative flex h-full rounded border-primary2 shadow-md shadow-primary2  bg-primary1 transition-all ease-in-out duration-100 group-hover:scale-105">
                   <div class="min-w-fit p-1 max-h-fit mx-auto">
                     <div class="h-3/5 w-full">
                       <img class="listingMedia h-full w-full rounded-md" src="${listing.media[0] || defaultMedia}" alt="Listing Image"/>
