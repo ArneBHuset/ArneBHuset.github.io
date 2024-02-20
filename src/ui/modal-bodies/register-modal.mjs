@@ -15,6 +15,7 @@ const registrationContent = `
         placeholder="User name.."
         autocomplete="on"
         class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+        required
       />
       <input
         type="email"
@@ -22,6 +23,7 @@ const registrationContent = `
         placeholder="Email address.."
         autocomplete="on"
         class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+        required
       />
       <input
         type="password"
@@ -29,6 +31,7 @@ const registrationContent = `
         placeholder="Password.."
         autocomplete="on"
         class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+        required
       />
       <input
         type="url"
@@ -48,12 +51,13 @@ const registrationContent = `
 `;
 
 export function registerModal() {
-  document
-    .getElementById('openRegisterModalBtn')
-    .addEventListener('click', () => {
+  // Query all buttons with the class and add event listeners to each
+  document.querySelectorAll('.registerModalBtn').forEach(button => {
+    button.addEventListener('click', () => {
       const modal = createModal();
       modal.openModal();
       modal.setModalContent(registrationContent);
       validateRegistrationData();
     });
+  });
 }

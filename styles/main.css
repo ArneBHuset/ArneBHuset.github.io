@@ -54,7 +54,7 @@
 /* Add this in your global CSS file */
 @media (min-width: 700px) {
   .clip-path-transition {
-    clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0 100%);
+    clip-path: polygon(25% 0, 100% 0%, 100% 100%, 0 100%);
     transition: clip-path 0.4s ease-in-out;
   }
 
@@ -79,17 +79,69 @@
 
 /* Additional styles if needed */
 
-.custom-checkbox:checked {
-  background-color: #7fb3d5; /* Example for a custom color when checked */
-  border-color: #7fb3d5;
+/* Custom checkbox background and border when unchecked */
+.custom-checkbox-bg {
+  display: inline-block;
+  width: 20px; /* Custom width */
+  height: 20px; /* Custom height */
+  background-color: white; /* Background is white when unchecked */
+  border: 1px solid #00897b; /* Teal border, adjust the color as needed */
+  border-radius: 0.25rem; /* Adjust for roundness */
+  transition:
+    background-color 0.3s,
+    border-color 0.3s; /* Smooth transition */
+  position: relative; /* For positioning the inner element */
 }
 
-.custom-checkbox {
-  background-color: #7fb3d5;
-  width: 30px; /* Custom width */
-  height: 30px; /* Custom height */
-  border-radius: 50%; /* Example for round checkboxes */
-  border: 2px solid #7fb3d5; /* Custom border color */
+/* Changes when the custom checkbox is checked */
+.custom-checkbox:checked + .custom-checkbox-bg {
+  background-color: #00897b; /* Teal background */
+  border-color: #00897b; /* Teal border */
+}
+
+/* Inner element when checked (this creates the white dot) */
+.custom-checkbox:checked + .custom-checkbox-bg::after {
+  content: ''; /* Needed for pseudo-element */
+  display: block;
+  width: 10px; /* Smaller than the checkbox itself for the dot */
+  height: 10px; /* Smaller than the checkbox itself for the dot */
+  background-color: white; /* White inner element */
+  border-radius: 50%; /* Make it round */
+  position: absolute; /* Position it in the center */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hover effect for the custom checkbox background and border */
+.custom-checkbox-bg:hover {
+  background-color: #00897b; /* Teal background on hover */
+  border-color: #00897b; /* Teal border on hover */
+}
+
+/* Hover effect specifically when checkbox is checked (reverses the normal checked appearance) */
+.custom-checkbox:checked + .custom-checkbox-bg:hover {
+  background-color: white; /* White background on hover when checked */
+  border: 1px solid #00897b; /* Maintain the teal border on hover when checked */
+}
+
+/* Ensure the inner element is hidden when unchecked, but visible on hover */
+.custom-checkbox + .custom-checkbox-bg:hover::after {
+  content: ''; /* Needed for pseudo-element */
+  display: block;
+  width: 10px; /* Smaller than the checkbox itself for the dot */
+  height: 10px; /* Smaller than the checkbox itself for the dot */
+  background-color: #00897b; /* Teal inner element on hover when unchecked */
+  border-radius: 50%; /* Make it round */
+  position: absolute; /* Position it in the center */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hide the inner element when unchecked */
+.custom-checkbox:not(:checked) + .custom-checkbox-bg::after {
+  display: none;
 }
 
 /* For a custom check mark */

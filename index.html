@@ -17,14 +17,13 @@
   </head>
   <body data-page="index">
     <header class="border-b-2 border-primary bg-primary1">
-      <nav class="py-2 mx-auto max-w-sm md:max-w-screen-lg">
+      <nav class="py-2 mx-auto my-auto container md:max-w-screen-lg">
         <div class="container px-4 mx-auto md:flex md:items-center">
           <div class="flex justify-between items-center">
-            <a href="/">
+            <a href="/" class="w-28 h-28">
               <img
                 src="./assets/img/logo-no-background.png"
-                height="auto"
-                width="80"
+                class="w-28 h-28"
               />
             </a>
             <button
@@ -36,7 +35,7 @@
           </div>
 
           <div
-            class="hidden md:flex flex-col md:flex-row md:ml-8 mt-3 md:mt-0 gap-3 lg:gap-4"
+            class="hidden sm:pt-6 md:flex flex-col md:flex-row md:ml-8 mt-3 md:mt-0 gap-3 lg:gap-4"
             id="navbar-collapse"
           >
             <a
@@ -60,12 +59,12 @@
               >History</a
             >
 
-            <div class="sm:ml-32" id="loggedInOrOut"></div>
+            <div class="sm:pl-8" id="loggedInOrOut"></div>
           </div>
         </div>
       </nav>
     </header>
-    <main class="bg-primary1">
+    <main class="">
       <section>
         <div class="mx-auto max-w-sm sm:max-w-screen-xl">
           <div class="md:grid md:grid-cols-2 md:gap-4">
@@ -74,28 +73,31 @@
             <form class="flex items-center ms-2 sm:ms-52 pt-6 sm:pt-14">
               <input
                 type="text"
-                id="voice-search"
-                class="bg-white border border-gray-300 text-primary2 text-sm rounded-lg focus:border-secondary1 block w-full pl-8 p-2.5"
+                id="listings-search"
+                class="bg-white outline outline-1 shadow-md text-primary2 text-sm rounded-lg focus:shadow-lg focus:outline-teal-600 block w-full pl-8 p-2.5"
                 placeholder="Search for listings"
                 required
               />
 
               <button
                 type="submit"
-                class="inline-flex items-center py-2 px-3 ml-2 text-sm font-medium text-primary2 bg-primary1 rounded-lg border border-secondary1 hover:bg-secondary1 focus:outline-none"
+                class="inline-flex hover:text-white items-center py-2 px-3 ml-2 text-sm font-primary text-primary2 bg-primary1 hover:bg-teal-600 rounded-lg border border-secondary1 focus:outline-none"
               >
-                <span class="material-symbols-outlined text-primary2 mr-2"
-                  >search</span
-                >Search
+                <span class="material-symbols-outlined mr-2">search</span>Search
               </button>
             </form>
 
             <!-- Top Right Section -->
-            <div class="hidden sm:block justify-center mt-14 sm:pl-36">
-              <h2 class="font-primary text-primary2 text-2xl font-semibold">
-                Popular right now!
+            <div class="hidden sm:block justify-center mt-14 sm:pl-40">
+              <h2
+                class="font-primary text-primary2 text-xl font-semibold underline"
+              >
+                POPULAR RIGHT NOW
               </h2>
-              <span id="featuredBidCount" class="text-lg font-secondary"></span>
+              <span
+                id="featuredBidCount"
+                class="text-md font-thin font-secondary"
+              ></span>
             </div>
 
             <!-- Bottom Left Section -->
@@ -104,22 +106,30 @@
             >
               <span id="WelcomeMessage"></span>
 
-              <p class="mt-2 text-sm text-gray-500 md:text-base">
+              <p class="mt-2 text-md font-secondary text-primary2 md:text-base">
                 Embark on a journey to discover and own a piece of history or
                 artistry. Dive into our meticulously curated listings, find your
                 passion, and join a community of like-minded enthusiasts.
               </p>
               <div class="flex justify-center md:justify-start mt-6">
                 <a
-                  class="px-4 py-3 bg-primary2 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
+                  class="flex items-center px-4 py-3 font-primary text-sm border rounded-md bg-teal-600 border-teal-600 font-medium text-white hover:shadow-lg group relative"
                   href="./listing-page/listings.html"
-                  >See all listings</a
                 >
-                <a
-                  class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
-                  href="#"
-                  >New here?</a
+                  See all listings
+                  <span
+                    class="material-symbols-outlined ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out transform group-hover:translate-x-0"
+                  >
+                    keyboard_tab
+                  </span>
+                </a>
+
+                <button
+                  class="registerModalBtn mx-4 font-primary text-sm border rounded-md border-teal-600 px-4 py-2 font-medium text-primary2 hover:text-white transition hover:bg-teal-600 hover:shadow-lg"
+                  id="heroNewHereBtn"
                 >
+                  New here?
+                </button>
               </div>
             </div>
 
@@ -145,17 +155,17 @@
       <!-- Here starts the card -->
       <section class="">
         <h1
-          class="py-4 ms-4 mt-4 sm:ms-44 font-primary text-primary2 text-2xl font-semibold sm:max-w-screen-xl"
+          class="container pl-28 py-4 underline font-primary text-primary2 text-xl font-semibold"
         >
-          Newcomers
+          NEWCOMERS
         </h1>
         <div
           id="listingCards"
-          class="border-primary2 border-opacity-10 shadow-inner py-4 border-y-2 bg-gradient-to-r from-[rgba(15,118,110,0.3)] to-[rgba(15,118,109,0)]"
+          class="border-primary2 border-opacity-10 shadow-inner shadow-teal-600 py-4 border-y-2 bg-teal-900"
         ></div>
       </section>
     </main>
-    <footer class="relative bg-blueGray-200 pt-8 pb-6">
+    <footer class="relative bg-primary1 pt-8 pb-6">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">
           <div class="w-full lg:w-6/12 px-4">
@@ -196,7 +206,7 @@
               <div class="w-full lg:w-4/12 px-4 ml-auto">
                 <span
                   class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
-                  >Useful Links</span
+                  >Links</span
                 >
                 <ul class="list-unstyled">
                   <li>
@@ -216,14 +226,14 @@
                     <a
                       class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                       href=""
-                      >????</a
+                      >History</a
                     >
                   </li>
                   <li>
                     <a
                       class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                       href=""
-                      >Free Products</a
+                      >Our values</a
                     >
                   </li>
                 </ul>

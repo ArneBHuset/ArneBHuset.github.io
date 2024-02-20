@@ -14,7 +14,7 @@ export async function displayFeaturedListing() {
   // Assuming media is an array, ensure to handle it accordingly or adjust if it's just a single URL
   const imageUrl = featuredListing.media[0] || ''; // Use the first image or adjust based on your structure
 
-  featuredBidCount.innerHTML = `${featuredListing.title} currently with <span class="text-secondary1">${featuredListing._count.bids}</span> bids`;
+  featuredBidCount.innerHTML = `${featuredListing.title}, currently holding <span class="text-secondary1 font-bold">${featuredListing._count.bids}</span> bids`;
   featuredImg.innerHTML = `<img src="${imageUrl}" class=" object-cover rounded h-96 group-hover:scale-110 transition-transform duration-300" data-listing-id="${featuredListing.id}" />`;
   featuredBidCountSmall.innerHTML = `${featuredListing.title} currently with <span class="text-secondary1">${featuredListing._count.bids}</span> bids`;
 

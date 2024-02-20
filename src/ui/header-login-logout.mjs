@@ -11,29 +11,32 @@ export async function headerLoginStatus() {
     <div class="sm:flex sm:gap-4">
       <button
         id="logOutButton"
-        class="block rounded-md bg-secondary2 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+        class="block rounded-md bg-secondary2 opacity-80 px-5 py-2.5 text-sm font-primary text-black transition hover:opacity-100 hover:shadow-lg"
       >
         Log out
       </button>
     </div>
         `;
     logOutUser();
+
+    const registerModalBtn = document.getElementById('heroNewHereBtn');
+    if (registerModalBtn) {
+      registerModalBtn.classList.add('hidden');
+    }
   } else {
     headerSection.innerHTML = `
         <div class="flex items-center gap-4">
             <div class="sm:flex sm:gap-4">
               <button
                 id="openModalBtn"
-                class="block rounded-md bg-primary2 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-secondary1"
+                class="block font-primary text-sm rounded-md border border-teal-600  px-4 py-2  font-medium text-primary2 transition hover:text-white hover:bg-teal-600 hover:shadow-lg"
               >
                 Log in
               </button>
-
               <button
-                id="openRegisterModalBtn"
-                class="mt-4 sm:mt-0 block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+                class=" registerModalBtn mt-4 sm:mt-0 block font-primary text-sm border rounded-md border-teal-600  px-4 py-2  font-medium text-primary2 hover:text-white transition hover:bg-teal-600 hover:shadow-lg"
               >
-                Register
+                Sign up
               </button>
             </div>
         `;
