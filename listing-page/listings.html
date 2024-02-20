@@ -66,7 +66,10 @@
         <div class="md:grid md:grid-cols-2 md:gap-4 max-w-lg">
           <!-- Top Left Section -->
 
-          <form class="flex items-center ms-2 sm:ms-52 pt-4 sm:pt-6">
+          <form
+            id="searchForm"
+            class="flex items-center ms-2 sm:ms-52 pt-4 sm:pt-6"
+          >
             <input
               type="text"
               id="listing-search"
@@ -156,7 +159,6 @@
                 Extra?
               </label>
             </div>
-            <div id="searchFilterDisplay"></div>
           </div>
 
           <!-- Bottom Right Section -->
@@ -207,6 +209,7 @@
                 Post Listing
               </button>
             </form>
+            <div id="searchFilterDisplay" class=""></div>
           </div>
         </div>
       </div>

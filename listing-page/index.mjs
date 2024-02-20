@@ -9,6 +9,7 @@ import {
   currentSearchInput,
   currentSellerFilter,
   updateFilteredListingCards,
+  updateSearchFilterDisplay,
 } from '../src/main.mjs';
 
 //
@@ -27,3 +28,4 @@ currentBidsFilter();
 currentSearchInput();
 currentSellerFilter();
 updateFilteredListingCards();
+updateSearchFilterDisplay();

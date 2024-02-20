@@ -6,6 +6,7 @@ import { displayListingCards } from './ui/listing-page/display-listing.mjs';
 import { validatedNewListing } from './validation/listing-validation.mjs';
 import { userWelcomeMessage } from './ui/landing-page/welcome-message.mjs';
 import { displayProfileData } from './ui/profile-page.mjs/display-profile.mjs';
+import { displayProfileListing } from './ui/profile-page.mjs/display-profile-listings.mjs';
 import { headerLoginStatus } from './ui/header-login-logout.mjs';
 import { headerDropdown } from './ui/header-dropdown.mjs';
 import { newListingDropdown } from './ui/listing-page/new-listing-dropdown.mjs';
@@ -14,6 +15,7 @@ import { currentBidsFilter } from './ui/listing-page/filter-interaction/bids-fil
 import { currentSellerFilter } from './ui/listing-page/filter-interaction/seller-filter.mjs';
 import { currentSearchInput } from './ui/listing-page/filter-interaction/search-bar.mjs';
 import { updateFilteredListingCards } from './filters/api-filter/checkbox-filters.mjs';
+import { updateSearchFilterDisplay } from './ui/listing-page/search-display.mjs';
 
 export {
   loginModal,
@@ -27,6 +29,8 @@ export {
   headerLoginStatus,
   headerDropdown,
   newListingDropdown,
+  updateSearchFilterDisplay,
+  displayProfileListing,
 };
 
 export {

@@ -16,87 +16,193 @@
     />
   </head>
   <body data-page="profile">
-    <header class="border-b-2 border-primary bg-primary-1">
-      <div
-        class="mx-auto flex h-32 max-w-screen-xl items-center gap-8 sm px-6 sm:px-20 lg:px-44"
-      >
-        <a href="/">
-          <img
-            src="../assets/img/logo-no-background.png"
-            height="auto"
-            width="100"
-          />
-        </a>
-
-        <div class="flex flex-1 items-center justify-end md:justify-between">
-          <nav aria-label="Global" class="hidden md:block">
-            <ul
-              class="flex items-center gap-14 ps-8 text-xl font-primary text-primary-2"
-            >
-              <li>
-                <a class="transition hover:text-black" href="/"> About </a>
-              </li>
-
-              <li>
-                <a class="transition hover:text-gray-500/75" href="/">
-                  Careers
-                </a>
-              </li>
-
-              <li>
-                <a class="transition hover:text-gray-500/75" href="/">
-                  History
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div id="loggedInOrOut"></div>
-          <div class="flex items-center gap-4">
-            <div class="sm:flex sm:gap-4">
-              <button
-                id="openModalBtn"
-                class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-              >
-                Loginmodal
-              </button>
-
-              <button
-                id="openRegisterModalBtn"
-                class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
-              >
-                Register
-              </button>
-            </div>
-
+    <header class="border-b-2 border-primary bg-primary1">
+      <nav class="py-2 mx-auto my-auto container md:max-w-screen-lg">
+        <div class="container px-4 mx-auto md:flex md:items-center">
+          <div class="flex justify-between items-center">
+            <a href="/" class="w-28 h-28">
+              <img src="/assets/img/logo-no-background.png" class="w-28 h-28" />
+            </a>
             <button
-              class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+              class="flex text-primary2 hover:opacity-75 md:hidden text-8xl"
+              id="navbar-toggle"
             >
-              <span class="sr-only">Toggle menu</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              <i class="fas fa-bars text-3xl"></i>
             </button>
           </div>
+
+          <div
+            class="hidden sm:pt-6 md:flex flex-col md:flex-row md:ml-8 mt-3 md:mt-0 gap-3 lg:gap-4"
+            id="navbar-collapse"
+          >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Home</a
+            >
+            <a
+              href="/profile-page/profile.html"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Profile</a
+            >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >Listings</a
+            >
+            <a
+              href="#"
+              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+              >History</a
+            >
+
+            <div class="sm:pl-8" id="loggedInOrOut"></div>
+          </div>
         </div>
-      </div>
+      </nav>
     </header>
     <section>
       <div id="profileSection"></div>
     </section>
     <section>
-      <div id="listingsContainer"></div>
+      <div class="container mx-auto" id="listingsContainer"></div>
     </section>
+    <footer class="relative bg-primary1 pt-8 pb-6">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+          <div class="w-full lg:w-6/12 px-4">
+            <h4 class="text-3xl fonat-semibold text-secondary1 font-primary">
+              Auctionable
+            </h4>
+            <h5 class="text-lg mt-0 mb-2 text-primary2 font-primary">2024</h5>
+            <div class="flex mt-6 lg:mb-0 mb-6">
+              <a
+                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+                href="https://twitter.com/?lang=en"
+              >
+                <i class="fa-brands fa-x-twitter"></i> </a
+              ><a
+                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+                href="https://www.facebook.com/"
+              >
+                <i class="fab fa-facebook-square"></i> </a
+              ><a
+                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+                href="https://www.reddit.com/"
+              >
+                <i class="fa-brands fa-reddit"></i></a
+              ><a
+                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+                href=""
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="flex flex-wrap items-top mb-6">
+              <div class="w-full lg:w-4/12 px-4 ml-auto">
+                <span
+                  class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
+                  >Links</span
+                >
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >About Us</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >History</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Our values</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="w-full lg:w-4/12 px-4">
+                <span
+                  class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
+                  >Other Resources</span
+                >
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Terms & Conditions</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Privacy Policy</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                      >Contact Us</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-6 border-blueGray-300" />
+        <div
+          class="flex flex-wrap items-center md:justify-between justify-center"
+        >
+          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+            <div class="text-sm text-blueGray-500 font-semibold py-1">
+              Copyright © <span id="get-current-year">2024</span
+              ><a
+                href=""
+                class="text-blueGray-500 hover:text-gray-800"
+                target="_blank"
+              >
+              </a>
+              <a href="" class="text-blueGray-500 hover:text-blueGray-800"
+                >Arne</a
+              >.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
   <script type="module" src="./index.mjs"></script>
+  <script
+    src="https://kit.fontawesome.com/b25d649049.js"
+    crossorigin="anonymous"
+  ></script>
 </html>

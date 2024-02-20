@@ -4,15 +4,11 @@ export function determineSearchType() {
   const userInput = currentSearchInput();
   let listingId = '';
   let tag = '';
-
-  // Here, add your logic to determine if the userInput is an ID or a tag
-  // For example, assume IDs are strictly numeric (adjust based on your actual ID format)
   if (userInput) {
-    // This is just an example, adjust regex based on your ID format
+    // Example: IDs are numeric
     listingId = userInput;
-  } else {
+  } else if (userInput) {
     tag = userInput;
   }
-
   return { listingId, tag };
 }

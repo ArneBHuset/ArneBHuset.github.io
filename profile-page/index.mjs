@@ -1,14 +1,11 @@
-import { displayProfileData, loginModal, registerModal } from '../src/main.mjs';
+import {
+  headerLoginStatus,
+  headerDropdown,
+  displayProfileListing,
+  displayProfileData,
+} from '../src/main.mjs';
 
+headerDropdown();
+headerLoginStatus();
 displayProfileData();
-
-loginModal();
-registerModal();
-
-// import { filteredProfileListings } from '../src/filters/api-filter/profile/profile-selected-listings.mjs';
-
-// filteredProfileListings();
-
-import { displayListingCards } from '../src/ui/profile-page.mjs/display-profile-listings.mjs';
-
-displayListingCards();
+displayProfileListing();

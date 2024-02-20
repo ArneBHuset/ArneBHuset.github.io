@@ -1,17 +1,17 @@
 import { bidsMadeData } from '../../../api-calls/profile/profile-bids.mjs';
 import { callListings } from '../../../api-calls/listings/listing-api.mjs';
 import { fetchProfileData } from '../../../api-calls/profile/profile-data.mjs';
-import { newestListings } from '../../jsondata-filter/filter-by-creationdate.mjs';
+// import { newestListings } from '../../jsondata-filter/filter-by-creationdate.mjs';
+import { callAllListings } from '../../../api-calls/listings/all-listings.mjs';
 
 export async function filteredProfileListings() {
   try {
     // Fetch all necessary data
-    const allListings = await newestListings();
-    const allListings2 = await callListings();
+    const allListings = await callAllListings();
     const allBidsByProfile = await bidsMadeData();
     const profileData = await fetchProfileData();
 
-    console.log('from filter', allListings, allListings2);
+    console.log('from filter', allListings);
     // Log the raw data to debug
     // console.log('All listings:', allListings);
     // console.log('All bids by profile:', allBidsByProfile);

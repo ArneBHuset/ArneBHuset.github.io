@@ -3,8 +3,9 @@ import { listingModal } from '../modal-bodies/listing-modal.mjs';
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
 import { setupDeleteListingInteractions } from './delete-listing.mjs';
 import { setupUpdateListingInteractions } from './update-listing.mjs';
+import { callAllListings } from '../../api-calls/listings/all-listings.mjs';
 
-export async function displayListingCards() {
+export async function displayProfileListing() {
   let listingData = await callListings(); // Fetch listing data
   const listingCardsHtml = await listingCardBuild(listingData); // Build listing cards HTML
   const listingsContainer = document.getElementById('listingsContainer');
@@ -14,7 +15,7 @@ export async function displayListingCards() {
 
   // Set the inner HTML of the listings container to include all listing cards
   listingsContainer.innerHTML = `
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       ${listingCardsHtml}
     </div>`;
 

@@ -6,9 +6,10 @@ import { currentSellerFilter } from '../../main.mjs';
 
 export async function filteredListingUrl() {
   const isIndexPage = document.body.dataset.page === 'index';
+  const isProfilePage = document.body.dataset.page === 'profile';
 
   // If on the index page, set all filters to true and construct the URL accordingly
-  if (isIndexPage) {
+  if (isIndexPage || isProfilePage) {
     const queryParams = `_seller=true&_bids=true&_active=true`;
     return `${listingsUrl}?${queryParams}`;
   }

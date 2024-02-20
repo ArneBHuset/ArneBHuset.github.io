@@ -1,7 +1,9 @@
 import { filteredListingUrl } from './all-query-filters.mjs';
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
 import { displayListingCards } from '../../main.mjs';
-import { debounce } from '../../globalValues/api-debounce.mjs';
+// import { debounce } from '../../globalValues/api-debounce.mjs';
+// import { updateSearchFilterDisplay } from '../../main.mjs';
+// import { determineSearchType } from './search-bar-filter.mjs';
 
 export async function updateFilteredListingCards() {
   const listingData = await callListings();
@@ -20,9 +22,27 @@ document.addEventListener('DOMContentLoaded', () => {
   activeFilterInput.addEventListener('change', updateFilteredListingCards);
   bidsFilterInput.addEventListener('change', updateFilteredListingCards);
   sellerFilterInput.addEventListener('change', updateFilteredListingCards);
-  const searchForm = document.getElementById('searchForm'); // Adjust if you have more specific selectors
-  searchForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission
-    updateFilteredListingCards(); // Trigger the update based on the current search input
-  });
+  const searchForm = document.getElementById('searchForm');
+  // if (searchForm) {
+  //   searchForm.addEventListener('submit', function (event) {
+  //     event.preventDefault();
+  //     // Determine and set new search filter based on current input
+  //     const { listingId, tag } = determineSearchType(); // Adjust this based on actual logic
+
+  //     if (listingId) {
+  //       localStorage.setItem('searchListingId', listingId);
+  //       localStorage.removeItem('searchTag');
+  //     } else if (tag) {
+  //       localStorage.setItem('searchTag', tag);
+  //       localStorage.removeItem('searchListingId');
+  //     }
+
+  //     // Clear the input field after capturing the value
+  //     document.getElementById('listing-search').value = '';
+
+  //     // Update filters and display based on the new search
+  //     updateFilteredListingCards();
+  //     updateSearchFilterDisplay();
+  //   });
+  // }
 });
