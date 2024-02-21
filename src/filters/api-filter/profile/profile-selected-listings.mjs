@@ -1,42 +1,40 @@
+// Import necessary functions from other .mjs files
 import { bidsMadeData } from '../../../api-calls/profile/profile-bids.mjs';
 import { callListings } from '../../../api-calls/listings/listing-api.mjs';
 import { fetchProfileData } from '../../../api-calls/profile/profile-data.mjs';
-// import { newestListings } from '../../jsondata-filter/filter-by-creationdate.mjs';
 import { callAllListings } from '../../../api-calls/listings/all-listings.mjs';
 
 export async function filteredProfileListings() {
   try {
     // Fetch all necessary data
-    const allListings = await callAllListings();
-    const allBidsByProfile = await bidsMadeData();
+    // const allListings = await callListings();
+    // const allBidsByProfile = await bidsMadeData();
     const profileData = await fetchProfileData();
 
-    console.log('from filter', allListings);
-    // Log the raw data to debug
+    // // Console logs for debugging
     // console.log('All listings:', allListings);
     // console.log('All bids by profile:', allBidsByProfile);
     // console.log('Profile data:', profileData);
 
-    // Extract listing IDs from profile data
-    const userListingIds = profileData.listings.map(listing => listing.id);
+    // // Extract listing IDs from profile data
+    // const userListingIds = profileData.listings.map(listing => listing.id);
+    // console.log('User listing IDs:', userListingIds);
 
-    const userBiddingIds = allBidsByProfile.map(bid => bid.correctFieldName); // Update 'correctFieldName' accordingly
+    // // Assuming each bid contains a 'listingId' that references the ID of the listing
+    // // Extract these listing IDs from all bids made by the profile
+    // // Ensure the field used here matches your actual data structure
+    // const userBiddingListingIds = allBidsByProfile.map(bid => bid.listingId); // Corrected to use listingId or the correct field from your bids
+    // console.log('User bidding on listing IDs:', userBiddingListingIds);
 
-    // Log IDs for debugging
-    console.log('User listing ids:', userListingIds);
-    console.log('User bidding ids:', userBiddingIds);
-
-    // Filter all listings to find those that match the user's listings or bids
-    const filteredListings = allListings.filter(
-      listing =>
-        userListingIds.includes(listing.id) ||
-        userBiddingIds.includes(listing.id)
-    );
-
-    // Log the filtered listings
-    console.log('Filtered listings:', filteredListings);
-    return filteredListings;
+    // // Filter all listings to find those that match the user's listings or the listings the user has bid on
+    // const filteredListings = allListings.filter(
+    //   listing =>
+    //     userListingIds.includes(listing.id) ||
+    //     userBiddingListingIds.includes(listing.id)
+    // );
+    // console.log('Filtered listings:', filteredListings);
   } catch (error) {
-    console.log('Error with filtering', error);
+    console.error('Error with filtering', error);
+    throw error; // Propagate the error for further handling
   }
 }

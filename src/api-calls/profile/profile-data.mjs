@@ -15,7 +15,7 @@ export async function fetchProfileData() {
     const response = await fetch(profileUrl, profileApiCall);
     // console.log('Profile response', response);
     const json = await response.json();
-    // console.log(json);
+    // console.log('Profile data', json);
     return json;
   } catch (error) {
     profileDataError(error);

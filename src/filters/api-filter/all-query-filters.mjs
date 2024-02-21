@@ -1,4 +1,6 @@
 import { listingsUrl } from '../../globalValues/urls.mjs';
+import { profileUrl } from '../../globalValues/urls.mjs';
+import { currentProfileName } from '../../local-storage/current-user.mjs';
 import { determineSearchType } from './search-bar-filter.mjs';
 import { currentActiveFilter } from '../../main.mjs';
 import { currentBidsFilter } from '../../main.mjs';
@@ -7,11 +9,15 @@ import { currentSellerFilter } from '../../main.mjs';
 export async function filteredListingUrl() {
   const isIndexPage = document.body.dataset.page === 'index';
   const isProfilePage = document.body.dataset.page === 'profile';
+  const userName = await currentProfileName();
 
-  // If on the index page, set all filters to true and construct the URL accordingly
-  if (isIndexPage || isProfilePage) {
-    const queryParams = `_seller=true&_bids=true&_active=true`;
-    return `${listingsUrl}?${queryParams}`;
+  let allQueryParams = `_seller=true&_bids=true&_active=true`;
+  if (isIndexPage) {
+    return `${listingsUrl}?${allQueryParams}`;
+  }
+
+  if (isProfilePage) {
+    return `${profileUrl}/${userName}/listings?${allQueryParams}`;
   }
 
   // For all other scenarios:

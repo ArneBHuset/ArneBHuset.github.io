@@ -59,9 +59,9 @@ export async function listingCardBuild(listingsData) {
                     </div>
                   </div>
                 </div>
-                <div class="absolute inset-0 p-4 opacity-0 transition-opacity ease-in-out duration-800 group-hover:opacity-100 sm:p-6 lg:p-8">
+                <div class="absolute inset-0 p-4 opacity-0 transition-opacity ease-in-out duration-800 group-hover:opacity-100 sm:p-6 lg:p-8 scroll-smooth overflow-hidden">
                   <h3 class="mt-4 text-xl font-medium sm:text-2xl"></h3>
-                  <span class="text-sm sm:text-base">
+                  <span class="text-sm sm:text-base pb-6">
                     <div class="h-3/5 mb-4"></div>
                     <span class="flex w-full items-center text-center gap-4 pt-4">${sellerInfo}<span class="font-semibold font-primary text-center"> Description:</span></span><br>
                     <span class="block w-full text-center font-secondary">${listing.description}</span>

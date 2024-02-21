@@ -41,6 +41,5 @@ export async function createNewListing(listingFormData) {
   } catch (networkError) {
     // Handle network errors (e.g., request was not sent)
     console.error('Network error:', networkError);
-    alert('Failed to create listing: Network error or CORS issue.');
   }
 }
