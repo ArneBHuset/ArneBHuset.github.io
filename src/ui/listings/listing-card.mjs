@@ -54,7 +54,10 @@ export async function listingCardBuild(listingsData) {
                     </div>
                     <div class="flex flex-col">
                       <span class="listingTitle block w-full mt-1 font-primary text-lg font-semibold uppercase">${listing.title}</span>
-                      <span class="listingDescription block w-full font-secondary opacity-100 transition-opacity ease-in-out duration-500 group-hover:opacity-0">${listing.endsAt}</span>
+                      <span class="listingDescription block w-full font-secondary opacity-100 transition-opacity ease-in-out duration-500 group-hover:opacity-0">
+                        Ends At: ${new Date(listing.endsAt).toLocaleDateString()} - ${new Date(listing.endsAt).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}
+                      </span>
+                  
                       <span class="listingBids block w-full mt-2 font-secondary opacity-100 transition-opacity ease-in-out duration-400 group-hover:opacity-0">Bid's: ${listing._count.bids}</span>
                     </div>
                   </div>

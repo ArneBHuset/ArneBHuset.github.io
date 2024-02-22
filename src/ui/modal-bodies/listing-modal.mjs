@@ -3,8 +3,14 @@ import { userMakesBid } from '../user-makes-bid.mjs';
 import { displayListingMedia } from '../media-display.mjs';
 
 export function listingModal(listingData) {
-  let sellerInfo = 'Seller information not available';
-  // Corrected from 'listing' to 'listingData'
+  let sellerInfo = `
+    <div class="flex items-center">
+      <img class="w-20 h-20 rounded-full mr-2" src="/assets/img/missing-pic-profile.png" alt="No seller avatar available"/>
+      <div>
+          <h2>Seller information not available</h2>
+      </div>
+    </div>`;
+
   if (
     listingData.seller &&
     listingData.seller.name &&
@@ -12,14 +18,13 @@ export function listingModal(listingData) {
     listingData.seller.avatar
   ) {
     sellerInfo = `
-    <h2 class="block w-full mt-1 font-primary text-md font-semibold uppercase ms-3">Sold by</h2>
-    <div class="flex items-center p-2">
-    <img class="w-20 h-20 rounded-full mr-4" src="${listingData.seller.avatar}" alt="${listingData.seller.name}'s avatar"/>
-    <div>
-        <div class="font-secondary uppercase ">${listingData.seller.name}</div>
-        <div class="font-secondary ">${listingData.seller.email}</div>
+    <div class="flex items-center ">
+      <img class="w-24 h-24 rounded-full mr-4" src="${listingData.seller.avatar}" alt="${listingData.seller.name}'s avatar"/>
+      <div>
+          <div class="font-secondary uppercase ">${listingData.seller.name}</div>
+          <div class="font-secondary ">${listingData.seller.email}</div>
+      </div>
     </div>
-</div>
 
     `;
   }
@@ -39,7 +44,7 @@ export function listingModal(listingData) {
             ${bid.bidderName} bidded <span class="font-semibold">${bid.amount} credits</span>
              </span>
              <span>
-             Created: ${bid.created}
+             Created: ${new Date(bid.created).toLocaleDateString()} - ${new Date(bid.created).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}
              </span>
           </div>
           `
@@ -50,27 +55,35 @@ export function listingModal(listingData) {
   const modalContent = `
   <div class="listing-modal-size grid grid-rows-auto gap-2 font-primary text-primary2 overflow-auto lg:max-w-2/3 xl:max-w-1/2 mx-auto">
     <div class="flex flex-row">
-    <div id="listingMedia" class="listingMedia mx-auto bg-primary2 flex flex-col items-center">
-    </div>
-
-      <button id="minimizeBtn" class="h-4 p-1">
-        <i class="fa-solid fa-minimize"></i>
+      <div id="listingMedia" class="listingMedia mx-auto bg-primary2 flex flex-col items-center"></div>
+      <button id="minimizeBtn" class="bg-primary2 flex justify-start pt-2 px-2 ms-[-5px] sm:ms-[0px] ">
+        <span class="material-symbols-outlined text-white"></span>
       </button>
-      <div id="minimizeSection" class="min-w-50 sm:min-w-80 mr-1 ">
-        <h3 class="block w-full mt-1 font-primary text-lg font-semibold uppercase text-center ">${listingData.title}</h3>
-        <div class="block w-full text-center font-secondary ">${listingData.description}</div>
-        <div class="text-sm font-secondary text-center">
-          <i class="fa-solid fa-hashtag"></i> 
-          ${listingData.tags.join(', ')}
+      <div id="minimizeSection" class="min-w-50 sm:min-w-80 mx-6 my-4 ">
+        <h3 class="block w-full my-1 font-primary text-xl uppercase ">${listingData.title}</h3>
+        <div class="block w-11/12 my-2 font-light font-secondary ">${listingData.description}</div>
+        <div class="text-sm font-secondary my-4">
+          ${
+            listingData.tags && listingData.tags.length > 0
+              ? `<div class="flex gap-1 text-sm font-secondary">
+                  <i class="fa-solid fa-hashtag text-teal-600 text-lg "></i> 
+                  ${listingData.tags.join(', ')}
+               </div>`
+              : ''
+          }
         </div>
-        <div class="border-y mt-2 py-1">${sellerInfo}</div>
-        <div class="bg-secondary2 rounded my-2 text-center p-1 font-primary mr-2">Ends At: ${listingData.endsAt}</div>
-        <div class="ps-3">Bid Count: ${listingData._count.bids}</div>
-        <section class="ps-3">
+        <div class="flex items-center gap-2 mt-4 font-primary ">
+          <span class="material-symbols-outlined text-secondary2 text-xl m-[-5px]">
+            hourglass_top
+          </span>
+          Ends At: ${new Date(listingData.endsAt).toLocaleDateString()} - ${new Date(listingData.endsAt).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}
+        </div>
+        <div class="my-4 pb-2 border-b">Bid Count: ${listingData._count.bids}</div>
+        <section class="border-b pb-2">
           <label>
             <input class="peer/showLabel absolute scale-0" type="checkbox" />
-            <span class="block max-h-14 max-w-xs overflow-hidden rounded-lg py-0 transition-all duration-500 peer-checked/showLabel:max-h-full">
-              <h3 class="flex h-14 cursor-pointer items-center font-bold uppercase border-b ">See all bids
+            <span class="block max-h-8 max-w-xs overflow-hidden rounded-lg py-0 transition-all duration-500 peer-checked/showLabel:max-h-full">
+              <h3 class="flex h-8  cursor-pointer items-center text-md uppercase ">See all bids
                 <span class="material-symbols-outlined">
                   expand_more
                 </span>
@@ -79,18 +92,25 @@ export function listingModal(listingData) {
             </span>
           </label>
         </section>
-        <div>
-          <div class="text-sm listingCreated mt-4">
-          Created: ${listingData.created}<br/>
-          Last Update:${listingData.updated}
+
+          <div class=" mt-2 py-1">${sellerInfo}</div>
+          <div class="my-4">
+          <div class="flex my-4 gap-4">
+            <div id="inputArea" class="hidden transform translate-x-full transition-transform ease-out duration-500  b-2">
+              <input type="number" id="bidInputAmount" class="max-w-1/2 px-4 py-2 bg-white outline outline-1 shadow-md text-primary2 text-sm rounded-lg focus:shadow-lg focus:outline-teal-600 block w-full pl-8 p-2.5" placeholder="Amount to bid.." autocomplete="off" />
+            </div>
+            <div class="text-center">
+              <button type="button" id="biddingBtn" class="font-primary text-sm border rounded-md border-teal-600  px-4 py-2  font-medium text-primary2 hover:text-white transition hover:bg-teal-600 hover:shadow-lg">Bid</button>
+            </div>
+            </div>
+            <div>
+          <div class="text-sm font-thin listingCreated mt-4">
+          Created: ${new Date(listingData.created).toLocaleDateString()} - ${new Date(listingData.created).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}<br/>
+          Last Update: ${new Date(listingData.updated).toLocaleDateString()} - ${new Date(listingData.updated).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}
           </div>
-          <h3 class="text-sm  listingID">ID: ${listingData.id}</h3>
+          <h3 class="text-sm font-thin listingID">ID: ${listingData.id}</h3>
         </div>
-        <div id="inputArea" class="hidden transform translate-x-full transition-transform ease-out duration-10000 mt-2">
-          <input type="number" id="bidInputAmount" class="max-w-1/2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:border-blue-500" placeholder="Amount to bid.." autocomplete="off" />
-        </div>
-        <div class="text-center my-2">
-          <button type="button" id="biddingBtn" class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Bid Now</button>
+       
         </div>
       </div>
     </div>
@@ -102,7 +122,19 @@ export function listingModal(listingData) {
   modal.openModal();
   userMakesBid(listingData.id);
 
-  document.getElementById('minimizeBtn').addEventListener('click', function () {
+  const minimizeBtn = document.getElementById('minimizeBtn');
+  const iconSpan = minimizeBtn.querySelector('.material-symbols-outlined');
+  iconSpan.innerHTML = 'arrow_forward_ios'; // Ensure the forward icon is set initially
+
+  // Event listener for toggling the icon and section visibility
+  minimizeBtn.addEventListener('click', function () {
+    // Toggle the icon
+    if (iconSpan.innerHTML === 'arrow_forward_ios') {
+      iconSpan.innerHTML = 'arrow_back_ios';
+    } else {
+      iconSpan.innerHTML = 'arrow_forward_ios';
+    }
+    // Toggle the visibility of the minimizeSection
     var section = document.getElementById('minimizeSection');
     section.classList.toggle('hidden');
   });
