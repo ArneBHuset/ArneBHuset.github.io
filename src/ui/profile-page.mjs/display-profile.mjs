@@ -1,5 +1,5 @@
 import { fetchProfileData } from '../../api-calls/profile/profile-data.mjs';
-import { userUpdatesProfilePicture } from './update-picture.mjs';
+import { userUpdatesProfilePicture } from '../modal-bodies/update-picture.mjs';
 
 export async function displayProfileData() {
   const filteredProfileData = await fetchProfileData();
@@ -10,15 +10,14 @@ export async function displayProfileData() {
     : filteredProfileData;
   const profileSection = document.getElementById('profileSection');
 
-  // Check if profile data exists
   if (profile) {
     const winsHtml = profile.wins.map(win => `<li>${win}</li>`).join('');
 
     const profileHtml = `
-    <div class="flex items-center gap-8">
+    <div class="mx-auto flex items-center gap-8">
         <div>
-            <h1 class="text-2xl font-bold my-5">Your Profile</h1>
-            <div class="relative rounded-full overflow-hidden w-56 h-56 flex justify-center items-center mx-auto">
+            <h1 class="text-2xl font-bold my-6 text-center">PROFILE</h1>
+            <div class="relative rounded-full overflow-hidden  sm:w-56 sm:h-56 h-40 w-40 flex justify-center items-center mx-auto">
                 <button id="updateModalBtn" class="absolute inset-0 z-10"></button>
                 <img src="${profile.avatar}" class="transition-transform duration-300 ease-in-out hover:scale-110 w-full h-full object-cover rounded-full" alt="${profile.name}'s avatar"/>
                 <span class="material-symbols-outlined absolute bottom-5 right-5 mb-2 mr-2 text-white bg-secondary1 bg-opacity-60 rounded-full p-1 cursor-pointer z-20">
@@ -26,8 +25,8 @@ export async function displayProfileData() {
                 </span>
             </div>
         </div>
-        <div class="pt-10">
-             <div class="hidden sm:flex flex-col gap-4">
+        <div class="pt-8">
+             <div class="flex flex-col gap-4">
                   <div>
                       <div class="font-bold">Name:</div>
                     <div>${profile.name}</div>

@@ -17,12 +17,14 @@ export async function validateLoginData() {
     const userLoginData = await loginInputData();
     if (!userLoginData.email || !userLoginData.password) {
       console.log('Email and password cannot be empty.');
+
       return;
     }
 
     const emailPattern = /^[\w.-]+@(stud\.noroff\.no|noroff\.no)$/;
     if (!emailPattern.test(userLoginData.email)) {
-      console.log('Please use a valid Noroff email address.');
+      const errorDispaly = document.getElementById('errorMessageEmail');
+      errorDispaly.innerHTML = `<h3 class="error-message">Email must containt .noroff or stud.noroff</h3>`;
       return;
     }
 

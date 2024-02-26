@@ -1,29 +1,36 @@
 export function newListingDropdown() {
   const toggleButton = document.getElementById('newPostCollapse');
   const form = document.getElementById('newListingForm');
+  const bidsSection = document.getElementById('bidsSection');
   const filterToggleBoxes = document.getElementById('filterToggleBoxes');
 
-  // Add an event listener to the button
   toggleButton.addEventListener('click', function () {
-    // Check if the form is currently hidden
-    if (form.classList.contains('hidden')) {
-      form.classList.remove('hidden'); // Remove the hidden class to display the form
-      form.classList.add('flex-col', 'items-center', 'gap-3'); // Ensure the form structure is correct
-      form.offsetWidth; // Trigger a reflow in between removing 'hidden' and adding the animation
-      form.classList.add('animated-form'); // Add the animation class to trigger the animation
+    if (form && form.classList.contains('hidden')) {
+      form.classList.remove('hidden');
+      form.classList.add('flex-col', 'items-center', 'gap-3');
+      form.offsetWidth;
+      form.classList.add('animated-form');
 
-      // Check if the window width is greater than the 'sm:' breakpoint (640px by default)
       if (window.innerWidth < 540) {
-        filterToggleBoxes.classList.add('hidden'); // Hide filter boxes on larger screens
+        if (filterToggleBoxes) filterToggleBoxes.classList.add('hidden');
       }
-    } else {
-      form.classList.add('hidden'); // Add the hidden class to hide the form
-      form.classList.remove('animated-form'); // Remove the animation class so it can be re-added later
+    } else if (form) {
+      form.classList.add('hidden');
+      form.classList.remove('animated-form');
 
-      // Again, check the window size before removing 'hidden' class
       if (window.innerWidth < 540) {
-        filterToggleBoxes.classList.remove('hidden'); // Show filter boxes again when form is hidden
+        if (filterToggleBoxes) filterToggleBoxes.classList.remove('hidden');
       }
+    }
+
+    // Handle the bidsSection with similar animation logic
+    if (bidsSection && bidsSection.classList.contains('hidden')) {
+      bidsSection.classList.remove('hidden');
+      bidsSection.offsetWidth;
+      bidsSection.classList.add('animated-form');
+    } else if (bidsSection) {
+      bidsSection.classList.add('hidden');
+      bidsSection.classList.remove('animated-form');
     }
   });
 }

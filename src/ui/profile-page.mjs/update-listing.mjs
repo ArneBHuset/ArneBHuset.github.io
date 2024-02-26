@@ -20,26 +20,23 @@ async function handleFormSubmit(event, listingId) {
   }
 }
 
-export async function setupUpdateListingInteractions(container) {
+// Assuming updateModal is properly set and executed
+export async function updateListingInteraction(container) {
   container.addEventListener('click', async function (e) {
+    console.log('clicked');
     const updateBtn = e.target.closest('.update-button');
     if (updateBtn) {
       const listingId = updateBtn.getAttribute('data-listing-id');
-      await updateModal(); // Open the update modal and wait for it to be populated
+      await updateModal(); // Assuming this correctly sets up the modal
 
-      // Ensure modal content is loaded before attaching event handlers
-      setTimeout(() => {
-        const updateForm = document.getElementById('updateListingForm');
-        if (updateForm) {
-          // Define the form submission handler with the current listingId
-          const formSubmitHandler = event => handleFormSubmit(event, listingId);
-
-          // Remove any previous listeners to avoid duplicates
-          updateForm.removeEventListener('submit', formSubmitHandler);
-          // Add the new event listener
-          updateForm.addEventListener('submit', formSubmitHandler);
-        }
-      }, 0); // setTimeout ensures the DOM is updated before accessing the form
+      const updateForm = document.getElementById('updateListingForm');
+      if (updateForm) {
+        // This is now outside the timeout
+        updateForm.onsubmit = async event => {
+          // Convert to direct assignment
+          await handleFormSubmit(event, listingId);
+        };
+      }
     }
   });
 }

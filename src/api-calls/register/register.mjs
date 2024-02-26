@@ -27,7 +27,5 @@ export async function registerUser(registrationData) {
     } else {
       console.log('Registration response error', response);
     }
-  } catch (error) {
-    registrationError(error);
-  }
+  } catch (error) {}
 }

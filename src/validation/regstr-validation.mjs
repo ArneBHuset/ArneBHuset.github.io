@@ -5,9 +5,12 @@ import { registerUser } from '../api-calls/register/register.mjs';
  * Checks if form-data from reistrationInputData is valid and calls registerUser for API call
  */
 export async function validateRegistrationData() {
-  const registerBtn = document.getElementById('RegisterBtn');
-  registerBtn.addEventListener('click', async () => {
+  const registerForm = document.getElementById('registrationForm');
+  registerForm.addEventListener('submit', async event => {
+    event.preventDefault();
     const registrationUserData = await registrationInputData();
+    let errorDispaly = document.getElementById('errorMessageEmail');
+    errorDispaly.innerHTML = '';
     console.log(registrationUserData);
 
     if (
@@ -15,32 +18,25 @@ export async function validateRegistrationData() {
       !registrationUserData.email ||
       !registrationUserData.password
     ) {
-      console.log('Registration data missing!');
       return;
     }
 
-    // Validate Name: no punctuation except underscores
     if (!/^[a-zA-Z0-9_]+$/.test(registrationUserData.name)) {
-      console.log(
-        'Name must not contain punctuation symbols apart from underscore (_).'
-      );
+      errorDispaly.innerHTML = `<h3 class="error-message">Name must not contain any punctuations apart from underscore (_)</h3>`;
       return;
     }
 
-    // Validate Email
     const emailPattern = /^[\w.-]+@(stud\.noroff\.no|noroff\.no)$/;
     if (!emailPattern.test(registrationUserData.email)) {
-      console.log('Please use a valid Noroff email address.');
+      errorDispaly.innerHTML = `<h3 class="error-message">Email must containt .noroff or stud.noroff</h3>`;
       return;
     }
 
-    // Validate Password Length
     if (registrationUserData.password.length < 8) {
-      console.log('Password must be at least 8 characters.');
+      errorDispaly.innerHTML = `<h3 class="error-message">Password must be atleast 8 characters long</h3>`;
       return;
     }
 
-    // If all validations pass, attempt to register the user
     registerUser(registrationUserData);
   });
 }

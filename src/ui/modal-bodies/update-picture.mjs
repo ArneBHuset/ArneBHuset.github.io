@@ -3,7 +3,12 @@ import { createModal } from '../modal-base/modals.mjs';
 import { openModal } from '../modal-base/open-modal.mjs';
 
 const modalContent = `
-<form id="updateMediaForm" class="px-3 flex flex-col items-center gap-3">
+<div class="flex justify-center w-full p-6 sm:p-12 ">
+<div class=" flex-col items-center bg-primary1 ">
+  <h3 class="mb-2 font-bold text-3xl text-center font-primary text-primary2">
+    Update Avatar
+  </h3>
+  <form id="updateMediaForm" class="px-3 flex flex-col items-center gap-3">
 <input
 type="url"
 id="registerAvatar"
@@ -14,10 +19,12 @@ class="px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base place
 <button
 type="submit"
 id="RegisterBtn"
-class="mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 focus:outline-none"
+class="flex justify-center items-center bg-teal-600 opacity-80 hover:opacity-100 text-white focus:outline-none focus:ring rounded px-3 py-2"
 >Update avatar</button>
-</form>`;
-
+</form>
+</div>
+</div>
+`;
 export async function userUpdatesProfilePicture() {
   const updateModalBtn = document.getElementById('updateModalBtn');
 

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.error-message {
+  @apply text-secondary2 font-secondary font-semibold;
+}
 .main-modal {
   position: fixed;
   background: rgba(0, 0, 0, 0.5);

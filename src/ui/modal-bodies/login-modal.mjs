@@ -22,6 +22,7 @@ const loginContent = `
       required
       
     />
+    <span id="errorMessageEmail"></span>
     <input
       type="password"
       id="loginPswd"
@@ -32,7 +33,7 @@ const loginContent = `
     />
     <button
       id="loginBtn"
-      tyoe="button"
+      type="submit"
       class="flex justify-center items-center bg-teal-600 opacity-80 hover:opacity-100 text-white focus:outline-none focus:ring rounded px-3 py-1"
     >
     <span class="material-symbols-outlined">

@@ -4,17 +4,13 @@ import { callListings } from '../../api-calls/listings/listing-api.mjs';
 import { setupDeleteListingInteractions } from './delete-listing.mjs';
 import { filteredProfileListings } from '../../filters/api-filter/profile/profile-selected-listings.mjs';
 import { callUserListings } from '../../api-calls/profile/profile-listings.mjs';
+import { updateListingInteraction } from './update-listing.mjs';
 
 export async function displayProfileListing() {
-  // let listingData = await callListings();
   let listingData = await callUserListings();
   const listingCardsHtml = await listingCardBuild(listingData); // Build listing cards HTML
   const listingsContainer = document.getElementById('listingsContainer');
-  // console.log(
-  //   'Filtered alternative from logged from display-profile-listings',
-  //   listingData2
-  // );
-  console.log('listingData in prfoile, result', listingData);
+  console.log('listingData in profile, result', listingData);
 
   listingData = Array.isArray(listingData) ? listingData : [listingData];
 
@@ -26,7 +22,11 @@ export async function displayProfileListing() {
 
   // Add event listener for click events within the listings container
   listingsContainer.addEventListener('click', function (e) {
+    // Initialize delete listing interactions
     setupDeleteListingInteractions(listingsContainer);
+
+    // Initialize update listing interactions
+    updateListingInteraction(listingsContainer);
 
     // Check if the clicked element or its parent has the 'listingModalButton' class
     const target = e.target.closest('.listingModalButton');
