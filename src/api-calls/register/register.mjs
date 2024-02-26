@@ -1,16 +1,13 @@
 import { registerUrl } from '../../globalValues/urls.mjs';
-import { registrationError } from '../../error/registration-error.mjs';
-import { loginModal } from '../../ui/modal-bodies/login-modal.mjs';
 import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
-// import form data
-
-// bear in mind, registerUser should never run if the registrationData validation is not accepted!
 
 /**
- * Runs API call for registering a new user. Open login form if successfull
- * @param {ParameterType} registrationData - Takes validated form-data for registering new user
+ * Runs API call for registering a new user. Open login form if successful
+ * @param {Object} registrationData - Takes validated form-data for registering new user
  */
 export async function registerUser(registrationData) {
+  let errorDisplay = document.getElementById('errorMessage');
+  errorDisplay.innerHTML = '';
   try {
     const registerPostData = {
       method: 'POST',
@@ -18,14 +15,19 @@ export async function registerUser(registrationData) {
       body: JSON.stringify(registrationData),
     };
     const response = await fetch(registerUrl, registerPostData);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
 
     if (response.ok) {
-      loginModal();
+      errorDisplay.innerHTML = `<h3 class="text-secondary1">Success!</h3>`;
     } else {
-      console.log('Registration response error', response);
+      const errorMessage =
+        json.errors && json.errors.length > 0
+          ? json.errors[0].message
+          : 'Registration failed';
+      errorDisplay.innerHTML = `<h3 class="error-message">${errorMessage}</h3>`;
+      console.log('Registration response error', json);
     }
-  } catch (error) {}
+  } catch (error) {
+    errorDisplay.innerHTML = `<h3 class="error-message">Registration failed: ${error.message}</h3>`;
+  }
 }

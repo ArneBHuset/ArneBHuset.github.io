@@ -6,7 +6,11 @@ import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
  * Runs API call for logging user in. if successfull, accesstoken and username will be set in local storage
  * @param {ParameterType} userLoginData - Takes validated form-data for logging in
  */
+
 export async function userLogin(userLoginData) {
+  let errorDisplay = document.getElementById('errorMessageLogIn');
+  errorDisplay.innerHTML = ''; // Clear previous messages
+
   try {
     const loginData = {
       method: 'POST',
@@ -20,12 +24,16 @@ export async function userLogin(userLoginData) {
     if (response.ok && json.accessToken) {
       localStorage.setItem('accessToken', json.accessToken);
       localStorage.setItem('userName', json.name);
-      console.log('Testing api call and response!');
-      //   Forwarding link to be addded
+      window.location.reload();
     } else {
-      console.log('Your fetch repsonse has failed and accessToken is not set');
+      const errorMessage =
+        json.errors && json.errors.length > 0
+          ? json.errors[0].message
+          : 'Login failed';
+      errorDisplay.innerHTML = `<h3 class="error-message">${errorMessage}</h3>`;
     }
   } catch (error) {
-    loginError(error);
+    // If there is an error in the fetch operation itself (network error, etc.)
+    errorDisplay.innerHTML = `<h3 class="error-message">Login failed: ${error.message}</h3>`;
   }
 }
