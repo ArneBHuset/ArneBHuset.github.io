@@ -16,7 +16,7 @@ export async function displayProfileListing() {
 
   // Set the inner HTML of the listings container to include all listing cards
   listingsContainer.innerHTML = `
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 border-t pt-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
       ${listingCardsHtml}
     </div>`;
 

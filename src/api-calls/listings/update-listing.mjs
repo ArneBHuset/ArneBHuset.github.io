@@ -25,7 +25,6 @@ export async function updateListing(updateDataForm, listingId) {
     const responseData = await response.json();
     console.log('Listing update successful:', responseData);
 
-    // Display success icon and message
     errorDisplay.innerHTML = `
       <div class="flex items-center justify-center">
         <span class="material-symbols-outlined text-green-600">
@@ -34,10 +33,10 @@ export async function updateListing(updateDataForm, listingId) {
         <span class="text-green-600 ml-2">Update successful!</span>
       </div>`;
     setTimeout(function () {
-      window.location.reload(); // Reload the page after 2 seconds
+      window.location.reload();
     }, 1000);
   } catch (error) {
     console.error('Error updating the listing:', error);
-    errorDisplay.textContent = error.message; // Display the error message
+    errorDisplay.textContent = error.message;
   }
 }

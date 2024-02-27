@@ -4,6 +4,8 @@ import { defaultProfilePic } from '../../globalValues/general.mjs';
 
 /**
  * Dynamically creates and inserts listing card into the DOM with data from callListings, using template literals for HTML structure.
+ * @param {ParameterType} listingsData - Takes the json listing data from the api call
+ * @returns {ReturnType} - Returns populated listing card HTML used on all pages
  */
 export async function listingCardBuild(listingsData) {
   try {
@@ -29,18 +31,19 @@ export async function listingCardBuild(listingsData) {
         let profileListingInteraction = '';
         if (document.body.dataset.page === 'profile') {
           profileListingInteraction = `
-            <div class="flex p-4 justify-end">
-              <span class="delete-button focus:outline-none cursor-pointer" tabindex="0" role="button" aria-label="delete" data-listing-id="${listing.id}">
-                  <span class="material-symbols-outlined text-black bg-secondary1 rounded-full p-1 hover:outline-black">
+              <div class="flex p-4 justify-end">
+              <span class="delete-button focus:outline-none cursor-pointer transition-transform duration-300 hover:scale-110 " tabindex="0" role="button" aria-label="delete" data-listing-id="${listing.id}">
+                  <span class="material-symbols-outlined text-black bg-secondary1 hover:text-red-400 rounded-full p-1">
                       delete
                   </span>
               </span>
-              <span class="update-button focus:outline-none ml-4 cursor-pointer" tabindex="0" role="button" aria-label="edit" data-listing-id="${listing.id}">
-                  <span class="material-symbols-outlined text-black bg-secondary1 rounded-full p-1 hover:shadow-md">
+              <span class="update-button focus:outline-none ml-4 cursor-pointer transition-transform duration-300 hover:scale-110 " tabindex="0" role="button" aria-label="edit" data-listing-id="${listing.id}">
+                  <span class="material-symbols-outlined text-black bg-secondary1 hover:animate-spin rounded-full p-1">
                       edit
                   </span>
               </span>
-            </div>`;
+          </div>
+          `;
         }
 
         return `
