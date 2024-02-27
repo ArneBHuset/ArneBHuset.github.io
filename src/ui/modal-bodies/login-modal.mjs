@@ -39,11 +39,19 @@ const loginContent = `
 
 `;
 
-export function loginModal() {
-  document.getElementById('openModalBtn').addEventListener('click', () => {
-    const modal = createModal(); // Prepare the modal without initial content
-    modal.openModal(); // Display the modal
-    modal.setModalContent(loginContent); // Now set the content
-    validateLoginData();
-  });
+export function loginModal(isDirectCall = false) {
+  if (isDirectCall) {
+    showModalContent();
+  } else {
+    document
+      .getElementById('openModalBtn')
+      .addEventListener('click', showModalContent);
+  }
+}
+
+function showModalContent() {
+  const modal = createModal();
+  modal.openModal();
+  modal.setModalContent(loginContent);
+  validateLoginData();
 }

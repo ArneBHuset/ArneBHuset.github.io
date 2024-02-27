@@ -10,6 +10,7 @@ import {
   currentSellerFilter,
   updateFilteredListingCards,
   updateSearchFilterDisplay,
+  defaultTimeNewListing,
 } from '../src/main.mjs';
 
 //
@@ -29,3 +30,5 @@ currentSearchInput();
 currentSellerFilter();
 updateFilteredListingCards();
 updateSearchFilterDisplay();
+
+defaultTimeNewListing();

@@ -89,9 +89,7 @@
 
             <!-- Top Right Section -->
             <div class="hidden sm:block justify-center mt-14 sm:pl-40">
-              <h2
-                class="font-primary text-primary2 text-xl font-semibold underline"
-              >
+              <h2 class="font-primary text-primary2 text-xl">
                 POPULAR RIGHT NOW
               </h2>
               <span
@@ -135,10 +133,10 @@
 
             <!-- Bottom Right Section -->
             <div
-              class="block mx-auto h-1/2 w-auto sm:h-full clip-path-transition group"
+              class="block justify-center sm:mx-auto h-1/3 w-auto sm:h-full clip-path-transition group"
             >
               <h2
-                class="sm:hidden font-primary text-primary2 text-xl font-semibold"
+                class="sm:hidden border-t text-center mt-4 pt-4 font-primary text-primary2 text-xl uppercase"
               >
                 Popular right now!
               </h2>
@@ -146,7 +144,11 @@
                 id="featuredBidCountSmall"
                 class="block sm:hidden text-lg font-secondary"
               ></span>
-              <span class="cursor-pointer mx-auto" id="featuredImg"> </span>
+              <span
+                class="cursor-pointer flex mx-auto justify-center px-auto"
+                id="featuredImg"
+              >
+              </span>
             </div>
           </div>
         </div>
@@ -155,14 +157,16 @@
       <!-- Here starts the card -->
       <section class="">
         <h1
-          class="container pl-28 py-4 underline font-primary text-primary2 text-xl font-semibold"
+          class="container text-center sm:text-left mt-6 sm:pl-28 py-4 font-primary text-primary2 text-xl"
         >
           NEWCOMERS
         </h1>
         <div
           id="listingCards"
-          class="border-primary2 border-opacity-10 shadow-inner shadow-teal-600 py-4 border-y-2 bg-teal-900 text-teal-900"
-        ></div>
+          class="border-primary2 border-opacity-60 shadow-inner shadow-teal-900 py-4 border-y-2 bg-teal-800 bg-opacity-90 opacity-90 text-teal-900"
+        >
+          <span id="listingCarouselError"></span>
+        </div>
       </section>
     </main>
     <footer class="relative bg-primary1 pt-8 pb-6">

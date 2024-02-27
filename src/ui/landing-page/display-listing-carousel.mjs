@@ -3,45 +3,40 @@ import { listingModal } from '../modal-bodies/listing-modal.mjs';
 import { carousel } from '../carousel.mjs';
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
 
+/**
+ * Sets up the carousel layout with buttons, and populates with standard listing cards.
+ * Initalizes listing modal and carousel logick
+ */
 export async function landingPageListings() {
   try {
-    // Attempt to build listing cards and fetch listing data
     const listingCardsHtml = await listingCardBuild();
     let listingData = await callListings();
-    // console.log('in the carousel build:', listingCardsHtml, listingData);
-
     listingData = Array.isArray(listingData) ? listingData : [listingData];
-
-    // Prepare the container for the carousel structure
     const listingsContainer = document.getElementById('listingCards');
     if (!listingsContainer) throw new Error('Listing container not found');
 
     listingsContainer.innerHTML = `
-  <section class="h-full overflow-hidden relative sm:max-w-screen-xl ps-12 p-4 sm:ps-0  mx-auto ">
-  <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 text-black px-4 py-2 z-10">
-        <span class="material-symbols-outlined pr-10">
-        arrow_back_ios
-        </span>
-      </button>
-      <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 text-black px-4 py-2 z-10">
-        <span class="material-symbols-outlined">
-          arrow_forward_ios
-        </span>
-      </button>
-      <div id="carousel" class="relative ">
-        <div id="carouselItems" class="flex gap-10  transition-transform duration-500">
-          <!-- Carousel items added here -->
-        </div>
-      </div>   
-    </section>`;
+    <section class="h-full overflow-hidden relative sm:max-w-screen-xl ps-12 p-4 sm:ps-0  mx-auto ">
+    <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 text-black px-4 py-2 z-10">
+          <span class="material-symbols-outlined pr-10">
+          arrow_back_ios
+          </span>
+        </button>
+        <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 text-black px-4 py-2 z-10">
+          <span class="material-symbols-outlined">
+            arrow_forward_ios
+          </span>
+        </button>
+        <div id="carousel" class="relative ">
+          <div id="carouselItems" class="flex gap-10  transition-transform duration-500">
+          </div>
+        </div>   
+      </section>`;
 
-    // Get the carousel items container
-    // Convert the string to HTML elements and setup carousel
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = listingCardsHtml;
     const cards = tempDiv.querySelectorAll('.max-w-md');
 
-    // Ensure cards are found
     if (cards.length === 0) throw new Error('No listing cards were generated');
 
     const carouselItemsContainer = document.getElementById('carouselItems');
@@ -55,14 +50,25 @@ export async function landingPageListings() {
       carouselItemsContainer.appendChild(carouselItem);
     });
 
-    // Initialize the carousel functionality
     carousel();
-
-    // Add event listener for modal functionality
     setupModalInteraction(listingsContainer, listingData);
   } catch (error) {
     console.error('Error in landingPageListings:', error);
-    // Optionally, display an error message in the UI
+    displayListingCarouselError();
+  }
+}
+
+function displayListingCarouselError() {
+  const errorElement = document.getElementById('listingCarouselError');
+  if (errorElement) {
+    errorElement.innerHTML = `
+    <div class="flex gap-2 text-red-400">
+      <span class="material-symbols-outlined">
+      priority_high
+      </span>
+      Error with displaying listing carousel
+    </div>
+    `;
   }
 }
 
@@ -76,7 +82,7 @@ function setupModalInteraction(container, listingData) {
         listingModal(listing);
       } else {
         console.error('Listing not found for ID:', listingId);
-        // Optionally, inform the user that the listing could not be found
+        displayListingCarouselError(); // Display an error message if a specific listing is not found
       }
     }
   });

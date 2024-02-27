@@ -24,6 +24,7 @@ import { currentActiveFilter } from './ui/listing-page/filter-interaction/active
 import { currentBidsFilter } from './ui/listing-page/filter-interaction/bids-filter.mjs';
 import { currentSearchInput } from './ui/listing-page/filter-interaction/search-bar.mjs';
 import { currentSellerFilter } from './ui/listing-page/filter-interaction/seller-filter.mjs';
+import { defaultTimeNewListing } from './ui/listing-page/default-time.mjs';
 export {
   displayListingCards,
   newListingDropdown,
@@ -34,10 +35,18 @@ export {
   updateFilteredListingCards,
   updateSearchFilterDisplay,
   validatedNewListing,
+  defaultTimeNewListing,
 };
 
 // Profile Page
 import { displayProfileData } from './ui/profile-page.mjs/display-profile.mjs';
 import { displayProfileListing } from './ui/profile-page.mjs/display-profile-listings.mjs';
 import { bidsMadeByUser } from './ui/profile-page.mjs/display-bids-made.mjs';
-export { displayProfileData, displayProfileListing, bidsMadeByUser };
+import { loginStatusForProfile } from './ui/profile-page.mjs/login-status.mjs';
+
+export {
+  displayProfileData,
+  displayProfileListing,
+  bidsMadeByUser,
+  loginStatusForProfile,
+};

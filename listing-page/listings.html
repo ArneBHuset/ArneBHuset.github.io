@@ -163,16 +163,14 @@
 
           <!-- Bottom Right Section -->
           <div class="my-auto pl-8 ml-4 justify-center items-center">
-            <form id="newListingForm" class="hidden">
+            <form id="newListingForm" class="hidden" novalidate>
               <input
                 type="text"
                 id="listingTitle"
                 placeholder="Listing Title.."
                 autocomplete="off"
                 class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-                required
               />
-
               <input
                 type="text"
                 id="listingDescription"
@@ -196,11 +194,19 @@
               />
               <input
                 type="date"
+                value=""
                 id="listingEndsAt"
                 class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-                required
               />
-              <span class="text-primary2" id="dateInfo"></span>
+              <span
+                class="block text-sm text-thin font-secondary text-primary2 ml-1 p-1"
+                >Expiration date chosen, will always end at midnight 23.59</span
+              >
+              <span
+                id="errorMessageListingPage"
+                class="error-message max-w-1/2"
+              ></span>
+
               <button
                 type="submit"
                 id="addListingBtn"
@@ -209,6 +215,7 @@
                 Post Listing
               </button>
             </form>
+
             <div id="searchFilterDisplay" class=""></div>
           </div>
         </div>
@@ -216,8 +223,14 @@
     </section>
 
     <section>
-      <div class="container mx-auto" id="listingsContainer"></div>
+      <div class="container mx-auto" id="listingsContainer">
+        <span
+          id="errorMessageListings"
+          class="error-message max-w-1/2 text-center mx-auto"
+        ></span>
+      </div>
     </section>
+
     <footer class="relative bg-primary1 pt-8 pb-6 mt-4">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">

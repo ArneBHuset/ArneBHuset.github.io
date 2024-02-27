@@ -15,10 +15,15 @@ export async function changeProfileImg(newMedia) {
       `${profileUrl}/${userName}/media`,
       updateProfileCall
     );
-    console.log('api call??s', updateProfileCall);
+    console.log('api call?', updateProfileCall);
+    if (!response.ok) {
+      throw new Error('Failed to update profile image');
+    }
     const json = await response.json();
-    console.log('Result of profile update', json, response);
+    window.location.reload();
   } catch (error) {
-    console.log(error);
+    console.log('Error updating profile image', error);
+    const errorMessageSpan = document.getElementById('errorMessageProfile');
+    errorMessageSpan.innerHTML = `<span class="error-message">Failed to update profile image: ${error.message}. Please try again later.</span>`;
   }
 }

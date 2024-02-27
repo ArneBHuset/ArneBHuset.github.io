@@ -1,5 +1,8 @@
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
 
+/**
+ * Takes all listing data and filters the listing with the highest bids
+ */
 export async function mostPopularListing() {
   try {
     const returnedJsonListing = await callListings();
@@ -24,6 +27,7 @@ export async function mostPopularListing() {
 
     return listingWithMostBids;
   } catch (error) {
-    console.error('Error finding the listing with the most bids:', error);
+    const featuredSpan = document.getElementById('featuredImg');
+    featuredSpan.innerHTML = `<img src="/assets/img/missing-pic.png" class="object-cover rounded h-96" />`;
   }
 }

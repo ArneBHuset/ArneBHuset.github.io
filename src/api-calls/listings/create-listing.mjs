@@ -3,9 +3,11 @@ import { validatedHeader } from '../../globalValues/api-header.mjs';
 
 /**
  * Runs API call to create a new listing.
- * @param {ParameterType} listingFormData - Takes validated form-data in an array to create new listing
+ * @param {Object} listingFormData - Takes validated form-data to create new listing
  */
 export async function createNewListing(listingFormData) {
+  let errorDisplay = document.getElementById('errorMessageListingPage'); // Ensure this is the correct ID for your listing error messages
+  errorDisplay.innerHTML = '';
   try {
     console.log(listingFormData);
     const newListingCall = {
@@ -13,33 +15,22 @@ export async function createNewListing(listingFormData) {
       headers: validatedHeader,
       body: JSON.stringify(listingFormData),
     };
-
     const response = await fetch(listingsUrl, newListingCall);
-
-    // Check if the response status is not in the range of 2xx
+    const json = await response.json();
     if (!response.ok) {
-      // Attempt to parse the error response body for detailed error messages
-      try {
-        const errorResponse = await response.json();
-        console.error('Error in creating new listing:', errorResponse);
-        alert(
-          `Failed to create listing: ${errorResponse.message || 'An error occurred'}`
-        );
-      } catch (parseError) {
-        // If parsing the error response fails, log and alert with a generic message
-        console.error('Error parsing error response:', parseError);
-        alert(
-          'Failed to create listing: An error occurred, and we could not retrieve detailed information.'
-        );
-      }
+      const errorMessage = json.message || 'Failed to create listing';
+      errorDisplay.innerHTML = `<h3 class="error-message">${errorMessage}</h3>`;
+      console.error('Error in creating new listing:', json);
     } else {
-      // If the request was successful, log and possibly display success feedback
-      const json = await response.json();
-      console.log('Success in creating new listing', json, response);
-      // Optionally, alert or update UI with success message
+      errorDisplay.innerHTML = `
+      <span class="material-symbols-outlined text-green-600">
+        task_alt
+      </span>`;
+      setTimeout(function () {
+        window.location.reload();
+      }, 1000);
     }
   } catch (networkError) {
-    // Handle network errors (e.g., request was not sent)
-    console.error('Network error:', networkError);
+    errorDisplay.innerHTML = `<h3 class="error-message">Network error: ${networkError.message}</h3>`;
   }
 }

@@ -1,4 +1,3 @@
-// updateListingData.mjs
 export async function updateListingData() {
   const listingTitle = document.getElementById('listingTitle');
   const listingDescription = document.getElementById('listingDescription');
@@ -8,8 +7,8 @@ export async function updateListingData() {
   const updatedListingData = {
     title: listingTitle.value.trim(),
     description: listingDescription.value.trim(),
-    tags: listingTags.value.split(',').map(tag => tag.trim()), // Assuming tags are comma-separated
-    media: listingMedia.value ? [listingMedia.value] : [], // Assuming media should be an array, even if it's just one URL
+    tags: listingTags.value.split(',').map(tag => tag.trim()),
+    media: listingMedia.value ? [listingMedia.value] : [],
   };
   return updatedListingData;
 }

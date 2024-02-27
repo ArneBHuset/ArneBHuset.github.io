@@ -3,8 +3,6 @@ import { userUpdatesProfilePicture } from '../modal-bodies/update-picture.mjs';
 
 export async function displayProfileData() {
   const filteredProfileData = await fetchProfileData();
-
-  // Assuming filteredProfileData returns only one profile for simplicity.
   const profile = Array.isArray(filteredProfileData)
     ? filteredProfileData[0]
     : filteredProfileData;
@@ -12,7 +10,6 @@ export async function displayProfileData() {
 
   if (profile) {
     const winsHtml = profile.wins.map(win => `<li>${win}</li>`).join('');
-
     const profileHtml = `
     <div class="mx-auto flex items-center gap-8">
         <div>
@@ -20,8 +17,8 @@ export async function displayProfileData() {
             <div class="relative rounded-full overflow-hidden  sm:w-56 sm:h-56 h-40 w-40 flex justify-center items-center mx-auto">
                 <button id="updateModalBtn" class="absolute inset-0 z-10"></button>
                 <img src="${profile.avatar}" class="transition-transform duration-300 ease-in-out hover:scale-110 w-full h-full object-cover rounded-full" alt="${profile.name}'s avatar"/>
-                <span class="material-symbols-outlined absolute bottom-5 right-5 mb-2 mr-2 text-white bg-secondary1 bg-opacity-60 rounded-full p-1 cursor-pointer z-20">
-                    edit
+                <span class="material-symbols-outlined absolute bottom-2 right-5 mb-2 mr-2 text-white bg-primary2 bg-opacity-80 rounded-full p-1 cursor-pointer" style="z-index: 50;">
+                  edit
                 </span>
             </div>
         </div>
@@ -46,11 +43,8 @@ export async function displayProfileData() {
         </div>
     </div>
         `;
-
-    // Set the innerHTML of the profile section to the generated profileHtml
     profileSection.innerHTML = profileHtml;
 
-    // Call function to allow profile picture updates
     userUpdatesProfilePicture();
   }
 }

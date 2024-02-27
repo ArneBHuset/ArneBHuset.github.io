@@ -1,5 +1,4 @@
 import { loginUrl } from '../../globalValues/urls.mjs';
-import { loginError } from '../../error/login-error.mjs';
 import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
 
 /**
@@ -9,7 +8,7 @@ import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
 
 export async function userLogin(userLoginData) {
   let errorDisplay = document.getElementById('errorMessageLogIn');
-  errorDisplay.innerHTML = ''; // Clear previous messages
+  errorDisplay.innerHTML = '';
 
   try {
     const loginData = {
@@ -33,7 +32,6 @@ export async function userLogin(userLoginData) {
       errorDisplay.innerHTML = `<h3 class="error-message">${errorMessage}</h3>`;
     }
   } catch (error) {
-    // If there is an error in the fetch operation itself (network error, etc.)
     errorDisplay.innerHTML = `<h3 class="error-message">Login failed: ${error.message}</h3>`;
   }
 }

@@ -1,43 +1,31 @@
 import { newListingData } from '../forms/new-listing.mjs';
 import { createNewListing } from '../api-calls/listings/create-listing.mjs';
 /**
- * Checks if form-data from newListingData is valid and calls function for API call.
+ * Checks if form-data from newListingData is valid and initz API call.
  */
 export async function validatedNewListing() {
   const form = document.getElementById('newListingForm');
-
-  document
-    .getElementById('listingEndsAt')
-    .addEventListener('change', function () {
-      const dateInput = this.value;
-      const infoText = 'Date set will always end at midnight 23.59';
-      document.getElementById('dateInfo').textContent = infoText;
-    });
-
   form.addEventListener('submit', async event => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
     const userListingData = await newListingData();
+    let errorDisplay = document.getElementById('errorMessageListingPage');
+    errorDisplay.innerHTML = '';
 
     if (!userListingData.title || !userListingData.endsAt) {
-      console.log('Required fields missing');
+      errorDisplay.innerHTML = `<h3 class="error-message">Please fill in all required fields (Title, End Date).</h3>`;
       return;
     }
-
     const inputDate = new Date(userListingData.endsAt);
     const currentDate = new Date();
-
-    const requiredDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // 24 hours ahead of current time
+    const requiredDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
     if (inputDate <= requiredDate) {
-      console.log('The listing end date must be at least 24 hours from now');
+      errorDisplay.innerHTML = `<h3 class="error-message">The listing end date must be at least 24 hours from now.</h3>`;
       return;
     }
-
-    console.log('Input is valid', userListingData);
     try {
       await createNewListing(userListingData);
-      // window.location.reload();
     } catch (error) {
-      console.error(`An error occurred: ${error}`);
+      errorDisplay.innerHTML = `<h3 class="error-message">An error occurred: ${error}.</h3>`;
     }
   });
 }

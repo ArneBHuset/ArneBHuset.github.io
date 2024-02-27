@@ -1,3 +1,6 @@
+/**
+ * Displays welcome message, using the user name if the user name is avilable in local storage
+ */
 export function userWelcomeMessage() {
   const userName = localStorage.getItem('userName');
   const welcomeMessage = document.getElementById('WelcomeMessage');

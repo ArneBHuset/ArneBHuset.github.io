@@ -5,6 +5,7 @@ import {
   displayProfileData,
   bidsMadeByUser,
   newListingDropdown,
+  loginStatusForProfile,
 } from '../src/main.mjs';
 
 headerDropdown();
@@ -13,3 +14,4 @@ displayProfileData();
 displayProfileListing();
 bidsMadeByUser();
 newListingDropdown();
+loginStatusForProfile();

@@ -1,9 +1,9 @@
 import { filteredProfileUrl } from '../../filters/api-filter/profile/profile-filter.mjs';
-import { profileDataError } from '../../error/profile-error/profile-data-error.mjs';
 import { validatedHeader } from '../../globalValues/api-header.mjs';
+
 /**
- * Runs api call for fetching users profile data
- * @returns {ReturnType} - Returns oject with all profile data
+ * Runs api call for fetching user's profile data
+ * @returns {ReturnType} - Returns object with all profile data or null if an error occurs
  */
 export async function fetchProfileData() {
   try {
@@ -13,11 +13,16 @@ export async function fetchProfileData() {
       headers: validatedHeader,
     };
     const response = await fetch(profileUrl, profileApiCall);
-    // console.log('Profile response', response);
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || 'Failed to fetch profile data');
+    }
     const json = await response.json();
-    // console.log('Profile data', json);
     return json;
   } catch (error) {
-    profileDataError(error);
+    const errorMessageSpan = document.getElementById('errorMessageProfile');
+    errorMessageSpan.innerHTML = `<span class="error-message">Failed to load profile data: ${error.message}. Please try again later.</span>`;
+    console.error('Profile data fetch error:', error);
+    return null;
   }
 }

@@ -5,7 +5,7 @@ import { displayListingMedia } from '../media-display.mjs';
 export function listingModal(listingData) {
   let sellerInfo = `
     <div class="flex items-center">
-      <img class="w-20 h-20 rounded-full mr-2" src="/assets/img/missing-pic-profile.png" alt="No seller avatar available"/>
+      <img class="w-20 h-20 rounded-full mr-2 font-thin" src="/assets/img/missing-pic-profile.png" alt="No seller avatar available"/>
       <div>
           <h2>Seller information not available</h2>
       </div>
@@ -30,7 +30,10 @@ export function listingModal(listingData) {
   }
 
   // Handle missing bids information gracefully
-  let bidsDetails = 'No bids available';
+  let bidsDetails = `<div class="flex gap-2"><span class="text-teal-600 pb-1 material-symbols-outlined">
+  payments
+  </span> No bids available... yet 
+  </div>`;
   if (listingData.bids && listingData.bids.length > 0) {
     bidsDetails = listingData.bids
       .map(
@@ -40,7 +43,9 @@ export function listingModal(listingData) {
             <span class="">
               Bid: ${bid.id}
             </span>
-            <span class="bg-gray-200 p-1 rounded">
+            <span class="bg-gray-200 p-1 rounded flex gap-2"><span class="text-teal-600  material-symbols-outlined">
+            payments
+            </span>
             ${bid.bidderName} bidded <span class="font-semibold">${bid.amount} credits</span>
              </span>
              <span>
@@ -105,6 +110,7 @@ export function listingModal(listingData) {
             </div>
             <div>
           <div class="text-sm font-thin listingCreated mt-4">
+          <span id="biddingError" class="block w-full error-message"></span>
           Created: ${new Date(listingData.created).toLocaleDateString()} - ${new Date(listingData.created).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}<br/>
           Last Update: ${new Date(listingData.updated).toLocaleDateString()} - ${new Date(listingData.updated).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}
           </div>

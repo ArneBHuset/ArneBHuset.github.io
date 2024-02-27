@@ -50,7 +50,7 @@ export async function listingCardBuild(listingsData) {
                 <div class="relative flex h-full rounded border-primary2 shadow-md shadow-primary2  bg-primary1 transition-all ease-in-out duration-100 group-hover:scale-105">
                   <div class="min-w-fit p-1 max-h-fit mx-auto">
                     <div class="h-3/5 w-full">
-                      <img class="listingMedia h-full w-full rounded-md" src="${listing.media[0] || defaultMedia}" alt="Listing Image"/>
+                      <img class="listingMedia h-full w-full  rounded-md" src="${listing.media[0] || defaultMedia}" alt="Listing Image"/>
                     </div>
                     <div class="flex flex-col">
                       <span class="listingTitle block w-full mt-1 font-primary text-lg font-semibold uppercase">${listing.title}</span>

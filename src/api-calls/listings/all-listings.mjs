@@ -1,5 +1,4 @@
 import { listingsUrl } from '../../globalValues/urls.mjs';
-import { listingsRetrivalError } from '../../error/listings-error/listingretrival-error.mjs';
 import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
 
 /**
@@ -16,7 +15,5 @@ export async function callAllListings() {
     const json = await response.json();
     // console.log('Json from all listings api call', json);
     return json;
-  } catch (error) {
-    listingsRetrivalError(error);
-  }
+  } catch (error) {}
 }

@@ -4,6 +4,7 @@ import { validatedHeader } from '../../globalValues/api-header.mjs';
 /**
  * Runs API call for bidding on a listing
  * @param {Object} bidValue - Object with the value of the bid to be placed
+ * @param {Object} listingId - ID of the listing to be bidded no
  */
 export async function bidOnListing(bidValue, listingId) {
   try {
@@ -12,23 +13,20 @@ export async function bidOnListing(bidValue, listingId) {
       headers: validatedHeader,
       body: JSON.stringify(bidValue),
     };
-    console.log('Attempting to post bid:', bidValue);
     const response = await fetch(`${listingsUrl}/${listingId}/bids`, bidCall);
+    const json = await response.json();
 
     if (!response.ok) {
-      console.error('HTTP Error:', response.status);
-      const errorBody = await response.json();
-      console.error('Error response body:', errorBody);
-      throw new Error(
-        `API responded with a status: ${response.status} and message: ${JSON.stringify(errorBody)}`
-      );
+      const errorMessage =
+        json.errors && json.errors.length > 0
+          ? json.errors[0].message
+          : 'Failed to place bid';
+      throw new Error(errorMessage);
     }
-
-    const responseData = await response.json();
-    console.log('Bid successful:', responseData);
-    return responseData;
+    return json;
   } catch (error) {
-    console.error('Error making the bid:', error);
+    const errorDisplay = document.getElementById('biddingError');
+    errorDisplay.textContent = error.message || 'Error making the bid';
     throw error;
   }
 }

@@ -29,7 +29,7 @@ export async function bidsMadeByUser() {
     // Set the innerHTML of the bids section to the generated bidsHtml
     bidsSection.innerHTML = bidsHtml;
   } else {
-    // Display a message if there are no bids
-    bidsSection.innerHTML = '<p>No bids made by this user.</p>';
+    bidsSection.innerHTML =
+      '<span class="text-primary text-thin pl-3">No bids made by this user.</span>';
   }
 }

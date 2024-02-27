@@ -1,9 +1,10 @@
 import { validatedHeader } from '../../globalValues/api-header.mjs';
 import { profileUrl } from '../../globalValues/urls.mjs';
 import { currentProfileName } from '../../local-storage/current-user.mjs';
+
 /**
- * Runs api call for fetching users profile data
- * @returns {ReturnType} - Returns oject with all profile data
+ * Runs api call for fetching user's bids data
+ * @returns {ReturnType} - Returns object with all bids data or null if an error occurs
  */
 export async function bidsMadeData() {
   try {
@@ -16,11 +17,14 @@ export async function bidsMadeData() {
       `${profileUrl}/${userName}/bids?_listing=true`,
       profileApiCall
     );
-    // console.log('Profile bids response', response);
+    if (!response.ok) {
+      throw new Error('Failed to fetch bids data'); // Throws an Error that will be caught below
+    }
     const json = await response.json();
-    // console.log('This is the result of profile bids call ', json);
     return json;
   } catch (error) {
-    console.log('Error wtih profile bids data', error);
+    const errorMessageSpan = document.getElementById('errorMessageProfile');
+    errorMessageSpan.innerHTML = `<span class="error-message">Failed to load bids data: ${error.message}. Please try again later.</span>`;
+    return null;
   }
 }
