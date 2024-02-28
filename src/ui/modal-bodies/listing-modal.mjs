@@ -29,7 +29,6 @@ export function listingModal(listingData) {
     `;
   }
 
-  // Handle missing bids information gracefully
   let bidsDetails = `<div class="flex gap-2"><span class="text-teal-600 pb-1 material-symbols-outlined">
   payments
   </span> No bids available... yet 
@@ -132,19 +131,14 @@ export function listingModal(listingData) {
   const iconSpan = minimizeBtn.querySelector('.material-symbols-outlined');
   iconSpan.innerHTML = 'arrow_forward_ios'; // Ensure the forward icon is set initially
 
-  // Event listener for toggling the icon and section visibility
   minimizeBtn.addEventListener('click', function () {
-    // Toggle the icon
     if (iconSpan.innerHTML === 'arrow_forward_ios') {
       iconSpan.innerHTML = 'arrow_back_ios';
     } else {
       iconSpan.innerHTML = 'arrow_forward_ios';
     }
-    // Toggle the visibility of the minimizeSection
     var section = document.getElementById('minimizeSection');
     section.classList.toggle('hidden');
   });
-  console.log('console before calling displayListingMedia', listingData);
-
   displayListingMedia(listingData);
 }

@@ -13,7 +13,6 @@ export async function callAllListings() {
     };
     const response = await fetch(listingsUrl, retriveListingsData);
     const json = await response.json();
-    // console.log('Json from all listings api call', json);
     return json;
   } catch (error) {}
 }

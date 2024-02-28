@@ -21,17 +21,13 @@ export { displayFeaturedListing, landingPageListings, userWelcomeMessage };
 import { displayListingCards } from './ui/listing-page/display-listing.mjs';
 import { newListingDropdown } from './ui/listing-page/new-listing-dropdown.mjs';
 import { currentActiveFilter } from './ui/listing-page/filter-interaction/active-filter.mjs';
-import { currentBidsFilter } from './ui/listing-page/filter-interaction/bids-filter.mjs';
 import { currentSearchInput } from './ui/listing-page/filter-interaction/search-bar.mjs';
-import { currentSellerFilter } from './ui/listing-page/filter-interaction/seller-filter.mjs';
 import { defaultTimeNewListing } from './ui/listing-page/default-time.mjs';
 export {
   displayListingCards,
   newListingDropdown,
   currentActiveFilter,
   currentSearchInput,
-  currentBidsFilter,
-  currentSellerFilter,
   updateFilteredListingCards,
   updateSearchFilterDisplay,
   validatedNewListing,

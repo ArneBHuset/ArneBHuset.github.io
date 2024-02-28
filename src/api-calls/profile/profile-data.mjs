@@ -1,4 +1,4 @@
-import { filteredProfileUrl } from '../../filters/api-filter/profile/profile-filter.mjs';
+import { filteredProfileUrl } from '../../filters/api-filter/profile-filter.mjs';
 import { validatedHeader } from '../../globalValues/api-header.mjs';
 
 /**

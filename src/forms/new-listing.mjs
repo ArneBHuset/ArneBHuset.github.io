@@ -2,7 +2,7 @@ export async function newListingData() {
   const listingTitle = document.getElementById('listingTitle');
   const listingDescription = document.getElementById('listingDescription');
   const listingTags = document.getElementById('listingTags');
-  const listingMedia = document.getElementById('listingMedia');
+  const listingMedia = document.getElementById('listingMediaInput');
   const listingEndsAt = document.getElementById('listingEndsAt');
 
   const localDate = new Date(`${listingEndsAt.value}T23:59:00`);

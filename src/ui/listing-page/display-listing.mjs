@@ -1,6 +1,7 @@
 import { listingCardBuild } from '../listings/listing-card.mjs';
 import { listingModal } from '../modal-bodies/listing-modal.mjs';
-import { callListings } from '../../api-calls/listings/listing-api.mjs';
+// import { callListings } from '../../api-calls/listings/listing-api.mjs';
+import { filteredListingData } from '../../filters/jsondata-filter/filtered-json.mjs';
 
 /**
  * Sets up the grid layout, and populates with standard listing cards.
@@ -12,9 +13,14 @@ export async function displayListingCards(listingData = null) {
 
   try {
     if (!listingData) {
-      listingData = await callListings();
+      console.log(
+        'Confirming that listingData i not passed as parameter in displayListingCards'
+      );
+      listingData = await filteredListingData();
+    } else {
+      console.log('Confirming that listingData is passes a paramter!');
     }
-
+    console.log(listingData);
     // Check if the data is null or undefined, and handle accordingly
     if (!listingData || listingData.length === 0) {
       errorDisplay.innerHTML = 'No listings available';
@@ -24,13 +30,15 @@ export async function displayListingCards(listingData = null) {
     // Ensure listingData is always an array to keep consistency in further operations
     listingData = Array.isArray(listingData) ? listingData : [listingData];
 
-    const listingCardsHtml = await listingCardBuild(listingData);
+    console.log(document.getElementById('listingsContainer')); // Should log the element or null
+
     const listingsContainer = document.getElementById('listingsContainer');
 
     // Check if the listings container exists
     if (!listingsContainer) {
       throw new Error('Listings container not found');
     }
+    let listingCardsHtml = await listingCardBuild(listingData);
 
     // Populate the listings container with cards
     listingsContainer.innerHTML = `

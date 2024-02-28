@@ -1,6 +1,7 @@
 import { filteredListingData } from '../../filters/jsondata-filter/filtered-json.mjs';
 import { defaultMedia } from '../../globalValues/general.mjs';
 import { defaultProfilePic } from '../../globalValues/general.mjs';
+import { callAllListings } from '../../api-calls/listings/all-listings.mjs';
 
 /**
  * Dynamically creates and inserts listing card into the DOM with data from callListings, using template literals for HTML structure.
@@ -12,6 +13,10 @@ export async function listingCardBuild(listingsData) {
     if (!listingsData) {
       listingsData = await filteredListingData();
     }
+    console.log(
+      'This is the filtered data used to build listingcards',
+      listingsData
+    );
     const normalizedListingsData = Array.isArray(listingsData)
       ? listingsData
       : [listingsData];
@@ -45,7 +50,10 @@ export async function listingCardBuild(listingsData) {
           </div>
           `;
         }
-
+        // console.log(
+        //   'This is the filtered data used to build listingcards',
+        //   listing.created
+        // );
         return `
               <div class="flex items-center justify-center">
           <div class="max-w-md antialiased">

@@ -30,23 +30,14 @@ export async function userUpdatesProfilePicture() {
 
   if (updateModalBtn) {
     updateModalBtn.addEventListener('click', () => {
-      // Create the modal instance with the initial content set to an empty string or you could pass modalContent directly.
       const profileModal = createModal();
-
-      // Set the content of the modal to your form
       profileModal.setModalContent(modalContent);
-
-      // Open the modal
       profileModal.openModal();
-
-      // Attach event listener to the "Register" button within the modal content
       const updateForm = document.getElementById('updateMediaForm');
       if (updateForm) {
         updateForm.addEventListener('submit', async event => {
           event.preventDefault();
-          // Get the value from the input field
           const avatarValue = document.getElementById('registerAvatar').value;
-          // Call the function to change the profile image with the new URL
           const newMediaData = {
             avatar: avatarValue,
           };

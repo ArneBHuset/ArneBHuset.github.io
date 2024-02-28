@@ -1,11 +1,9 @@
 import { newestListings } from './filter-by-creationdate.mjs';
-import { filteredProfileListings } from '../api-filter/profile/profile-selected-listings.mjs';
-
+import { callUserListings } from '../../api-calls/profile/profile-listings.mjs';
 export async function filteredListingData() {
   // THIS SECTION SIMULATES THE UI
 
   // UI ENDS
-  const allApiListingsReturned = await newestListings();
 
   if (document.body.dataset.page === 'index') {
     const listingsSortedByDate = await newestListings();
@@ -15,11 +13,15 @@ export async function filteredListingData() {
   }
 
   if (document.body.dataset.page === 'profile') {
-    const listingsSortedForProfile = await filteredProfileListings();
+    const listingsSortedForProfile = await callUserListings();
     // console.log('This is the profile page', listingsSortedForProfile);
 
     return listingsSortedForProfile;
   }
 
-  return allApiListingsReturned;
+  if (document.body.dataset.page === 'listings') {
+    const listingsSortedForListingPage = await newestListings();
+
+    return listingsSortedForListingPage;
+  }
 }

@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
   </head>
-  <body>
+  <body data-page="listings">
     <header class="border-b-2 border-primary bg-primary1">
       <nav class="py-2 mx-auto my-auto container md:max-w-screen-lg">
         <div class="container px-4 mx-auto md:flex md:items-center">
@@ -115,7 +115,7 @@
                 <span
                   class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
                 ></span>
-                Active listings
+                Active listings only
               </label>
               <!-- Show bids -->
               <label class="flex items-center cursor-pointer mt-4">
@@ -128,36 +128,21 @@
                 <span
                   class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
                 ></span>
-                Show bids
+                Sort by newest
               </label>
-            </div>
-            <div class="flex flex-col">
-              <!-- Show seller -->
-              <label class="flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  id="sellerFilterInput"
-                  class="custom-checkbox hidden"
-                  checked
-                />
-                <span
-                  class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
-                ></span>
-                Show seller
-              </label>
-              <!-- Extra? -->
               <label class="flex items-center cursor-pointer mt-4">
                 <input
                   type="checkbox"
-                  id="extraFilterInput"
+                  id="bidsFilterInput"
                   class="custom-checkbox hidden"
                   checked
                 />
                 <span
                   class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
                 ></span>
-                Extra?
+                Show with ?
               </label>
+            </div>
             </div>
           </div>
 
@@ -187,7 +172,7 @@
               />
               <input
                 type="url"
-                id="listingMedia"
+                id="listingMediaInput"
                 placeholder="Add picture link.."
                 autocomplete="off"
                 class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
@@ -223,6 +208,7 @@
     </section>
 
     <section>
+
       <div class="container mx-auto" id="listingsContainer">
         <span
           id="errorMessageListings"

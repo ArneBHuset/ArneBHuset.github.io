@@ -6,7 +6,7 @@ import { callListings } from '../../api-calls/listings/listing-api.mjs';
 export async function mostPopularListing() {
   try {
     const returnedJsonListing = await callListings();
-
+    console.log('Featured data', returnedJsonListing);
     if (
       !Array.isArray(returnedJsonListing) ||
       returnedJsonListing.length === 0

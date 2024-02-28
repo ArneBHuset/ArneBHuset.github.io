@@ -1,4 +1,4 @@
-import { filteredListingUrl } from '../../filters/api-filter/all-query-filters.mjs';
+import { filteredListingUrl } from '../../filters/api-filter/query-filters.mjs';
 import { validatedHeader } from '../../globalValues/api-header.mjs';
 
 /**

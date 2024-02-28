@@ -5,9 +5,7 @@ import {
   headerDropdown,
   headerLoginStatus,
   currentActiveFilter,
-  currentBidsFilter,
   currentSearchInput,
-  currentSellerFilter,
   updateFilteredListingCards,
   updateSearchFilterDisplay,
   defaultTimeNewListing,
@@ -25,9 +23,7 @@ headerDropdown();
 headerLoginStatus();
 
 currentActiveFilter();
-currentBidsFilter();
 currentSearchInput();
-currentSellerFilter();
 updateFilteredListingCards();
 updateSearchFilterDisplay();
 
