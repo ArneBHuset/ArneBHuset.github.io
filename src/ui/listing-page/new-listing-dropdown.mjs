@@ -23,7 +23,6 @@ export function newListingDropdown() {
       }
     }
 
-    // Handle the bidsSection with similar animation logic
     if (bidsSection && bidsSection.classList.contains('hidden')) {
       bidsSection.classList.remove('hidden');
       bidsSection.offsetWidth;

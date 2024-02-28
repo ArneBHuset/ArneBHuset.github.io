@@ -2,7 +2,6 @@ import { updateListing } from '../../api-calls/listings/update-listing.mjs';
 import { updateModal } from '../modal-bodies/update-listing.mjs';
 import { updateListingData } from '../../forms/update-listing.mjs';
 
-// Define a function to handle form submissions
 async function handleFormSubmit(event, listingId) {
   event.preventDefault();
   console.log('running 1');
@@ -20,20 +19,17 @@ async function handleFormSubmit(event, listingId) {
   }
 }
 
-// Assuming updateModal is properly set and executed
 export async function updateListingInteraction(container) {
   container.addEventListener('click', async function (e) {
     console.log('clicked');
     const updateBtn = e.target.closest('.update-button');
     if (updateBtn) {
       const listingId = updateBtn.getAttribute('data-listing-id');
-      await updateModal(); // Assuming this correctly sets up the modal
+      await updateModal();
 
       const updateForm = document.getElementById('updateListingForm');
       if (updateForm) {
-        // This is now outside the timeout
         updateForm.onsubmit = async event => {
-          // Convert to direct assignment
           await handleFormSubmit(event, listingId);
         };
       }

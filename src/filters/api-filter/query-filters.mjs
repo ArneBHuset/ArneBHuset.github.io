@@ -29,7 +29,6 @@ export async function filteredListingUrl() {
   // queryParams += `&_tag=${encodeURIComponent(tag)}`;
   // }
 
-  // Remove the 'listingId' conditional entirely if you're not using listing IDs anymore
   let apiFilter = `${listingsUrl}?${queryParams}`;
 
   console.log('API Filter URL:', apiFilter);

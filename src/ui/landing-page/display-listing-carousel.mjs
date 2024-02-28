@@ -82,7 +82,7 @@ function setupModalInteraction(container, listingData) {
         listingModal(listing);
       } else {
         console.error('Listing not found for ID:', listingId);
-        displayListingCarouselError(); // Display an error message if a specific listing is not found
+        displayListingCarouselError();
       }
     }
   });

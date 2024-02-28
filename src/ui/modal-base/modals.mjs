@@ -1,12 +1,9 @@
 import { openModal } from './open-modal.mjs';
 import { closeModal } from './close-modal.mjs';
 
-// Assuming openModal, closeModal, and setModalContent are properly defined in their respective modules
-
 export function createModal(initialContent = '') {
   let modalExists = document.getElementById('mainModal');
 
-  // Function to attach event listeners to the modal
   function attachEventListeners(modal) {
     modal
       .querySelector('.modal-container')
@@ -17,7 +14,6 @@ export function createModal(initialContent = '') {
     modal.addEventListener('click', () => closeModal(modal));
   }
 
-  // Ensure a modal exists in the DOM, if not, create it
   if (!modalExists) {
     const mainModalBody = `
       <div id="mainModal" class="main-modal w-full fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50 animated fadeIn faster">
@@ -36,12 +32,10 @@ export function createModal(initialContent = '') {
     attachEventListeners(modalExists);
   }
 
-  // Expose functionalities to manipulate the modal
   return {
     openModal: () => openModal(modalExists),
     closeModal: () => closeModal(modalExists),
     setModalContent: htmlContent => {
-      // Directly access the modal's body to set its content
       const modalBody = modalExists.querySelector('#modalBody');
       if (modalBody) {
         modalBody.innerHTML = htmlContent;

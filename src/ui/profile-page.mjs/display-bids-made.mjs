@@ -6,7 +6,6 @@ export async function bidsMadeByUser() {
 
   const bidsSection = document.getElementById('bidsSection');
 
-  // Check if there are any bids made by the user
   if (bidsMadeByUser && bidsMadeByUser.length > 0) {
     const bidsHtml = bidsMadeByUser
       .map(
@@ -26,7 +25,6 @@ export async function bidsMadeByUser() {
       )
       .join('');
 
-    // Set the innerHTML of the bids section to the generated bidsHtml
     bidsSection.innerHTML = bidsHtml;
   } else {
     bidsSection.innerHTML =

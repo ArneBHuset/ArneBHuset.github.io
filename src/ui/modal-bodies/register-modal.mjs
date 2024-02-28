@@ -53,7 +53,6 @@ const registrationContent = `
 `;
 
 export function registerModal() {
-  // Query all buttons with the class and add event listeners to each
   document.querySelectorAll('.registerModalBtn').forEach(button => {
     button.addEventListener('click', () => {
       const modal = createModal();

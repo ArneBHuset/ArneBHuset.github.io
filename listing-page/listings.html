@@ -102,10 +102,10 @@
           </div>
 
           <!-- Bottom Left Section -->
-          <div id="filterToggleBoxes" class="flex my-2 gap-6 justify-end">
+          <div id="filterToggleBoxes" class="flex my-2 justify-center">
             <div class="flex flex-col">
               <!-- Active listings -->
-              <label class="flex items-center cursor-pointer">
+              <label class="flex ml-2 items-center cursor-pointer">
                 <input
                   type="checkbox"
                   id="activeFilterInput"
@@ -118,7 +118,7 @@
                 Active listings only
               </label>
               <!-- Show bids -->
-              <label class="flex items-center cursor-pointer mt-4">
+              <label class="flex ml-2 items-center cursor-pointer mt-4">
                 <input
                   type="checkbox"
                   id="bidsFilterInput"
@@ -128,9 +128,9 @@
                 <span
                   class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
                 ></span>
-                Sort by newest
+                Sort by date
               </label>
-              <label class="flex items-center cursor-pointer mt-4">
+              <label class="flex ml-2 items-center cursor-pointer mt-4">
                 <input
                   type="checkbox"
                   id="bidsFilterInput"
@@ -142,7 +142,6 @@
                 ></span>
                 Show with ?
               </label>
-            </div>
             </div>
           </div>
 
@@ -208,7 +207,6 @@
     </section>
 
     <section>
-
       <div class="container mx-auto" id="listingsContainer">
         <span
           id="errorMessageListings"
