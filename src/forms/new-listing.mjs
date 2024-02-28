@@ -1,7 +1,3 @@
-/**
- * Takes input data from new listing form
- * @returns {ReturnType} - Object containing new listing data for validation
- */
 export async function newListingData() {
   const listingTitle = document.getElementById('listingTitle');
   const listingDescription = document.getElementById('listingDescription');
@@ -12,11 +8,16 @@ export async function newListingData() {
   const localDate = new Date(`${listingEndsAt.value}T23:59:00`);
   const endsAtDateWithTime = localDate.toISOString();
 
+  const media = listingMedia.value.trim() ? [listingMedia.value.trim()] : null;
+
   const userListingData = {
-    title: listingTitle.value,
-    description: listingDescription.value,
-    tags: listingTags.value.split(','),
-    media: [listingMedia.value],
+    title: listingTitle.value.trim(),
+    description: listingDescription.value.trim(),
+    tags: listingTags.value
+      .trim()
+      .split(',')
+      .map(tag => tag.trim()),
+    media,
     endsAt: endsAtDateWithTime,
   };
   return userListingData;

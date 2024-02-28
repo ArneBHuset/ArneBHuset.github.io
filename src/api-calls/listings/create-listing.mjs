@@ -17,15 +17,19 @@ export async function createNewListing(listingFormData) {
     };
     const response = await fetch(listingsUrl, newListingCall);
     const json = await response.json();
+
     if (!response.ok) {
-      const errorMessage = json.message || 'Failed to create listing';
+      // Construct an error message from all errors returned by the API
+      const errorMessage =
+        json.errors.map(err => err.message).join('<br>') ||
+        'Failed to create listing';
       errorDisplay.innerHTML = `<h3 class="error-message">${errorMessage}</h3>`;
       console.error('Error in creating new listing:', json);
     } else {
       errorDisplay.innerHTML = `
-      <span class="material-symbols-outlined text-green-600">
-        task_alt
-      </span>`;
+          <span class="material-symbols-outlined text-green-600">
+          task_alt
+          </span>`;
       setTimeout(function () {
         window.location.reload();
       }, 1000);

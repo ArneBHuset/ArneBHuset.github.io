@@ -1,6 +1,6 @@
 import { createModal } from '../modal-base/modals.mjs';
 import { userMakesBid } from '../user-makes-bid.mjs';
-import { displayListingMedia } from '../media-display.mjs';
+import { displayListingMedia } from './media-display.mjs';
 
 export function listingModal(listingData) {
   let sellerInfo = `
@@ -144,6 +144,7 @@ export function listingModal(listingData) {
     var section = document.getElementById('minimizeSection');
     section.classList.toggle('hidden');
   });
+  console.log('console before calling displayListingMedia', listingData);
 
   displayListingMedia(listingData);
 }

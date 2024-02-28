@@ -9,7 +9,7 @@ export async function filteredListingData() {
 
   if (document.body.dataset.page === 'index') {
     const listingsSortedByDate = await newestListings();
-    const tenNewestListings = listingsSortedByDate.slice(0, 10);
+    const tenNewestListings = listingsSortedByDate.slice(0, 20);
     // console.log('This is the root index page', tenNewestListings);
     return tenNewestListings;
   }
