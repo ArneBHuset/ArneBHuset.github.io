@@ -9,6 +9,8 @@ import {
   updateFilteredListingCards,
   updateSearchFilterDisplay,
   defaultTimeNewListing,
+  searchForListing,
+  eventListener,
 } from '../src/main.mjs';
 
 //
@@ -28,3 +30,6 @@ updateFilteredListingCards();
 updateSearchFilterDisplay();
 
 defaultTimeNewListing();
+
+searchForListing();
+eventListener();

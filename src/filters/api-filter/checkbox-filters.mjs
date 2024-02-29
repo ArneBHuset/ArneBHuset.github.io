@@ -14,4 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
       updateFilteredListingCards(); // Re-fetch and update listings when the filter changes
     });
   }
+
+  const dateSortInput = document.getElementById('dateSortInput');
+  if (dateSortInput) {
+    dateSortInput.addEventListener('change', async () => {
+      await updateFilteredListingCards(); // Assuming this function uses newestListings internally
+    });
+  }
 });

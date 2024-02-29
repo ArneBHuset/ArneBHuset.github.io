@@ -23,6 +23,8 @@ import { newListingDropdown } from './ui/listing-page/new-listing-dropdown.mjs';
 import { currentActiveFilter } from './ui/listing-page/filter-interaction/active-filter.mjs';
 import { currentSearchInput } from './ui/listing-page/filter-interaction/search-bar.mjs';
 import { defaultTimeNewListing } from './ui/listing-page/default-time.mjs';
+import { searchForListing } from './filters/jsondata-filter/search.mjs';
+import { eventListener } from './filters/jsondata-filter/search.mjs';
 export {
   displayListingCards,
   newListingDropdown,
@@ -32,6 +34,8 @@ export {
   updateSearchFilterDisplay,
   validatedNewListing,
   defaultTimeNewListing,
+  searchForListing,
+  eventListener,
 };
 
 // Profile Page
