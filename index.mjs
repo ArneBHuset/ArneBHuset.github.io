@@ -1,6 +1,4 @@
 import {
-  loginModal,
-  registerModal,
   displayFeaturedListing,
   landingPageListings,
   userWelcomeMessage,
@@ -9,10 +7,7 @@ import {
 } from './src/main.mjs';
 
 displayFeaturedListing();
-
 landingPageListings();
-
 userWelcomeMessage();
-
 headerLoginStatus();
 headerDropdown();

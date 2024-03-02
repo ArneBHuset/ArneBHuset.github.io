@@ -3,10 +3,10 @@ import { currentSearchInput } from '../../main.mjs';
 import { listingCardBuild } from '../../ui/listings/listing-card.mjs';
 
 export async function searchForListing() {
-  const searchInput = currentSearchInput(); // Fetch current search input value
-  if (!searchInput) return; // Exit if search input is empty
+  const searchInput = currentSearchInput();
+  if (!searchInput) return;
 
-  const listings = await filteredListingData(); // Get all listings
+  const listings = await filteredListingData();
   const filteredListings = listings
     .filter(listing => {
       const searchText = searchInput.toLowerCase();
@@ -20,29 +20,35 @@ export async function searchForListing() {
         listing.tags.some(tag => tag && tag.toLowerCase().includes(searchText));
       return matchesTitle || matchesDescription || matchesTags;
     })
-    .slice(0, 6); // Adjust the number as needed
+    .slice(0, 6);
 
-  console.log('Top 6 filtered results:', filteredListings); // Display the top 6 results for debugging
-
+  console.log('Top 6 filtered results:', filteredListings);
   const listingsHTML = await listingCardBuild(filteredListings);
-  document.getElementById('listingsContainer').innerHTML = listingsHTML;
+  document.getElementById('listingsContainer').innerHTML = `
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      ${listingsHTML}
+    </div>`;
 }
 
 export async function eventListener() {
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('listing-search');
 
-    // Input event for handling real-time search
     if (searchInput) {
       searchInput.addEventListener('input', () => {
-        searchForListing(); // Call the search function on each input event
+        searchForListing();
       });
 
-      // Blur event to clear the search field when the user clicks away (optional based on your UX preference)
-      searchInput.addEventListener('blur', () => {
-        // Potentially clear the field and refresh listings here
-        // Note: Clearing on blur might be frustrating for users who accidentally click away
-        // Consider if this behavior is what you want, or simply refresh listings without clearing
+      searchInput.addEventListener('blur', async () => {
+        searchInput.value = '';
+
+        const rawListings = await filteredListingData();
+
+        const listingsHTML = await listingCardBuild(rawListings);
+        document.getElementById('listingsContainer').innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${listingsHTML}
+          </div>`;
       });
     }
   });

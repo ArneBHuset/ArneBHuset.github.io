@@ -8,7 +8,7 @@ import { filteredListingData } from '../../filters/jsondata-filter/filtered-json
  * Initializes listing modal interaction
  */
 export async function displayListingCards(listingData = null) {
-  const errorDisplay = document.getElementById('errorMessageListings');
+  let errorDisplay = document.getElementById('errorMessageListings');
   errorDisplay.innerHTML = '';
 
   try {

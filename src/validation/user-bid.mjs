@@ -24,7 +24,7 @@ export async function bidValidation(listingId) {
         errorElement.textContent = 'Insufficient credits in wallet';
         return;
       }
-      const response = await bidOnListing(userBid, listingId);
+      await bidOnListing(userBid, listingId);
       const remainingCredits = userCredit - bidAmount;
       errorElement.innerHTML = `<h3 class="text-teal-600 font-semibold font-primary">Bid successful! You bidded ${bidAmount} credits.<br/> Remaining credits: ${remainingCredits}.</h3>`;
     } catch (error) {

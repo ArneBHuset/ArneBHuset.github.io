@@ -1,6 +1,5 @@
 import { listingCardBuild } from '../listings/listing-card.mjs';
 import { listingModal } from '../modal-bodies/listing-modal.mjs';
-import { callListings } from '../../api-calls/listings/listing-api.mjs';
 import { setupDeleteListingInteractions } from './delete-listing.mjs';
 import { updateListingInteraction } from './update-listing.mjs';
 import { filteredListingData } from '../../filters/jsondata-filter/filtered-json.mjs';

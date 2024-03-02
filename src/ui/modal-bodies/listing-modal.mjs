@@ -1,17 +1,23 @@
 import { createModal } from '../modal-base/modals.mjs';
 import { userMakesBid } from '../user-makes-bid.mjs';
 import { displayListingMedia } from './media-display.mjs';
+import { checkingAccessToken } from '../../local-storage/validate-access-token.mjs';
 
-export function listingModal(listingData) {
-  let sellerInfo = `
+export async function listingModal(listingData) {
+  const accessToken = await checkingAccessToken();
+
+  let sellerInfo = accessToken
+    ? `
     <div class="flex items-center">
       <img class="w-20 h-20 rounded-full mr-2 font-thin" src="/assets/img/missing-pic-profile.png" alt="No seller avatar available"/>
       <div>
           <h2>Seller information not available</h2>
       </div>
-    </div>`;
+    </div>`
+    : '';
 
   if (
+    accessToken &&
     listingData.seller &&
     listingData.seller.name &&
     listingData.seller.email &&
@@ -24,16 +30,20 @@ export function listingModal(listingData) {
           <div class="font-secondary uppercase ">${listingData.seller.name}</div>
           <div class="font-secondary ">${listingData.seller.email}</div>
       </div>
-    </div>
-
-    `;
+    </div>`;
   }
 
-  let bidsDetails = `<div class="flex gap-2"><span class="text-teal-600 pb-1 material-symbols-outlined">
+  let bidsDetails = accessToken
+    ? `<div class="flex gap-2"><span class="text-teal-600 pb-1 material-symbols-outlined">
   payments
   </span> No bids available... yet 
+  </div>`
+    : `<div class="flex gap-2"><span class="text-teal-600 pb-1 material-symbols-outlined">
+  lock
+  </span> Please log in to see bids made 
   </div>`;
-  if (listingData.bids && listingData.bids.length > 0) {
+
+  if (accessToken && listingData.bids && listingData.bids.length > 0) {
     bidsDetails = listingData.bids
       .map(
         bid =>
@@ -55,6 +65,18 @@ export function listingModal(listingData) {
       )
       .join('<br>');
   }
+
+  let biddingSection = accessToken
+    ? `
+  <div class="flex my-4 gap-4">
+    <div id="inputArea" class="hidden transform translate-x-full transition-transform ease-out duration-500 b-2">
+      <input type="number" id="bidInputAmount" class="max-w-1/2 px-4 py-2 bg-white outline outline-1 shadow-md text-primary2 text-sm rounded-lg focus:shadow-lg focus:outline-teal-600 block w-full pl-8 p-2.5" placeholder="Amount to bid.." autocomplete="off" />
+    </div>
+    <div class="text-center">
+      <button type="button" id="biddingBtn" class="font-primary text-sm border rounded-md border-teal-600 px-4 py-2 font-medium text-primary2 hover:text-white transition hover:bg-teal-600 hover:shadow-lg">Bid</button>
+    </div>
+  </div>`
+    : '';
 
   const modalContent = `
   <div class="listing-modal-size grid grid-rows-auto gap-2 font-primary text-primary2 overflow-auto lg:max-w-2/3 xl:max-w-1/2 mx-auto">
@@ -99,14 +121,7 @@ export function listingModal(listingData) {
 
           <div class=" mt-2 py-1">${sellerInfo}</div>
           <div class="my-4">
-          <div class="flex my-4 gap-4">
-            <div id="inputArea" class="hidden transform translate-x-full transition-transform ease-out duration-500  b-2">
-              <input type="number" id="bidInputAmount" class="max-w-1/2 px-4 py-2 bg-white outline outline-1 shadow-md text-primary2 text-sm rounded-lg focus:shadow-lg focus:outline-teal-600 block w-full pl-8 p-2.5" placeholder="Amount to bid.." autocomplete="off" />
-            </div>
-            <div class="text-center">
-              <button type="button" id="biddingBtn" class="font-primary text-sm border rounded-md border-teal-600  px-4 py-2  font-medium text-primary2 hover:text-white transition hover:bg-teal-600 hover:shadow-lg">Bid</button>
-            </div>
-            </div>
+          ${biddingSection}
             <div>
           <div class="text-sm font-thin listingCreated mt-4">
           <span id="biddingError" class="block w-full error-message"></span>

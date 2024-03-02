@@ -1,6 +1,5 @@
 import { changeProfileImg } from '../../api-calls/profile/update-profile-avatar.mjs';
 import { createModal } from '../modal-base/modals.mjs';
-import { openModal } from '../modal-base/open-modal.mjs';
 
 const modalContent = `
 <div class="flex justify-center w-full p-6 sm:p-12 ">
