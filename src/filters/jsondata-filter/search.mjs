@@ -20,7 +20,7 @@ export async function searchForListing() {
         listing.tags.some(tag => tag && tag.toLowerCase().includes(searchText));
       return matchesTitle || matchesDescription || matchesTags;
     })
-    .slice(0, 6);
+    .slice(0, 9);
 
   console.log('Top 6 filtered results:', filteredListings);
   const listingsHTML = await listingCardBuild(filteredListings);

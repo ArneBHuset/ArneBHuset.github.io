@@ -66,14 +66,11 @@
         <div class="md:grid md:grid-cols-2 md:gap-4 max-w-lg">
           <!-- Top Left Section -->
 
-          <form
-            id="searchForm"
-            class="flex items-center ms-2 sm:ms-52 pt-4 sm:pt-6"
-          >
+          <form id="searchForm" class="flex w-full justify-end pt-4 sm:pt-6">
             <input
               type="text"
               id="listing-search"
-              class="bg-white outline outline-1 shadow-md text-primary2 text-sm rounded-lg focus:shadow-lg focus:outline-teal-600 block w-full pl-8 p-2.5"
+              class="bg-white outline outline-1 shadow-md text-primary2 text-sm rounded-lg focus:shadow-lg focus:outline-teal-600 custom-width block pl-4 p-2.5"
               placeholder="Search for listings"
               required
             />
@@ -102,27 +99,29 @@
           </div>
 
           <!-- Bottom Left Section -->
-          <div id="filterToggleBoxes" class="flex my-2 justify-center">
-            <div class="flex flex-col">
+          <div id="filterToggleBoxes" class="flex">
+            <div class="flex flex-row items-center">
               <!-- Active listings -->
-              <label class="flex ml-2 items-center cursor-pointer">
+              <label class="flex cursor-pointer items-center">
                 <input
                   type="checkbox"
                   id="activeFilterInput"
-                  class="custom-checkbox hidden"
+                  class="sr-only"
                   checked
                 />
                 <span
                   class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
                 ></span>
-                Active listings only
+                Active only
               </label>
-              <!-- Show bids -->
-              <label class="flex ml-2 items-center cursor-pointer mt-4">
+            </div>
+            <div class="flex flex-row items-center">
+              <!-- Sort by date -->
+              <label class="flex cursor-pointer items-center">
                 <input
                   type="checkbox"
                   id="dateSortInput"
-                  class="custom-checkbox hidden"
+                  class="sr-only"
                   checked
                 />
                 <span
@@ -130,11 +129,14 @@
                 ></span>
                 Sort by date
               </label>
-              <label class="flex ml-2 items-center cursor-pointer mt-4">
+            </div>
+            <div class="flex flex-row items-center">
+              <!-- Show with ? -->
+              <label class="flex cursor-pointer items-center">
                 <input
                   type="checkbox"
                   id="bidsFilterInput"
-                  class="custom-checkbox hidden"
+                  class="sr-only"
                   checked
                 />
                 <span

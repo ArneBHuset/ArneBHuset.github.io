@@ -582,6 +582,10 @@ video {
   }
 }
 
+.visible {
+  visibility: visible;
+}
+
 .collapse {
   visibility: collapse;
 }
@@ -1595,6 +1599,10 @@ video {
   opacity: 60%;
 }
 
+.custom-width {
+  width: 19rem !important;
+}
+
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -1953,6 +1961,26 @@ video {
     max-width: 1280px;
   }
 
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:flex-col {
+    flex-direction: column;
+  }
+
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:justify-end {
+    justify-content: flex-end;
+  }
+
+  .sm\:gap-12 {
+    gap: 3rem;
+  }
+
   .sm\:gap-4 {
     gap: 1rem;
   }
@@ -1972,6 +2000,10 @@ video {
 
   .sm\:pl-28 {
     padding-left: 7rem;
+  }
+
+  .sm\:pl-4 {
+    padding-left: 1rem;
   }
 
   .sm\:pl-40 {

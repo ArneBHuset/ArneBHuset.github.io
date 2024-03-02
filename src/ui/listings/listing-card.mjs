@@ -1,7 +1,6 @@
 import { filteredListingData } from '../../filters/jsondata-filter/filtered-json.mjs';
 import { defaultMedia } from '../../globalValues/general.mjs';
 import { defaultProfilePic } from '../../globalValues/general.mjs';
-import { callAllListings } from '../../api-calls/listings/all-listings.mjs';
 
 /**
  * Dynamically creates and inserts listing card into the DOM with data from callListings, using template literals for HTML structure.

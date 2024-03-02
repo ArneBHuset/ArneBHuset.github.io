@@ -25,6 +25,7 @@ import { currentSearchInput } from './ui/listing-page/filter-interaction/search-
 import { defaultTimeNewListing } from './ui/listing-page/default-time.mjs';
 import { searchForListing } from './filters/jsondata-filter/search.mjs';
 import { eventListener } from './filters/jsondata-filter/search.mjs';
+import { checkBoxPosition } from './ui/listing-page/checkbox-position.mjs';
 export {
   displayListingCards,
   newListingDropdown,
@@ -36,6 +37,7 @@ export {
   defaultTimeNewListing,
   searchForListing,
   eventListener,
+  checkBoxPosition,
 };
 
 // Profile Page

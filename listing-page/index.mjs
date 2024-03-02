@@ -11,6 +11,7 @@ import {
   defaultTimeNewListing,
   searchForListing,
   eventListener,
+  checkBoxPosition,
 } from '../src/main.mjs';
 
 //
@@ -33,3 +34,4 @@ defaultTimeNewListing();
 
 searchForListing();
 eventListener();
+checkBoxPosition();

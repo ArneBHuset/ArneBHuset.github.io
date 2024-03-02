@@ -8,7 +8,7 @@ import { filteredListingData } from '../../filters/jsondata-filter/filtered-json
  * Initializes listing modal interaction
  */
 export async function displayListingCards(listingData = null) {
-  let errorDisplay = document.getElementById('errorMessageListings');
+  const errorDisplay = document.getElementById('errorMessageListings');
   errorDisplay.innerHTML = '';
 
   try {
@@ -51,6 +51,7 @@ export async function displayListingCards(listingData = null) {
 }
 
 function setupModalInteraction(container, listingData) {
+  const errorDisplay = document.getElementById('errorMessageListings');
   container.addEventListener('click', function (e) {
     const target = e.target.closest('.listingModalButton');
     if (target) {

@@ -15,11 +15,10 @@ export async function changeProfileImg(newMedia) {
       `${profileUrl}/${userName}/media`,
       updateProfileCall
     );
-    console.log('api call?', updateProfileCall);
     if (!response.ok) {
       throw new Error('Failed to update profile image');
     }
-    const json = await response.json();
+    await response.json();
     window.location.reload();
   } catch (error) {
     console.log('Error updating profile image', error);
