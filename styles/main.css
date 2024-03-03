@@ -15,8 +15,14 @@
   opacity: 60%;
 }
 
-.custom-width {
-  width: 19rem !important;
+.custom-size {
+  width: 20rem !important;
+  height: 3.5rem !important;
+}
+
+.custom-drop-btn {
+  height: 3.5rem !important;
+  width: 12rem !important;
 }
 
 .animated {

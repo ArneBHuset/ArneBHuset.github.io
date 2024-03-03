@@ -710,6 +710,10 @@ video {
   margin-left: 1rem;
 }
 
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -996,6 +1000,10 @@ video {
 
 .gap-10 {
   gap: 2.5rem;
+}
+
+.gap-12 {
+  gap: 3rem;
 }
 
 .gap-2 {
@@ -1599,8 +1607,14 @@ video {
   opacity: 60%;
 }
 
-.custom-width {
-  width: 19rem !important;
+.custom-size {
+  width: 20rem !important;
+  height: 3.5rem !important;
+}
+
+.custom-drop-btn {
+  height: 3.5rem !important;
+  width: 12rem !important;
 }
 
 .animated {
@@ -1909,6 +1923,15 @@ video {
     margin-right: auto;
   }
 
+  .sm\:my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sm\:ml-0 {
+    margin-left: 0px;
+  }
+
   .sm\:ms-52 {
     margin-inline-start: 13rem;
   }
@@ -1981,6 +2004,10 @@ video {
     gap: 3rem;
   }
 
+  .sm\:gap-2 {
+    gap: 0.5rem;
+  }
+
   .sm\:gap-4 {
     gap: 1rem;
   }
@@ -1998,12 +2025,12 @@ video {
     padding: 1.5rem;
   }
 
-  .sm\:pl-28 {
-    padding-left: 7rem;
+  .sm\:pl-0 {
+    padding-left: 0px;
   }
 
-  .sm\:pl-4 {
-    padding-left: 1rem;
+  .sm\:pl-28 {
+    padding-left: 7rem;
   }
 
   .sm\:pl-40 {

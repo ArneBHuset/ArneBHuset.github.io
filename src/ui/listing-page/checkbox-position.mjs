@@ -10,21 +10,32 @@ export function checkBoxPosition() {
       container.classList.add(
         'sm:flex-row',
         'sm:justify-end',
-        'sm:gap-12',
+        'sm:gap-2',
+        'sm:my-2',
+        'sm-mr-[-14px]',
         'flex-col',
-        'gap-4'
+        'gap-6',
+        'my-6',
+        'ml-6'
       );
-      container.classList.remove('sm:flex-col', 'sm:pl-4', 'flex-row');
+      container.classList.remove(
+        'sm:flex-col',
+        'sm:pl-0',
+        'flex-row',
+        'gap-12'
+      );
     } else {
       container.classList.add(
         'sm:flex-col',
         'sm:items-center',
-        'sm:pl-4',
+        'sm:pl-0',
+        'sm:gap-12',
+        'sm:ml-0',
         'flex-col'
       );
       container.classList.remove(
         'sm:flex-row',
-        'sm:gap-4',
+        'sm:gap-2',
         'flex-row',
         'sm:justify-end'
       );
