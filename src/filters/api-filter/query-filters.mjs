@@ -35,6 +35,5 @@ export async function filteredListingUrl() {
 
   let apiFilter = `${listingsUrl}?${queryParams}`;
 
-  console.log('API Filter URL:', apiFilter);
   return apiFilter;
 }

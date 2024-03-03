@@ -12,10 +12,7 @@ export async function listingCardBuild(listingsData) {
     if (!listingsData) {
       listingsData = await filteredListingData();
     }
-    console.log(
-      'This is the filtered data used to build listingcards',
-      listingsData
-    );
+
     const normalizedListingsData = Array.isArray(listingsData)
       ? listingsData
       : [listingsData];

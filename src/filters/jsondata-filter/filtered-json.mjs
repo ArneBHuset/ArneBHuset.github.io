@@ -9,20 +9,16 @@ export async function filteredListingData() {
   if (document.body.dataset.page === 'index') {
     const listingsSortedByDate = await newestListings();
     const tenNewestListings = listingsSortedByDate.slice(0, 20);
-    // console.log('This is the root index page', tenNewestListings);
     return tenNewestListings;
   }
 
   if (document.body.dataset.page === 'profile') {
     const listingsSortedForProfile = await callUserListings();
-    // console.log('This is the profile page', listingsSortedForProfile);
-
     return listingsSortedForProfile;
   }
 
   if (document.body.dataset.page === 'listings') {
     const listingsSortedForListingPage = await newestListings();
-
     return listingsSortedForListingPage;
   }
 }

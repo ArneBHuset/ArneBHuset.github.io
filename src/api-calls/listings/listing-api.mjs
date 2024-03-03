@@ -12,7 +12,6 @@ export async function callListings() {
       method: 'GET',
       headers: UNvalidatedHeader,
     };
-    console.log('Making API call to:', filteredUrl);
     const response = await fetch(filteredUrl, retrieveListingsData);
     if (!response.ok) {
       throw new Error(`API call failed with status: ${response.status}`);
@@ -20,12 +19,10 @@ export async function callListings() {
     const json = await response.json();
     if (json.errors && json.errors.length > 0) {
       const errorMessage = json.errors[0].message;
-      console.error('API response error:', errorMessage);
       throw new Error(errorMessage);
     }
     return json;
   } catch (error) {
-    console.error('Error in callListings:', error.message);
     throw error;
   }
 }

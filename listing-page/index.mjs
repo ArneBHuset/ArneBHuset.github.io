@@ -7,7 +7,6 @@ import {
   currentActiveFilter,
   currentSearchInput,
   updateFilteredListingCards,
-  updateSearchFilterDisplay,
   defaultTimeNewListing,
   searchForListing,
   eventListener,
@@ -28,8 +27,6 @@ headerLoginStatus();
 currentActiveFilter();
 currentSearchInput();
 updateFilteredListingCards();
-updateSearchFilterDisplay();
-
 defaultTimeNewListing();
 
 searchForListing();

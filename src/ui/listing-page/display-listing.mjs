@@ -13,23 +13,15 @@ export async function displayListingCards(listingData = null) {
 
   try {
     if (!listingData) {
-      console.log(
-        'Confirming that listingData i not passed as parameter in displayListingCards'
-      );
       listingData = await filteredListingData();
     } else {
-      console.log('Confirming that listingData is passes a paramter!');
     }
-    console.log(listingData);
     if (!listingData || listingData.length === 0) {
       errorDisplay.innerHTML = 'No listings available';
       return;
     }
 
     listingData = Array.isArray(listingData) ? listingData : [listingData];
-
-    console.log(document.getElementById('listingsContainer'));
-
     const listingsContainer = document.getElementById('listingsContainer');
 
     if (!listingsContainer) {
@@ -44,7 +36,6 @@ export async function displayListingCards(listingData = null) {
 
     setupModalInteraction(listingsContainer, listingData);
   } catch (error) {
-    console.error('Display listings error:', error);
     errorDisplay.innerHTML =
       error.message || 'An error occurred while displaying listings.';
   }

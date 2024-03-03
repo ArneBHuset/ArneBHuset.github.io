@@ -2,7 +2,6 @@
 
 import { validatedNewListing } from './validation/listing-validation.mjs';
 import { updateFilteredListingCards } from './filters/api-filter/checkbox-filters.mjs';
-import { updateSearchFilterDisplay } from './ui/listing-page/search-display.mjs';
 // Globals
 import { headerLoginStatus } from './ui/header-login-logout.mjs';
 import { headerDropdown } from './ui/header-dropdown.mjs';
@@ -32,7 +31,6 @@ export {
   currentActiveFilter,
   currentSearchInput,
   updateFilteredListingCards,
-  updateSearchFilterDisplay,
   validatedNewListing,
   defaultTimeNewListing,
   searchForListing,

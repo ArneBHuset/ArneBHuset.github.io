@@ -9,16 +9,13 @@ export async function newestListings() {
   try {
     const returnedJsonListing = await callListings();
     const isSortByNewest = currentDateSort();
-    console.log('This is the data before sorting date', returnedJsonListing);
     const sortedListings = returnedJsonListing.sort((a, b) => {
       const dateA = new Date(a.created);
       const dateB = new Date(b.created);
       return isSortByNewest ? dateB - dateA : dateA - dateB;
     });
-    console.log('Filtered by date', sortedListings);
     return sortedListings;
   } catch (error) {
-    console.error('Error finding the newest listings:', error);
     return [];
   }
 }
