@@ -4,14 +4,12 @@ import { userUpdatesProfilePicture } from '../modal-bodies/update-picture.mjs';
  * Takes the profile json data from fetchProfileData and populates it in into the dom
  */
 export async function displayProfileData() {
-  const filteredProfileData = await fetchProfileData();
-  const profile = Array.isArray(filteredProfileData)
-    ? filteredProfileData[0]
-    : filteredProfileData;
-  const profileSection = document.getElementById('profileSection');
-  if (profile) {
-    const winsHtml = profile.wins.map(win => `<li>${win}</li>`).join('');
-    const profileHtml = `
+	const filteredProfileData = await fetchProfileData();
+	const profile = Array.isArray(filteredProfileData) ? filteredProfileData[0] : filteredProfileData;
+	const profileSection = document.getElementById('profileSection');
+	if (profile) {
+		const winsCount = profile.wins.length;
+		const profileHtml = `
     <div class="mx-auto flex items-center gap-8">
         <div>
             <h1 class="text-2xl font-bold my-6 text-center">PROFILE</h1>
@@ -39,12 +37,12 @@ export async function displayProfileData() {
                  </div>
               <div>
                   <div class="font-bold">Wins:</div>
-                     <ul class="list-disc list-inside">${winsHtml}</ul>
+                     <ul class="list-disc list-inside">${winsCount}</ul>
               </div>
         </div>
     </div>
         `;
-    profileSection.innerHTML = profileHtml;
-    userUpdatesProfilePicture();
-  }
+		profileSection.innerHTML = profileHtml;
+		userUpdatesProfilePicture();
+	}
 }

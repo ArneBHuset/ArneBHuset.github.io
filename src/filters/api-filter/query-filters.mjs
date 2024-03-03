@@ -9,31 +9,27 @@ import { checkingAccessToken } from '../../local-storage/validate-access-token.m
  * @returns {ReturnType} - Returns the updated API url to be used for calling listing json data.
  */
 export async function filteredListingUrl() {
-  const accessToken = await checkingAccessToken();
-  const isIndexPage = document.body.dataset.page === 'index';
-  const isProfilePage = document.body.dataset.page === 'profile';
-  const userName = await currentProfileName();
-  const sellerBoolean = accessToken ? true : false;
-  const bidsBoolean = accessToken ? true : false;
+	const accessToken = await checkingAccessToken();
+	const isIndexPage = document.body.dataset.page === 'index';
+	const isProfilePage = document.body.dataset.page === 'profile';
+	const userName = await currentProfileName();
+	const sellerBoolean = accessToken ? true : false;
+	const bidsBoolean = accessToken ? true : false;
 
-  let allQueryParams = `_seller=${sellerBoolean}&_bids=${bidsBoolean}&_active=true`;
+	let allQueryParams = `_seller=${sellerBoolean}&_bids=${bidsBoolean}&_active=true`;
 
-  if (isIndexPage) {
-    return `${listingsUrl}?${allQueryParams}`;
-  }
+	if (isIndexPage) {
+		return `${listingsUrl}?${allQueryParams}`;
+	}
 
-  if (isProfilePage) {
-    return `${profileUrl}/${userName}/listings?${allQueryParams}`;
-  }
+	if (isProfilePage) {
+		return `${profileUrl}/${userName}/listings?${allQueryParams}`;
+	}
 
-  const activeBoolean = currentActiveFilter();
+	const activeBoolean = currentActiveFilter();
 
-  let queryParams = `_seller=${sellerBoolean}&_bids=${bidsBoolean}&_active=${activeBoolean}`;
-  // if (tag) {
-  // queryParams += `&_tag=${encodeURIComponent(tag)}`;
-  // }
+	let queryParams = `_seller=${sellerBoolean}&_bids=${bidsBoolean}&_active=${activeBoolean}`;
+	let apiFilter = `${listingsUrl}?${queryParams}`;
 
-  let apiFilter = `${listingsUrl}?${queryParams}`;
-
-  return apiFilter;
+	return apiFilter;
 }

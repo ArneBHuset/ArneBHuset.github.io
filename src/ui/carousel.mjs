@@ -1,7 +1,7 @@
 export function carousel() {
   const carouselItemsContainer = document.getElementById('carouselItems');
   const items = carouselItemsContainer.children;
-  const itemWidth = carouselItemsContainer.clientWidth / 2;
+  const itemWidth = carouselItemsContainer.clientWidth / 5;
   let currentIndex = 0;
 
   const visibleItems = Math.ceil(

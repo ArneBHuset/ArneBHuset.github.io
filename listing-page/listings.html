@@ -1,356 +1,269 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/assets/img/logo-no-background.png"
-    />
-    <title>Listing page</title>
-    <link rel="stylesheet" href="../dist/output.css" id="mainStylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-  </head>
-  <body data-page="listings">
-    <header class="border-b-2 border-primary bg-primary1">
-      <nav class="py-2 mx-auto my-auto container md:max-w-screen-lg">
-        <div class="container px-4 mx-auto md:flex md:items-center">
-          <div class="flex justify-between items-center">
-            <a href="/" class="w-28 h-28">
-              <img src="/assets/img/logo-no-background.png" class="w-28 h-28" />
-            </a>
-            <button
-              class="flex text-primary2 hover:opacity-75 md:hidden text-8xl"
-              id="navbar-toggle"
-            >
-              <i class="fas fa-bars text-3xl"></i>
-            </button>
-          </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="/assets/img/logo-no-background.png" />
+		<title>Listing page</title>
+		<link rel="stylesheet" href="../dist/output.css" id="mainStylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		/>
+	</head>
+	<body data-page="listings">
+		<header class="border-b-2 border-primary bg-primary1">
+			<nav class="py-2 mx-auto my-auto container md:max-w-screen-lg">
+				<div class="container px-4 mx-auto md:flex md:items-center">
+					<div class="flex justify-between items-center">
+						<a href="/" class="w-28 h-28">
+							<img src="/assets/img/logo-no-background.png" class="w-28 h-28" />
+						</a>
+						<button class="flex text-primary2 hover:opacity-75 md:hidden text-8xl" id="navbar-toggle">
+							<i class="fas fa-bars text-3xl"></i>
+						</button>
+					</div>
 
-          <div
-            class="hidden sm:pt-6 md:flex flex-col md:flex-row md:ml-8 mt-3 md:mt-0 gap-3 lg:gap-4"
-            id="navbar-collapse"
-          >
-            <a
-              href="/"
-              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
-              >Home</a
-            >
-            <a
-              href="/profile-page/profile.html"
-              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
-              >Profile</a
-            >
-            <a
-              href="#"
-              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
-              >Listings</a
-            >
-            <a
-              href="#"
-              class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
-              >History</a
-            >
+					<div
+						class="hidden sm:pt-6 md:flex flex-col md:flex-row md:ml-8 mt-3 md:mt-0 gap-3 lg:gap-4"
+						id="navbar-collapse"
+					>
+						<a href="/" class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary">Home</a>
+						<a
+							href="/profile-page/profile.html"
+							class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+							>Profile</a
+						>
+						<a href="#" class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary underline"
+							>Listings</a
+						>
+						<a href="#" class="p-2 lg:px-4 md:mx-2 text-lg text-primary2 rounded hover:underline font-primary"
+							>History</a
+						>
 
-            <div class="sm:pl-8" id="loggedInOrOut"></div>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <section class="mb-6">
-      <div class="container border-b p-4">
-        <div class="md:grid md:grid-cols-2 md:gap-4 max-w-lg">
-          <!-- Top Left Section -->
+						<div class="sm:pl-8" id="loggedInOrOut"></div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<section class="mb-6">
+			<div class="container border-b p-4">
+				<div class="md:grid md:grid-cols-2 md:gap-4 max-w-lg">
+					<!-- Top Left Section -->
 
-          <form
-            id="searchForm"
-            class="flex w-11/12 mx-auto sm:w-full sm:justify-end pt-4"
-          >
-            <input
-              type="text"
-              id="listing-search"
-              class="bg-white border border-teal-600 shadow-md text-primary2 rounded-lg focus:shadow-lg focus:outline focus:outline-teal-600 custom-size pl-3 my-4 block"
-              placeholder="Search for listings"
-              required
-            />
-          </form>
+					<form id="searchForm" class="flex w-11/12 mx-auto sm:w-full justify-end pt-4 relative">
+						<input
+							type="text"
+							id="listing-search"
+							class="bg-white border border-teal-600 shadow-md text-primary2 rounded-lg focus:shadow-lg focus:outline focus:outline-teal-600 custom-size pl-3 my-4 block"
+							placeholder="Search for listings"
+							required
+						/>
+						<span id="clearButton" class="material-symbols-outlined absolute right-5 cursor-pointer text-secondary">
+							close
+						</span>
+					</form>
 
-          <!-- Top Right Section -->
-          <div
-            class="mt-3 ml-2 sm:pt-4 sm:pl-8 sm:ml-4 justify-center items-center"
-          >
-            <button
-              id="newPostCollapse"
-              class="inline-flex items-center hover:text-white custom-drop-btn mt-4 ml-2 text-sm font-primary text-primary2 bg-primary1 hover:bg-teal-600 rounded-lg border border-secondary1 focus:outline-none group"
-            >
-              Add listing here!
-              <span
-                class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
-              >
-                expand_more
-              </span>
-            </button>
-          </div>
+					<!-- Top Right Section -->
+					<div class="mt-4 ml-2 sm:pl-8 sm:ml-4 justify-center items-center">
+						<button
+							id="newPostCollapse"
+							class="inline-flex custom-drop-btn mt-4 gap-2 items-center w-52 hover:text-white py-2.5 px-3 ml-2 text-md font-primary text-primary2 bg-primary1 hover:bg-teal-600 rounded-lg border border-secondary1 focus:outline-none group"
+						>
+							Add listing here!
+							<span class="material-symbols-outlined"> expand_more </span>
+						</button>
+					</div>
 
-          <!-- Bottom Left Section -->
-          <div id="filterToggleBoxes" class="flex">
-            <div class="flex flex-row items-center">
-              <!-- Active listings -->
-              <label class="flex cursor-pointer items-center">
-                <input
-                  type="checkbox"
-                  id="activeFilterInput"
-                  class="sr-only"
-                  checked
-                />
-                <span
-                  class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
-                ></span>
-                Active only
-              </label>
-            </div>
-            <div class="flex flex-row items-center">
-              <!-- Sort by date -->
-              <label class="flex cursor-pointer items-center">
-                <input
-                  type="checkbox"
-                  id="dateSortInput"
-                  class="sr-only"
-                  checked
-                />
-                <span
-                  class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
-                ></span>
-                Sort by date
-              </label>
-            </div>
-            <div class="flex flex-row items-center">
-              <!-- Show with ? -->
-              <label class="flex cursor-pointer items-center">
-                <input
-                  type="checkbox"
-                  id="bidsFilterInput"
-                  class="sr-only"
-                  checked
-                />
-                <span
-                  class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
-                ></span>
-                Show with ?
-              </label>
-            </div>
-          </div>
+					<!-- Bottom Left Section -->
+					<div>
+						<h2 class="flex ml-4 mt-6 mb-2 sm:mt-0 sm:justify-center font-primary text-primary2 text-lg">
+							FILTER LISTINGS BY:
+						</h2>
+						<div id="filterToggleBoxes" class="flex">
+							<div class="flex">
+								<!-- Active listings -->
+								<label class="flex cursor-pointer items-center">
+									<input type="checkbox" id="activeFilterInput" class="sr-only custom-checkbox" checked />
+									<span
+										class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
+									></span>
+									Active
+								</label>
+							</div>
+							<div class="flex">
+								<!-- Sort by date -->
+								<label class="flex cursor-pointer items-center">
+									<input type="checkbox" id="dateSortInput" class="sr-only custom-checkbox" checked />
+									<span
+										class="custom-checkbox-bg bg-white border-2 border-gray-200 rounded-sm w-4 h-4 inline-block mr-2 align-middle"
+									></span>
+									Date
+								</label>
+							</div>
+						</div>
+					</div>
+					<!-- Bottom Right Section -->
+					<div class="my-auto sm:pl-8 ml-4 justify-center items-center">
+						<form id="newListingForm" class="hidden" novalidate>
+							<input
+								type="text"
+								id="listingTitle"
+								placeholder="Listing Title.."
+								autocomplete="off"
+								class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+							/>
+							<input
+								type="text"
+								id="listingDescription"
+								placeholder="Add description.."
+								autocomplete="off"
+								class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+							/>
+							<input
+								type="text"
+								id="listingTags"
+								placeholder="#Tags.."
+								autocomplete="off"
+								class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+							/>
+							<input
+								type="url"
+								id="listingMediaInput"
+								placeholder="Add picture link.."
+								autocomplete="off"
+								class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+							/>
+							<input
+								type="date"
+								value=""
+								id="listingEndsAt"
+								class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+							/>
+							<span class="block text-sm text-thin font-secondary text-primary2 ml-1 p-1"
+								>Expiration date chosen, will always end at midnight 23.59</span
+							>
+							<span id="errorMessageListingPage" class="error-message max-w-1/2"></span>
 
-          <!-- Bottom Right Section -->
-          <div class="my-auto sm:pl-8 ml-4 justify-center items-center">
-            <form id="newListingForm" class="hidden" novalidate>
-              <input
-                type="text"
-                id="listingTitle"
-                placeholder="Listing Title.."
-                autocomplete="off"
-                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-              />
-              <input
-                type="text"
-                id="listingDescription"
-                placeholder="Add description.."
-                autocomplete="off"
-                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-              />
-              <input
-                type="text"
-                id="listingTags"
-                placeholder="#Tags.."
-                autocomplete="off"
-                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-              />
-              <input
-                type="url"
-                id="listingMediaInput"
-                placeholder="Add picture link.."
-                autocomplete="off"
-                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-              />
-              <input
-                type="date"
-                value=""
-                id="listingEndsAt"
-                class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-              />
-              <span
-                class="block text-sm text-thin font-secondary text-primary2 ml-1 p-1"
-                >Expiration date chosen, will always end at midnight 23.59</span
-              >
-              <span
-                id="errorMessageListingPage"
-                class="error-message max-w-1/2"
-              ></span>
+							<button
+								type="submit"
+								id="addListingBtn"
+								class="mt-4 hover:text-white py-2.5 px-3 ml-2 text-sm font-primary text-primary2 bg-primary1 hover:bg-teal-600 rounded-lg border border-secondary1 focus:outline-none group"
+							>
+								Post Listing
+							</button>
+						</form>
 
-              <button
-                type="submit"
-                id="addListingBtn"
-                class="mt-4 hover:text-white py-2.5 px-3 ml-2 text-sm font-primary text-primary2 bg-primary1 hover:bg-teal-600 rounded-lg border border-secondary1 focus:outline-none group"
-              >
-                Post Listing
-              </button>
-            </form>
+						<div id="searchFilterDisplay" class=""></div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-            <div id="searchFilterDisplay" class=""></div>
-          </div>
-        </div>
-      </div>
-    </section>
+		<section>
+			<div class="container mx-auto" id="listingsContainer">
+				<span id="errorMessageListings" class="error-message max-w-1/2 text-center mx-auto"></span>
+			</div>
+		</section>
 
-    <section>
-      <div class="container mx-auto" id="listingsContainer">
-        <span
-          id="errorMessageListings"
-          class="error-message max-w-1/2 text-center mx-auto"
-        ></span>
-      </div>
-    </section>
-
-    <footer class="relative bg-primary1 pt-8 pb-6 mt-4">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-wrap text-left lg:text-left">
-          <div class="w-full lg:w-6/12 px-4">
-            <h4 class="text-3xl fonat-semibold text-secondary1 font-primary">
-              Auctionable
-            </h4>
-            <h5 class="text-lg mt-0 mb-2 text-primary2 font-primary">2024</h5>
-            <div class="flex mt-6 lg:mb-0 mb-6">
-              <a
-                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-                href="https://twitter.com/?lang=en"
-              >
-                <i class="fa-brands fa-x-twitter"></i> </a
-              ><a
-                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-                href="https://www.facebook.com/"
-              >
-                <i class="fab fa-facebook-square"></i> </a
-              ><a
-                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-                href="https://www.reddit.com/"
-              >
-                <i class="fa-brands fa-reddit"></i></a
-              ><a
-                class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-                href=""
-              >
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="flex flex-wrap items-top mb-6">
-              <div class="w-full lg:w-4/12 px-4 ml-auto">
-                <span
-                  class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
-                  >Links</span
-                >
-                <ul class="list-unstyled">
-                  <li>
-                    <a
-                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href=""
-                      >About Us</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href=""
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href=""
-                      >History</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href=""
-                      >Our values</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="w-full lg:w-4/12 px-4">
-                <span
-                  class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
-                  >Other Resources</span
-                >
-                <ul class="list-unstyled">
-                  <li>
-                    <a
-                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href=""
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href=""
-                      >Terms & Conditions</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href=""
-                      >Privacy Policy</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href=""
-                      >Contact Us</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="my-6 border-blueGray-300" />
-        <div
-          class="flex flex-wrap items-center md:justify-between justify-center"
-        >
-          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-            <div class="text-sm text-blueGray-500 font-semibold py-1">
-              Copyright © <span id="get-current-year">2024</span
-              ><a
-                href=""
-                class="text-blueGray-500 hover:text-gray-800"
-                target="_blank"
-              >
-              </a>
-              <a href="" class="text-blueGray-500 hover:text-blueGray-800"
-                >Arne</a
-              >.
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </body>
-  <script type="module" src="./index.mjs"></script>
-  <script
-    src="https://kit.fontawesome.com/b25d649049.js"
-    crossorigin="anonymous"
-  ></script>
+		<footer class="relative bg-primary1 pt-8 pb-6 mt-4">
+			<div class="container mx-auto px-4">
+				<div class="flex flex-wrap text-left lg:text-left">
+					<div class="w-full lg:w-6/12 px-4">
+						<h4 class="text-3xl fonat-semibold text-secondary1 font-primary">Auctionable</h4>
+						<h5 class="text-lg mt-0 mb-2 text-primary2 font-primary">2024</h5>
+						<div class="flex mt-6 lg:mb-0 mb-6">
+							<a
+								class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+								type="button"
+								href="https://twitter.com/?lang=en"
+							>
+								<i class="fa-brands fa-x-twitter"></i> </a
+							><a
+								class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+								type="button"
+								href="https://www.facebook.com/"
+							>
+								<i class="fab fa-facebook-square"></i> </a
+							><a
+								class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+								type="button"
+								href="https://www.reddit.com/"
+							>
+								<i class="fa-brands fa-reddit"></i></a
+							><a
+								class="bg-white shadow-lg font-normal h-10 w-10 flex items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+								type="button"
+								href=""
+							>
+								<i class="fab fa-github"></i>
+							</a>
+						</div>
+					</div>
+					<div class="w-full lg:w-6/12 px-4">
+						<div class="flex flex-wrap items-top mb-6">
+							<div class="w-full lg:w-4/12 px-4 ml-auto">
+								<span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Links</span>
+								<ul class="list-unstyled">
+									<li>
+										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
+											>About Us</a
+										>
+									</li>
+									<li>
+										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""></a>
+									</li>
+									<li>
+										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
+											>History</a
+										>
+									</li>
+									<li>
+										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
+											>Our values</a
+										>
+									</li>
+								</ul>
+							</div>
+							<div class="w-full lg:w-4/12 px-4">
+								<span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
+								<ul class="list-unstyled">
+									<li>
+										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""></a>
+									</li>
+									<li>
+										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
+											>Terms & Conditions</a
+										>
+									</li>
+									<li>
+										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
+											>Privacy Policy</a
+										>
+									</li>
+									<li>
+										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
+											>Contact Us</a
+										>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr class="my-6 border-blueGray-300" />
+				<div class="flex flex-wrap items-center md:justify-between justify-center">
+					<div class="w-full md:w-4/12 px-4 mx-auto text-center">
+						<div class="text-sm text-blueGray-500 font-semibold py-1">
+							Copyright © <span id="get-current-year">2024</span
+							><a href="" class="text-blueGray-500 hover:text-gray-800" target="_blank"> </a>
+							<a href="" class="text-blueGray-500 hover:text-blueGray-800">Arne</a>.
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script type="module" src="./index.mjs"></script>
+	<script src="https://kit.fontawesome.com/b25d649049.js" crossorigin="anonymous"></script>
 </html>

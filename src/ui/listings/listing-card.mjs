@@ -54,8 +54,8 @@ export async function listingCardBuild(listingsData) {
                       <div class="overflow-hidden h-3/5 w-full rounded-t-md">
                           <img class="listingMedia h-full w-full object-cover p-1 rounded-lg" src="${listing.media[0] || defaultMedia}" alt="Listing Image"/>
                       </div>
-                      <div class="flex flex-col p-2">
-                      <span class="listingTitle block w-full font-primary text-lg text-primary2 uppercase overflow-hidden whitespace-nowrap">${listing.title}</span>
+                      <div class="flex flex-col p-1">
+                      <span class="listingTitle block w-full font-primary text-lg text-primary2 uppercase overflow-hidden whitespace-nowrap border-b border-teal-600 border-opacity-40">${listing.title}</span>
                       <span class="block w-full text-primary2 font-secondary opacity-100 transition-opacity ease-in-out duration-500 group-hover:opacity-0 ${new Date(listing.endsAt) < new Date() ? 'line-through' : ''}">
                           ${
                             new Date(listing.endsAt) > new Date() &&

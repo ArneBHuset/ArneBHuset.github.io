@@ -1,16 +1,17 @@
 import {
-  displayListingCards,
-  validatedNewListing,
-  newListingDropdown,
-  headerDropdown,
-  headerLoginStatus,
-  currentActiveFilter,
-  currentSearchInput,
-  updateFilteredListingCards,
-  defaultTimeNewListing,
-  searchForListing,
-  eventListener,
-  checkBoxPosition,
+	displayListingCards,
+	validatedNewListing,
+	newListingDropdown,
+	headerDropdown,
+	headerLoginStatus,
+	currentActiveFilter,
+	currentSearchInput,
+	updateFilteredListingCards,
+	defaultTimeNewListing,
+	searchForListing,
+	eventListener,
+	checkBoxPosition,
+	checkForSearchInput,
 } from '../src/main.mjs';
 
 //
@@ -32,3 +33,4 @@ defaultTimeNewListing();
 searchForListing();
 eventListener();
 checkBoxPosition();
+checkForSearchInput();

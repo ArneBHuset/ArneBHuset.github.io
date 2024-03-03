@@ -8,8 +8,8 @@ import { callUserListings } from '../../api-calls/profile/profile-listings.mjs';
 export async function filteredListingData() {
   if (document.body.dataset.page === 'index') {
     const listingsSortedByDate = await newestListings();
-    const tenNewestListings = listingsSortedByDate.slice(0, 20);
-    return tenNewestListings;
+    const listingsForCarousel = listingsSortedByDate.slice(0, 30);
+    return listingsForCarousel;
   }
 
   if (document.body.dataset.page === 'profile') {

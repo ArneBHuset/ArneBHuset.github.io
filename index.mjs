@@ -1,9 +1,10 @@
 import {
-  displayFeaturedListing,
-  landingPageListings,
-  userWelcomeMessage,
-  headerLoginStatus,
-  headerDropdown,
+	displayFeaturedListing,
+	landingPageListings,
+	userWelcomeMessage,
+	headerLoginStatus,
+	headerDropdown,
+	searchAndSubmit,
 } from './src/main.mjs';
 
 displayFeaturedListing();
@@ -11,3 +12,4 @@ landingPageListings();
 userWelcomeMessage();
 headerLoginStatus();
 headerDropdown();
+searchAndSubmit();
