@@ -1,6 +1,9 @@
 import { filteredListingData } from '../jsondata-filter/filtered-json.mjs';
 import { listingCardBuild } from '../../ui/listings/listing-card.mjs';
 
+/**
+ * Updates the DOM with filtered listing cards, based on selected checkboxes and event listeners
+ */
 export async function updateFilteredListingCards() {
   const listingData = await filteredListingData();
   const listingsHTML = await listingCardBuild(listingData);

@@ -4,6 +4,10 @@ import { currentProfileName } from '../../local-storage/current-user.mjs';
 import { currentActiveFilter } from '../../main.mjs';
 import { checkingAccessToken } from '../../local-storage/validate-access-token.mjs';
 
+/**
+ * Sets query filters for url based on UI input's and currect html-page
+ * @returns {ReturnType} - Returns the updated API url to be used for calling listing json data.
+ */
 export async function filteredListingUrl() {
   const accessToken = await checkingAccessToken();
   const isIndexPage = document.body.dataset.page === 'index';

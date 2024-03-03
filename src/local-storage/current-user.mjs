@@ -1,3 +1,7 @@
+/**
+ * Takes the userName of the user, set there from the login
+ * @returns {ReturnType} - reurns single string of user's name
+ */
 export async function currentProfileName() {
   const userName = localStorage.getItem('userName');
 

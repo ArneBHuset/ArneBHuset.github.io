@@ -1,3 +1,6 @@
+/**
+ * expands the form for creating a new listing and adds animation
+ */
 export function newListingDropdown() {
   const toggleButton = document.getElementById('newPostCollapse');
   const form = document.getElementById('newListingForm');

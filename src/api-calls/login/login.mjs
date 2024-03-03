@@ -5,7 +5,6 @@ import { UNvalidatedHeader } from '../../globalValues/api-header.mjs';
  * Runs API call for logging user in. if successfull, accesstoken and username will be set in local storage
  * @param {ParameterType} userLoginData - Takes validated form-data for logging in
  */
-
 export async function userLogin(userLoginData) {
   let errorDisplay = document.getElementById('errorMessageLogIn');
   errorDisplay.innerHTML = '';
@@ -18,7 +17,6 @@ export async function userLogin(userLoginData) {
     };
     const response = await fetch(loginUrl, loginData);
     const json = await response.json();
-    console.log('Loginfetch response ->', response, json);
 
     if (response.ok && json.accessToken) {
       localStorage.setItem('accessToken', json.accessToken);

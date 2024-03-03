@@ -25,7 +25,6 @@ export async function registerUser(registrationData) {
           ? json.errors[0].message
           : 'Registration failed';
       errorDisplay.innerHTML = `<h3 class="error-message">${errorMessage}</h3>`;
-      console.log('Registration response error', json);
     }
   } catch (error) {
     errorDisplay.innerHTML = `<h3 class="error-message">Registration failed: ${error.message}</h3>`;

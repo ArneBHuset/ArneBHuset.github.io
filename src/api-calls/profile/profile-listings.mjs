@@ -2,7 +2,7 @@ import { filteredListingUrl } from '../../filters/api-filter/query-filters.mjs';
 import { validatedHeader } from '../../globalValues/api-header.mjs';
 
 /**
- * Main API call for fetching all listings from the database
+ * Main API call for fetching all user listings from the database
  * @returns {ReturnType} - Returns the JSON object of the response if the API call is successful, or null if an error occurs.
  */
 export async function callUserListings() {
@@ -12,7 +12,6 @@ export async function callUserListings() {
       method: 'GET',
       headers: validatedHeader,
     };
-    console.log('Filtered url from callListings:', filteredUrl);
     const response = await fetch(filteredUrl, retrieveListingsData);
     if (!response.ok) {
       throw new Error('Failed to fetch listings');

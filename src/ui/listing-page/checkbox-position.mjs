@@ -1,11 +1,15 @@
+/**
+ * Monitors the state of the expand button for creating a new listing
+ */
 export function checkBoxPosition() {
   const container = document.getElementById('filterToggleBoxes');
   const toggleButton = document.getElementById('newPostCollapse');
-  let isListVisible = false; // Flag to track the list's visibility
-
+  let isListVisible = false;
+  /**
+   * Manipulates the classes for the checkbox layout to change whenever the new listing form list drops down, and expands the container
+   */
   function adjustLayoutBasedOnToggleButton() {
     isListVisible = !isListVisible;
-    console.log('Is list visible:', isListVisible);
     if (isListVisible) {
       container.classList.add(
         'sm:flex-row',

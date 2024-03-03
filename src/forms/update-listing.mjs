@@ -1,3 +1,7 @@
+/**
+ * Takes the from data from update listing form
+ * @returns {ReturnType} - Returns data in a api conformant object for updating listing
+ */
 export async function updateListingData() {
   const listingTitle = document.getElementById('listingTitle');
   const listingDescription = document.getElementById('listingDescription');

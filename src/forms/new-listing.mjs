@@ -1,3 +1,7 @@
+/**
+ * Takes the from data from new listing post on listings.html
+ * @returns {ReturnType} - Returns data in a api conformant object for creating new listing
+ */
 export async function newListingData() {
   const listingTitle = document.getElementById('listingTitle');
   const listingDescription = document.getElementById('listingDescription');

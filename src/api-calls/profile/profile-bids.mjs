@@ -18,7 +18,7 @@ export async function bidsMadeData() {
       profileApiCall
     );
     if (!response.ok) {
-      throw new Error('Failed to fetch bids data'); // Throws an Error that will be caught below
+      throw new Error('Failed to fetch bids data');
     }
     const json = await response.json();
     return json;

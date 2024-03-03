@@ -22,7 +22,6 @@ export async function fetchProfileData() {
   } catch (error) {
     const errorMessageSpan = document.getElementById('errorMessageProfile');
     errorMessageSpan.innerHTML = `<span class="opacity-50 text-primary2"> ${error.message}. Please Log in!</span>`;
-    console.error('Profile data fetch error:', error);
     return null;
   }
 }

@@ -1,17 +1,16 @@
 import { callListings } from '../../api-calls/listings/listing-api.mjs';
 
 /**
- * Takes all listing data and filters the listing with the highest bids
+ * Takes raw json listing data and sorts it based on _count bids
+ * @returns {ReturnType} - Returns one single post, with the most amount of bids.
  */
 export async function mostPopularListing() {
   try {
     const returnedJsonListing = await callListings();
-    console.log('Featured data', returnedJsonListing);
     if (
       !Array.isArray(returnedJsonListing) ||
       returnedJsonListing.length === 0
     ) {
-      console.log('No listings found');
       return;
     }
     let listingWithMostBids = returnedJsonListing[0];

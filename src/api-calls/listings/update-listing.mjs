@@ -7,8 +7,8 @@ import { validatedHeader } from '../../globalValues/api-header.mjs';
  * @param {string} listingId - The ID of the listing to be updated.
  */
 export async function updateListing(updateDataForm, listingId) {
-  const errorDisplay = document.getElementById('updateErrorMessage'); // Get the error message element
-  errorDisplay.textContent = ''; // Clear previous messages
+  const errorDisplay = document.getElementById('updateErrorMessage');
+  errorDisplay.textContent = '';
   try {
     const updateApiCall = {
       method: 'PUT',
@@ -22,8 +22,7 @@ export async function updateListing(updateDataForm, listingId) {
       const errorMessage = errorBody.message || 'Failed to update listing';
       throw new Error(errorMessage);
     }
-    const responseData = await response.json();
-    console.log('Listing update successful:', responseData);
+    await response.json();
 
     errorDisplay.innerHTML = `
       <div class="flex items-center justify-center">
@@ -36,7 +35,6 @@ export async function updateListing(updateDataForm, listingId) {
       window.location.reload();
     }, 1000);
   } catch (error) {
-    console.error('Error updating the listing:', error);
     errorDisplay.textContent = error.message;
   }
 }

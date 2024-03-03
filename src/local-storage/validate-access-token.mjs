@@ -5,10 +5,8 @@
 export async function checkingAccessToken() {
   const localAccessToken = localStorage.getItem('accessToken');
   if (localAccessToken) {
-    console.log('Access-token available');
     return localAccessToken;
   } else {
-    console.log('Access-token unavailable');
     return null;
   }
 }

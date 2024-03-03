@@ -53,11 +53,12 @@ export async function landingPageListings() {
     carousel();
     setupModalInteraction(listingsContainer, listingData);
   } catch (error) {
-    console.error('Error in landingPageListings:', error);
     displayListingCarouselError();
   }
 }
-
+/**
+ * UI error dispaly for listing carousels
+ */
 function displayListingCarouselError() {
   const errorElement = document.getElementById('listingCarouselError');
   if (errorElement) {
@@ -71,7 +72,9 @@ function displayListingCarouselError() {
     `;
   }
 }
-
+/**
+ * Intializing the modal for each listing card
+ */
 function setupModalInteraction(container, listingData) {
   container.addEventListener('click', function (e) {
     const target = e.target.closest('.listingModalButton');
@@ -81,7 +84,6 @@ function setupModalInteraction(container, listingData) {
       if (listing) {
         listingModal(listing);
       } else {
-        console.error('Listing not found for ID:', listingId);
         displayListingCarouselError();
       }
     }
