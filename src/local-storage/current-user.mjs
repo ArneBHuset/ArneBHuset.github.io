@@ -3,11 +3,11 @@
  * @returns {ReturnType} - reurns single string of user's name
  */
 export async function currentProfileName() {
-  const userName = localStorage.getItem('userName');
+	const userName = localStorage.getItem('userName');
 
-  if (userName) {
-    return userName;
-  } else {
-    console.log('User not logged in');
-  }
+	if (userName) {
+		return userName;
+	} else {
+		console.log('User not logged in');
+	}
 }

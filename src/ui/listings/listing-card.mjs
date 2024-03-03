@@ -8,30 +8,23 @@ import { defaultProfilePic } from '../../globalValues/general.mjs';
  * @returns {ReturnType} - Returns populated listing card HTML used on all pages
  */
 export async function listingCardBuild(listingsData) {
-  try {
-    if (!listingsData) {
-      listingsData = await filteredListingData();
-    }
+	try {
+		if (!listingsData) {
+			listingsData = await filteredListingData();
+		}
 
-    const normalizedListingsData = Array.isArray(listingsData)
-      ? listingsData
-      : [listingsData];
+		const normalizedListingsData = Array.isArray(listingsData) ? listingsData : [listingsData];
 
-    const listingCardsHtml = normalizedListingsData
-      .map(listing => {
-        let sellerInfo = '';
-        if (
-          listing.seller &&
-          listing.seller.name &&
-          listing.seller.email &&
-          listing.seller.avatar
-        ) {
-          sellerInfo = `<span class="flex items-center text-primary2 font-secondary mx-auto gap-4 uppercase"><img class="w-8 h-8 object-cover rounded-full" src="${listing.seller.avatar || defaultProfilePic}" alt="${listing.seller.name}'s Avatar"/>${listing.seller.name}</span>`;
-        }
+		const listingCardsHtml = normalizedListingsData
+			.map(listing => {
+				let sellerInfo = '';
+				if (listing.seller && listing.seller.name && listing.seller.email && listing.seller.avatar) {
+					sellerInfo = `<span class="flex items-center text-primary2 font-secondary mx-auto gap-4 uppercase"><img class="w-8 h-8 object-cover rounded-full" src="${listing.seller.avatar || defaultProfilePic}" alt="${listing.seller.name}'s Avatar"/>${listing.seller.name}</span>`;
+				}
 
-        let profileListingInteraction = '';
-        if (document.body.dataset.page === 'profile') {
-          profileListingInteraction = `
+				let profileListingInteraction = '';
+				if (document.body.dataset.page === 'profile') {
+					profileListingInteraction = `
               <div class="flex p-4 justify-end">
               <span class="delete-button focus:outline-none cursor-pointer transition-transform duration-300 hover:scale-110 " tabindex="0" role="button" aria-label="delete" data-listing-id="${listing.id}">
                   <span class="material-symbols-outlined text-black bg-secondary1 hover:text-red-400 rounded-full p-1">
@@ -45,8 +38,8 @@ export async function listingCardBuild(listingsData) {
               </span>
           </div>
           `;
-        }
-        return `
+				}
+				return `
               <div class="flex items-center justify-center">
           <div class="max-w-md antialiased">
               <button type="button" data-listing-id="${listing.id}" class="listingModalButton group block h-72 sm:h-80 w-72 relative">
@@ -58,14 +51,11 @@ export async function listingCardBuild(listingsData) {
                       <span class="listingTitle block w-full font-primary text-lg text-primary2 uppercase overflow-hidden whitespace-nowrap border-b border-teal-600 border-opacity-40">${listing.title}</span>
                       <span class="block w-full text-primary2 font-secondary opacity-100 transition-opacity ease-in-out duration-500 group-hover:opacity-0 ${new Date(listing.endsAt) < new Date() ? 'line-through' : ''}">
                           ${
-                            new Date(listing.endsAt) > new Date() &&
-                            new Date(listing.endsAt) <=
-                              new Date(
-                                new Date().getTime() + 2 * 24 * 60 * 60 * 1000
-                              )
-                              ? `<span class="relative mr-2 mb-0.5 h-2 w-2 bg-red-500 rounded-full animate-ping inline-block"></span>`
-                              : ''
-                          }
+														new Date(listing.endsAt) > new Date() &&
+														new Date(listing.endsAt) <= new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000)
+															? `<span class="relative mr-2 mb-0.5 h-2 w-2 bg-red-500 rounded-full animate-ping inline-block"></span>`
+															: ''
+													}
                           Ends At: ${new Date(listing.endsAt).toLocaleDateString()} - ${new Date(listing.endsAt).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}
                       </span>
                       
@@ -92,11 +82,11 @@ export async function listingCardBuild(listingsData) {
       </div>
 
     `;
-      })
-      .join('');
+			})
+			.join('');
 
-    return listingCardsHtml;
-  } catch (error) {
-    return '<p>Failed to load listings. Please try again later.</p>';
-  }
+		return listingCardsHtml;
+	} catch (error) {
+		return '<p>Failed to load listings. Please try again later.</p>';
+	}
 }

@@ -5,10 +5,10 @@ import { loginModal, registerModal } from '../main.mjs';
  * Displays login/register/logout buttons depending on accessToken status and dynamically updates the UI
  */
 export async function headerLoginStatus() {
-  const headerSection = document.getElementById('loggedInOrOut');
-  const accessToken = await checkingAccessToken();
-  if (accessToken) {
-    headerSection.innerHTML = `
+	const headerSection = document.getElementById('loggedInOrOut');
+	const accessToken = await checkingAccessToken();
+	if (accessToken) {
+		headerSection.innerHTML = `
     <div class="flex items-center gap-4">
     <div class="sm:flex sm:gap-4">
       <button
@@ -19,14 +19,14 @@ export async function headerLoginStatus() {
       </button>
     </div>
         `;
-    logOutUser();
+		logOutUser();
 
-    const registerModalBtn = document.getElementById('heroNewHereBtn');
-    if (registerModalBtn) {
-      registerModalBtn.classList.add('hidden');
-    }
-  } else {
-    headerSection.innerHTML = `
+		const registerModalBtn = document.getElementById('heroNewHereBtn');
+		if (registerModalBtn) {
+			registerModalBtn.classList.add('hidden');
+		}
+	} else {
+		headerSection.innerHTML = `
         <div class="flex items-center gap-4">
             <div class="sm:flex sm:gap-4">
               <button
@@ -42,7 +42,7 @@ export async function headerLoginStatus() {
               </button>
             </div>
         `;
-    loginModal();
-    registerModal();
-  }
+		loginModal();
+		registerModal();
+	}
 }

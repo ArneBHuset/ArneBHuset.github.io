@@ -30,25 +30,25 @@ class="flex justify-center items-center bg-teal-600 opacity-80 hover:opacity-100
  * Initz the api call for updating image with the input value
  */
 export async function userUpdatesProfilePicture() {
-  const updateModalBtn = document.getElementById('updateModalBtn');
+	const updateModalBtn = document.getElementById('updateModalBtn');
 
-  if (updateModalBtn) {
-    updateModalBtn.addEventListener('click', () => {
-      const profileModal = createModal();
-      profileModal.setModalContent(modalContent);
-      profileModal.openModal();
-      const updateForm = document.getElementById('updateMediaForm');
-      if (updateForm) {
-        updateForm.addEventListener('submit', async event => {
-          event.preventDefault();
-          const avatarValue = document.getElementById('registerAvatar').value;
-          const newMediaData = {
-            avatar: avatarValue,
-          };
-          await changeProfileImg(newMediaData);
-          profileModal.closeModal();
-        });
-      }
-    });
-  }
+	if (updateModalBtn) {
+		updateModalBtn.addEventListener('click', () => {
+			const profileModal = createModal();
+			profileModal.setModalContent(modalContent);
+			profileModal.openModal();
+			const updateForm = document.getElementById('updateMediaForm');
+			if (updateForm) {
+				updateForm.addEventListener('submit', async event => {
+					event.preventDefault();
+					const avatarValue = document.getElementById('registerAvatar').value;
+					const newMediaData = {
+						avatar: avatarValue,
+					};
+					await changeProfileImg(newMediaData);
+					profileModal.closeModal();
+				});
+			}
+		});
+	}
 }

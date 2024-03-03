@@ -55,12 +55,12 @@ const registrationContent = `
  * Calls the base modal and populates it with registrationContent
  */
 export function registerModal() {
-  document.querySelectorAll('.registerModalBtn').forEach(button => {
-    button.addEventListener('click', () => {
-      const modal = createModal();
-      modal.openModal();
-      modal.setModalContent(registrationContent);
-      validateRegistrationData();
-    });
-  });
+	document.querySelectorAll('.registerModalBtn').forEach(button => {
+		button.addEventListener('click', () => {
+			const modal = createModal();
+			modal.openModal();
+			modal.setModalContent(registrationContent);
+			validateRegistrationData();
+		});
+	});
 }

@@ -1,3 +1,3 @@
 export function closeModal(modal) {
-  modal.style.display = 'none';
+	modal.style.display = 'none';
 }

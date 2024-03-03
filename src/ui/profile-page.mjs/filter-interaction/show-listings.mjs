@@ -1,3 +1,3 @@
 export async function showProfileListingsData() {
-  return true;
+	return true;
 }

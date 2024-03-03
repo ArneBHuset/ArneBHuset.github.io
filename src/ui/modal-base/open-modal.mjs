@@ -1,3 +1,3 @@
 export function openModal(modal) {
-  modal.style.display = 'flex';
+	modal.style.display = 'flex';
 }

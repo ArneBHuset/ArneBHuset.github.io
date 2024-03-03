@@ -43,18 +43,16 @@ const loginContent = `
  * @param {object} isDirectCall - will tell if the modal should pop up automatically or be launched by button
  */
 export function loginModal(isDirectCall = false) {
-  if (isDirectCall) {
-    showModalContent();
-  } else {
-    document
-      .getElementById('openModalBtn')
-      .addEventListener('click', showModalContent);
-  }
+	if (isDirectCall) {
+		showModalContent();
+	} else {
+		document.getElementById('openModalBtn').addEventListener('click', showModalContent);
+	}
 }
 
 function showModalContent() {
-  const modal = createModal();
-  modal.openModal();
-  modal.setModalContent(loginContent);
-  validateLoginData();
+	const modal = createModal();
+	modal.openModal();
+	modal.setModalContent(loginContent);
+	validateLoginData();
 }

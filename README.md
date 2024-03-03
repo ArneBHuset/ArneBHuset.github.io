@@ -1,61 +1,89 @@
-# Semester Project 2 (29.january-03.march 2024)
+# Semester Project 2 (29 January - 03 March 2024)
 
-This project....
+This project is an auction website designed to allow users to post items for auction and bid on others' items. Utilizing modern web technologies, this front-end application provides a seamless user experience for auction activities.
+
+Live version can be found here:
+https://arnebhuset.github.io/
 
 ## Technologies Used
 
 - HTML/CSS
 - JavaScript
-- Tailwind
+- Tailwind CSS
 - PostCSS
-- ESLint configured with Prettier and Husky Commmit Hooks
-- Jest for unit testing ??????
-- Cypress for end-to-end testing ??????
-- GitHub Actions for CI/CD ??????
+- ESLint (configured with Prettier and Husky Commit Hooks)
+- Jest for unit testing
+- GitHub Actions for Continuous Integration and Continuous Deployment (CI/CD)
 
-## Configuration
+## Configuration Details
 
-- **ESLint**: Linting utility for JavaScript.
-- **Prettier**: Code formatter to ensure code style consistency.
-- **Husky**: Used for setting up Git hooks to enforce linting and testing before commits.
-- **Jest**: For unit testing JavaScript code.
-- **Cypress**: For conducting end-to-end testing.
+- ESLint for JavaScript linting.
+- Prettier for code formatting.
+- Husky for managing Git hooks.
+- Jest for unit testing.
 
 ## Build Status
 
-?????
+[![CI](https://github.com/ArneBHuset/ArneBHuset.github.io/actions/workflows/ci.yml/badge.svg?branch=semester-project-2)](https://github.com/ArneBHuset/ArneBHuset.github.io/actions/workflows/ci.yml)
 
 ## Installation and Setup
 
-Clone the repository:
-git clone
+Follow these steps to get the project running:
 
-install dependencies:
-npm install -> npm start
+1. **Clone the Repository**
 
-????Might have to run npm run dev?
+   ```bash
+   git clone https://github.com/ArneBHuset/ArneBHuset.github.io.git
+   git checkout semester-project-2
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the Project**
+   ```bash
+   npm start
+   ```
+   Visit `http://localhost:8080` in your browser.
+   ```bash
+   alternatively run: npm run dev
+   and start your own local serveer
+   ```
 
 ## Running Tests
 
-To run tests with ESLint:
+### ESLint
+
+Run the following command to identify and fix linting errors:
 
 ```bash
-npm test
+npm run lint
 ```
 
+If any errors occur, please run:
+
+````bash
 npx eslint . --ext .js,.mjs --fix
 
-/\*\*
+### Unit test with JEST
 
-- Brief description of the function's purpose.
--
-- @param {ParameterType} parameterName - Description of the parameter.
-- @param {ParameterType} anotherParameterName - Description of another parameter.
-- @returns {ReturnType} - Description of what the function returns.
-  \*/
+Run the following command to to test modal dialogue functionality:
 
-Code sources:
-Footer:
+```bash
+npm run test
+````
+
+### Running both
+
+Run the following command to test both ESLint and jest
+
+```bash
+npm run validate
+```
+
+Code sources for layout inspiration:
 https://tailwindcomponents.com/component/footer-5
-Hero section:
 https://tailwindcomponents.com/component/application-header-with-clip-path
