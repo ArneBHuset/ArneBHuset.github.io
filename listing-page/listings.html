@@ -49,8 +49,6 @@
 		<section class="mb-6">
 			<div class="container border-b p-4">
 				<div class="md:grid md:grid-cols-2 md:gap-4 max-w-lg">
-					<!-- Top Left Section -->
-
 					<form id="searchForm" class="flex w-11/12 mx-auto sm:w-full justify-end pt-4 relative">
 						<input
 							type="text"
@@ -127,13 +125,23 @@
 								autocomplete="off"
 								class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
 							/>
-							<input
-								type="url"
-								id="listingMediaInput"
-								placeholder="Add picture link.."
-								autocomplete="off"
-								class="mt-2 px-4 py-2 w-full rounded border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
-							/>
+							<div class="input-group mt-2 relative">
+								<input
+									type="url"
+									id="listingMediaInput"
+									placeholder="Add picture link.."
+									autocomplete="off"
+									class="px-4 py-2 w-full rounded-l border border-gray-300 shadow-sm text-base placeholder-gray-500 focus:outline-none focus:border-blue-500"
+								/>
+								<span
+									class="material-symbols-outlined absolute right-5 pt-2 pe-4 text-secondary1 bg-transparent cursor-pointer"
+									type="button"
+									id="addMediaButton"
+								>
+									add
+								</span>
+							</div>
+
 							<input
 								type="date"
 								value=""
@@ -166,7 +174,7 @@
 			</div>
 		</section>
 
-		<footer class="relative bg-primary1 pt-8 pb-6 mt-4">
+		<footer class="relative bg-primary1 pt-8 pb-6">
 			<div class="container mx-auto px-4">
 				<div class="flex flex-wrap text-left lg:text-left">
 					<div class="w-full lg:w-6/12 px-4">
@@ -204,60 +212,52 @@
 						<div class="flex flex-wrap items-top mb-6">
 							<div class="w-full lg:w-4/12 px-4 ml-auto">
 								<span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Links</span>
-								<ul class="list-unstyled">
+								<ul>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>About Us</a
-										>
+										<a class="text-primary2 font-primary hover:underline block text-sm sm:pt-6" href="">About Us</a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""></a>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href=""></a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>History</a
-										>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href="">History</a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>Our values</a
-										>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href="">Our values</a>
 									</li>
 								</ul>
 							</div>
 							<div class="w-full lg:w-4/12 px-4">
-								<span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
-								<ul class="list-unstyled">
+								<span class="block uppercase text-primary2 font-primary text-sm mb-2 font font-semibold"
+									>Other Resources</span
+								>
+								<ul>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""></a>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href=""></a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href=""
 											>Terms & Conditions</a
 										>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>Privacy Policy</a
-										>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href="">Privacy Policy</a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>Contact Us</a
-										>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href="">Contact Us</a>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-				<hr class="my-6 border-blueGray-300" />
+				<hr class="my-6 border" />
 				<div class="flex flex-wrap items-center md:justify-between justify-center">
 					<div class="w-full md:w-4/12 px-4 mx-auto text-center">
 						<div class="text-sm text-blueGray-500 font-semibold py-1">
-							Copyright © <span id="get-current-year">2024</span
-							><a href="" class="text-blueGray-500 hover:text-gray-800" target="_blank"> </a>
-							<a href="" class="text-blueGray-500 hover:text-blueGray-800">Arne</a>.
+							Copyright © <span>2024</span
+							><a href="" class="text-primary2 font-primary hover:text-gray-800" target="_blank"> </a>
+							<a href="" class="text-primary2 font-primary hover:text-blueGray-800">Arne</a>.
 						</div>
 					</div>
 				</div>

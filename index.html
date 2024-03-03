@@ -56,18 +56,18 @@
 					<div class="md:grid md:grid-cols-2 md:gap-4">
 						<!-- Top Left Section -->
 
-						<form class="flex items-center ms-2 sm:ms-52 pt-6 sm:pt-14">
+						<form class="flex items-center ms-2 sm:ms-52 pt-6">
 							<input
 								type="text"
 								id="listings-search"
-								class="bg-white border border-teal-600 shadow-md text-primary2 rounded-lg focus:shadow-lg focus:outline focus:outline-teal-600 custom-size pl-3 my-4 block"
+								class="bg-white border border-teal-600 shadow-md text-primary2 rounded-lg focus:shadow-lg focus:outline focus:outline-teal-600 custom-size pl-3 sm:mt-6 mt-2 block"
 								placeholder="Search for listings"
 								required
 							/>
 
 							<button
 								type="submit"
-								class="inline-flex custom-drop-btn gap-2 items-center hover:text-white py-2.5 px-3 ml-2 text-lg font-primary text-primary2 bg-primary1 hover:bg-teal-600 rounded-lg border border-secondary1 focus:outline-none"
+								class="inline-flex custom-drop-btn gap-2 items-center hover:text-white sm:mt-6 mt-2 py-2.5 px-3 ml-2 text-lg font-primary text-primary2 bg-primary1 hover:bg-teal-600 rounded-lg border border-secondary1 focus:outline-none"
 							>
 								<span class="material-symbols-outlined mr-2">search</span>Search
 							</button>
@@ -83,7 +83,7 @@
 						<div class="flex-row sm:ms-52 px-auto mt-14 text-center sm:text-left">
 							<span id="WelcomeMessage"></span>
 
-							<p class="mt-2 text-md font-secondary text-primary2 md:text-base">
+							<p class="sm:mt-2 text-md font-secondary text-primary2 md:text-base">
 								Embark on a journey to discover and own a piece of history or artistry. Dive into our meticulously
 								curated listings, find your passion, and join a community of like-minded enthusiasts.
 							</p>
@@ -120,8 +120,6 @@
 					</div>
 				</div>
 			</section>
-
-			<!-- Here starts the card -->
 			<section class="">
 				<h1 class="container text-center sm:text-left mt-6 sm:pl-28 py-4 font-primary text-primary2 text-xl">
 					NEWCOMERS
@@ -172,60 +170,52 @@
 						<div class="flex flex-wrap items-top mb-6">
 							<div class="w-full lg:w-4/12 px-4 ml-auto">
 								<span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Links</span>
-								<ul class="list-unstyled">
+								<ul>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>About Us</a
-										>
+										<a class="text-primary2 font-primary hover:underline block text-sm sm:pt-6" href="">About Us</a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""></a>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href=""></a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>History</a
-										>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href="">History</a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>Our values</a
-										>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href="">Our values</a>
 									</li>
 								</ul>
 							</div>
 							<div class="w-full lg:w-4/12 px-4">
-								<span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
-								<ul class="list-unstyled">
+								<span class="block uppercase text-primary2 font-primary text-sm mb-2 font font-semibold"
+									>Other Resources</span
+								>
+								<ul>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""></a>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href=""></a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href=""
 											>Terms & Conditions</a
 										>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>Privacy Policy</a
-										>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href="">Privacy Policy</a>
 									</li>
 									<li>
-										<a class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href=""
-											>Contact Us</a
-										>
+										<a class="text-primary2 font-primary hover:underline block pb-2 text-sm" href="">Contact Us</a>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-				<hr class="my-6 border-blueGray-300" />
+				<hr class="my-6 border" />
 				<div class="flex flex-wrap items-center md:justify-between justify-center">
 					<div class="w-full md:w-4/12 px-4 mx-auto text-center">
 						<div class="text-sm text-blueGray-500 font-semibold py-1">
-							Copyright © <span id="get-current-year">2024</span
-							><a href="" class="text-blueGray-500 hover:text-gray-800" target="_blank"> </a>
-							<a href="" class="text-blueGray-500 hover:text-blueGray-800">Arne</a>.
+							Copyright © <span>2024</span
+							><a href="" class="text-primary2 font-primary hover:text-gray-800" target="_blank"> </a>
+							<a href="" class="text-primary2 font-primary hover:text-blueGray-800">Arne</a>.
 						</div>
 					</div>
 				</div>
