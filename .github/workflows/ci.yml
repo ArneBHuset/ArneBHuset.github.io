@@ -2,9 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - semester-project-2
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - semester-project-2
 
 jobs:
   lint:
