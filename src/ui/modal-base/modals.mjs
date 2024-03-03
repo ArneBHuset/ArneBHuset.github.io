@@ -1,6 +1,10 @@
 import { openModal } from './open-modal.mjs';
 import { closeModal } from './close-modal.mjs';
 
+/**
+ * Sets up modal dialogue and populates with content, initially set to empty/'' but set with innerHTML elsewhere.
+ * @param {innerHTML} listingFormData - Takes innerHTML to craete the listing body.
+ */
 export function createModal(initialContent = '') {
   let modalExists = document.getElementById('mainModal');
 

@@ -6,13 +6,13 @@ import { loginModal } from '../modal-bodies/login-modal.mjs';
  */
 export async function loginStatusForProfile() {
   const status = await checkingAccessToken();
-  const mainContent = document.querySelector('main'); // Assuming there is only one <main> element
+  const mainContent = document.querySelector('main');
   const loginMessage = document.getElementById('loginMessage');
 
   if (!status) {
     loginModal(true);
-    if (mainContent) mainContent.classList.add('hidden'); // Hide main content
-    if (loginMessage) loginMessage.classList.remove('hidden'); // Show login message
+    if (mainContent) mainContent.classList.add('hidden');
+    if (loginMessage) loginMessage.classList.remove('hidden');
   } else {
     if (mainContent) mainContent.classList.remove('hidden');
     if (loginMessage) loginMessage.classList.add('hidden');

@@ -1,13 +1,14 @@
 import { fetchProfileData } from '../../api-calls/profile/profile-data.mjs';
 import { userUpdatesProfilePicture } from '../modal-bodies/update-picture.mjs';
-
+/**
+ * Takes the profile json data from fetchProfileData and populates it in into the dom
+ */
 export async function displayProfileData() {
   const filteredProfileData = await fetchProfileData();
   const profile = Array.isArray(filteredProfileData)
     ? filteredProfileData[0]
     : filteredProfileData;
   const profileSection = document.getElementById('profileSection');
-
   if (profile) {
     const winsHtml = profile.wins.map(win => `<li>${win}</li>`).join('');
     const profileHtml = `
@@ -44,7 +45,6 @@ export async function displayProfileData() {
     </div>
         `;
     profileSection.innerHTML = profileHtml;
-
     userUpdatesProfilePicture();
   }
 }

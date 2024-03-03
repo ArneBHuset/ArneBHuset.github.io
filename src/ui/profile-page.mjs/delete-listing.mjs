@@ -2,7 +2,7 @@ import { deleteListing } from '../../api-calls/listings/delete-listing.mjs';
 
 /**
  * Sets up deletebutton, corrosponding with specific id of the listing
- * @param {string} container - Takes the container for the listing
+ * @param {string} container - Takes the corrosponding container for the listing
  */
 export async function setupDeleteListingInteractions(container) {
   container.addEventListener('click', async function (e) {

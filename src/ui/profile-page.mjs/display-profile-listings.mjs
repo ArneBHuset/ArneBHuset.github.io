@@ -12,8 +12,6 @@ export async function displayProfileListing() {
   let listingData = await filteredListingData();
   const listingCardsHtml = await listingCardBuild(listingData); // Build listing cards HTML
   const listingsContainer = document.getElementById('listingsContainer');
-  console.log('listingData in profile, result', listingData);
-
   listingData = Array.isArray(listingData) ? listingData : [listingData];
   listingsContainer.innerHTML = `
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">

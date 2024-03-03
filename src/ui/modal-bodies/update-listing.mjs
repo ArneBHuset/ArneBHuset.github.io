@@ -42,7 +42,9 @@ const updateContent = `
           </button>
         </form>
 `;
-
+/**
+ * Calls the base modal and populates it with updateContent
+ */
 export async function updateModal() {
   const modal = createModal();
   modal.openModal();

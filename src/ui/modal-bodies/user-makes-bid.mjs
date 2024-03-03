@@ -1,5 +1,9 @@
-import { bidValidation } from '../validation/user-bid.mjs';
+import { bidValidation } from '../../validation/user-bid.mjs';
 
+/**
+ * Sets up the bidding input with animation
+ * @param {string} listingId - Takes the corrosponding listing id for placing the bid
+ */
 export async function userMakesBid(listingId) {
   const biddingBtn = document.getElementById('biddingBtn');
   const biddingArea = document.getElementById('inputArea');

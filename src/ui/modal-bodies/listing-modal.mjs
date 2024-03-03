@@ -1,8 +1,12 @@
 import { createModal } from '../modal-base/modals.mjs';
-import { userMakesBid } from '../user-makes-bid.mjs';
+import { userMakesBid } from './user-makes-bid.mjs';
 import { displayListingMedia } from './media-display.mjs';
 import { checkingAccessToken } from '../../local-storage/validate-access-token.mjs';
 
+/**
+ * Calls the base modal and popualtes it with listing modal data
+ * @param {object} listingData - Takes listingData, whereever the listingModal is initalized
+ */
 export async function listingModal(listingData) {
   const accessToken = await checkingAccessToken();
 

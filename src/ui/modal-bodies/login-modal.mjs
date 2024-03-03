@@ -38,7 +38,10 @@ const loginContent = `
 </div>
 
 `;
-
+/**
+ * Calls the base modal and populates it with loginContent
+ * @param {object} isDirectCall - will tell if the modal should pop up automatically or be launched by button
+ */
 export function loginModal(isDirectCall = false) {
   if (isDirectCall) {
     showModalContent();

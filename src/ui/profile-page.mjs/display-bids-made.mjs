@@ -1,11 +1,11 @@
 import { bidsMadeData } from '../../api-calls/profile/profile-bids.mjs';
 
+/**
+ * Takes the json api data from bidsMadeData and populates the profile page with this information
+ */
 export async function bidsMadeByUser() {
-  const bidsMadeByUser = await bidsMadeData(); // Fetch the bids data
-  console.log('Bidding data', bidsMadeByUser);
-
+  const bidsMadeByUser = await bidsMadeData();
   const bidsSection = document.getElementById('bidsSection');
-
   if (bidsMadeByUser && bidsMadeByUser.length > 0) {
     const bidsHtml = bidsMadeByUser
       .map(
@@ -24,7 +24,6 @@ export async function bidsMadeByUser() {
         `
       )
       .join('');
-
     bidsSection.innerHTML = bidsHtml;
   } else {
     bidsSection.innerHTML =

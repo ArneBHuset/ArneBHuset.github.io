@@ -1,11 +1,14 @@
 import { defaultMedia } from '../../globalValues/general.mjs';
 
+/**
+ * Takes the API json media and organizes it into the listing modal dialogue. Set up several images if present
+ * @param {object} listingData - Takes all json data form corrosponding listing
+ */
 export function displayListingMedia(listingData) {
   const mediaContainer = document.getElementById('listingMedia');
   if (!mediaContainer) {
     return;
   }
-  console.log('media container', mediaContainer);
   if (!listingData || !Array.isArray(listingData.media)) {
     mediaContainer.innerHTML = `<p class="error-message">Media information is unavailable.</p>`;
     return;

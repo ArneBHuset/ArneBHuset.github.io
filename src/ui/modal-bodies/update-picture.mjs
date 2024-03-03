@@ -24,6 +24,11 @@ class="flex justify-center items-center bg-teal-600 opacity-80 hover:opacity-100
 </div>
 </div>
 `;
+
+/**
+ * Calls the base modal and populates it with modalContent with updateform.
+ * Initz the api call for updating image with the input value
+ */
 export async function userUpdatesProfilePicture() {
   const updateModalBtn = document.getElementById('updateModalBtn');
 
@@ -40,13 +45,8 @@ export async function userUpdatesProfilePicture() {
           const newMediaData = {
             avatar: avatarValue,
           };
-          try {
-            await changeProfileImg(newMediaData);
-
-            profileModal.closeModal();
-          } catch (error) {
-            console.log(error);
-          }
+          await changeProfileImg(newMediaData);
+          profileModal.closeModal();
         });
       }
     });

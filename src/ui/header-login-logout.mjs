@@ -1,7 +1,9 @@
 import { checkingAccessToken } from '../local-storage/validate-access-token.mjs';
 import { logOutUser } from '../local-storage/logout.mjs';
 import { loginModal, registerModal } from '../main.mjs';
-
+/**
+ * Displays login/register/logout buttons depending on accessToken status and dynamically updates the UI
+ */
 export async function headerLoginStatus() {
   const headerSection = document.getElementById('loggedInOrOut');
   const accessToken = await checkingAccessToken();

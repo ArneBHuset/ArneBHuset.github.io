@@ -49,10 +49,6 @@ export async function listingCardBuild(listingsData) {
           </div>
           `;
         }
-        // console.log(
-        //   'This is the filtered data used to build listingcards',
-        //   listing.created
-        // );
         return `
               <div class="flex items-center justify-center">
           <div class="max-w-md antialiased">
@@ -104,7 +100,6 @@ export async function listingCardBuild(listingsData) {
 
     return listingCardsHtml;
   } catch (error) {
-    console.error('Error with getting json data to build listing card', error);
     return '<p>Failed to load listings. Please try again later.</p>';
   }
 }
