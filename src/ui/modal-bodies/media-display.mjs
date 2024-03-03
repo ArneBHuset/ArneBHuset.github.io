@@ -17,7 +17,7 @@ export function displayListingMedia(listingData) {
 	const mediaUrls = listingData.media.length > 0 ? listingData.media : [defaultMedia];
 
 	if (mediaUrls.length === 1) {
-		innerHTML = `<img src="${mediaUrls[0]}" alt="Listing Image" class="max-w-full p-2 rounded-md my-auto">`;
+		innerHTML = `<img src="${mediaUrls[0]}" alt="Listing Image" class="w-full height-full  p-2 rounded-md my-auto">`;
 	} else {
 		innerHTML = mediaUrls
 			.map(

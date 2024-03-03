@@ -85,7 +85,7 @@ export async function listingModal(listingData) {
 	const modalContent = `
   <div class="listing-modal-size grid grid-rows-auto gap-2 font-primary text-primary2 overflow-auto lg:max-w-2/3 xl:max-w-1/2 mx-auto">
     <div class="flex flex-row">
-      <div id="listingMedia" class="listingMedia mx-auto bg-primary2  flex-col items-center "></div>
+      <div id="listingMedia" class="listingMedia mx-auto bg-primary2 flex  flex-col items-center "></div>
       <button id="minimizeBtn" class="bg-primary2 flex justify-start pt-2 px-2 ms-[-5px] sm:ms-[0px] ">
         <span class="material-symbols-outlined text-white"></span>
       </button>
@@ -148,7 +148,7 @@ export async function listingModal(listingData) {
 
 	const minimizeBtn = document.getElementById('minimizeBtn');
 	const iconSpan = minimizeBtn.querySelector('.material-symbols-outlined');
-	iconSpan.innerHTML = 'arrow_forward_ios'; // Ensure the forward icon is set initially
+	iconSpan.innerHTML = 'arrow_forward_ios';
 
 	minimizeBtn.addEventListener('click', function () {
 		if (iconSpan.innerHTML === 'arrow_forward_ios') {

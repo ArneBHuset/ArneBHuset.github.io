@@ -44,7 +44,7 @@ export async function landingPageListings() {
 
 		cards.forEach(card => {
 			const carouselItem = document.createElement('div');
-			carouselItem.className = 'carousel-item ...'; // Your class names here
+			carouselItem.className = 'carousel-item ...';
 			carouselItem.appendChild(card);
 			carouselItemsContainer.appendChild(carouselItem);
 		});

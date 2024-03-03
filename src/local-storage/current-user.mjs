@@ -7,7 +7,5 @@ export async function currentProfileName() {
 
 	if (userName) {
 		return userName;
-	} else {
-		console.log('User not logged in');
 	}
 }

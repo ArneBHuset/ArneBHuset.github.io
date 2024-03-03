@@ -12,9 +12,7 @@ export async function listingCardBuild(listingsData) {
 		if (!listingsData) {
 			listingsData = await filteredListingData();
 		}
-
 		const normalizedListingsData = Array.isArray(listingsData) ? listingsData : [listingsData];
-
 		const listingCardsHtml = normalizedListingsData
 			.map(listing => {
 				let sellerInfo = '';

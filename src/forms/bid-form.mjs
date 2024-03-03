@@ -8,6 +8,5 @@ export async function placedBid() {
 	const userBid = {
 		amount: bidAmount,
 	};
-	console.log(userBid);
 	return userBid;
 }

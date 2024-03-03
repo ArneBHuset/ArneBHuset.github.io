@@ -10,7 +10,7 @@ import { filteredListingData } from '../../filters/jsondata-filter/filtered-json
  */
 export async function displayProfileListing() {
 	let listingData = await filteredListingData();
-	const listingCardsHtml = await listingCardBuild(listingData); // Build listing cards HTML
+	const listingCardsHtml = await listingCardBuild(listingData);
 	const listingsContainer = document.getElementById('listingsContainer');
 	listingData = Array.isArray(listingData) ? listingData : [listingData];
 	listingsContainer.innerHTML = `
@@ -24,8 +24,8 @@ export async function displayProfileListing() {
 
 		const target = e.target.closest('.listingModalButton');
 		if (target) {
-			const listingId = target.dataset.listingId; // Get the data-listing-id attribute
-			const listing = listingData.find(listing => listing.id === listingId); // Find the corresponding listing data
+			const listingId = target.dataset.listingId;
+			const listing = listingData.find(listing => listing.id === listingId);
 
 			if (listing) {
 				listingModal(listing);
