@@ -1,11 +1,16 @@
-# Semester Project 2 (29 January - 03 March 2024)
+# Auctionable
+
+![Landing page image](<Landing page.png>)
+
+## Description
 
 This project is an auction website designed to allow users to post items for auction and bid on others' items. Utilizing modern web technologies, this front-end application provides a seamless user experience for auction activities.
 
-Live version can be found here:
+## Demo
+
 https://arnebhuset.github.io/
 
-## Technologies Used
+## Tech stack
 
 - HTML/CSS
 - JavaScript
@@ -22,10 +27,6 @@ https://arnebhuset.github.io/
 - Husky for managing Git hooks.
 - Jest for unit testing.
 
-## Build Status
-
-[![CI](https://github.com/ArneBHuset/ArneBHuset.github.io/actions/workflows/ci.yml/badge.svg?branch=semester-project-2)](https://github.com/ArneBHuset/ArneBHuset.github.io/actions/workflows/ci.yml)
-
 ## Installation and Setup
 
 Follow these steps to get the project running:
@@ -34,7 +35,6 @@ Follow these steps to get the project running:
 
    ```bash
    git clone https://github.com/ArneBHuset/ArneBHuset.github.io.git
-   git checkout semester-project-2
    ```
 
 2. **Install Dependencies**
@@ -50,7 +50,6 @@ Follow these steps to get the project running:
    Visit `http://localhost:8080` in your browser.
    ```bash
    alternatively run: npm run dev
-   and start your own local serveer
    ```
 
 ## Running Tests
@@ -84,6 +83,10 @@ Run the following command to test both ESLint and jest
 npm run validate
 ```
 
-Code sources for layout inspiration:
-https://tailwindcomponents.com/component/footer-5
-https://tailwindcomponents.com/component/application-header-with-clip-path
+#### Arne Bjelde Hustveit
+
+- Get in touch: arne_hustveit@hotmail.com
+
+- [Linkedin](www.linkedin.com/in/arne-bjelde-hustveit-48ab31276)
+- [Github](https://github.com/ArneBHuset)
+- [Portfolio](https://arnehustveit.myportfolio.com/)
